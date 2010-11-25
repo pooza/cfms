@@ -71,10 +71,6 @@ h3 {
 	margin-bottom: 0px;
 }
 
-li {
-	list-style-type: disc;
-}
-
 table {
 	border-collapse: collapse;
 	border: solid 2px black;
@@ -224,12 +220,6 @@ table th.holiday {
 	clear: both;
 }
 
-#Footer a {
-	color: gray;
-	font-size: 10px;
-	text-decoration: underline;
-}
-
 table.detail th {
 	width: 120px;
 	text-align: left;
@@ -244,24 +234,6 @@ table.detail td td {
 }
 table.detail td th {
 	width: auto;
-}
-
-table.detail .image_uploader_half {
-	float: left;
-	width: 220px;
-	height: 60px;
-	border: 1px solid #666666;
-	padding: 4px;
-	margin: 2px;
-}
-
-table.detail .image_uploader {
-	float: left;
-	width: 220px;
-	height: 250px;
-	border: 1px solid #666666;
-	padding: 4px;
-	margin: 2px;
 }
 
 #LoginFormContainer #Contents {
