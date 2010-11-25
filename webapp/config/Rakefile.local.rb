@@ -2,9 +2,9 @@
 
 # carrotユーティリティタスク
 #
-# @package __PACKAGE__
+# @package jp.co.commons.cfms
 # @author 小石達也 <tkoishi@b-shock.co.jp>
-# @version $Id: Rakefile.local.rb 2276 2010-08-15 04:55:47Z pooza $
+# @version $Id$
 
 $KCODE = 'u'
 
