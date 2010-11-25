@@ -1,9 +1,9 @@
 {*
 管理画面 テンプレートひな形
 
-@package org.carrot-framework
+@package jp.co.commons.cfms
 @author 小石達也 <tkoishi@b-shock.co.jp>
-@version $Id: AdminFooter.tpl 2160 2010-06-19 14:54:59Z pooza $
+@version $Id$
 *}
 <div id="Footer">
 {const name='app_name_en'} {const name='app_ver'}

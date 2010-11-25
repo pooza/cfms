@@ -1,9 +1,9 @@
 {*
 管理画面 テンプレートひな形
 
-@package org.carrot-framework
+@package jp.co.commons.cfms
 @author 小石達也 <tkoishi@b-shock.co.jp>
-@version $Id: AdminHeader.tpl 2272 2010-08-11 08:47:47Z pooza $
+@version $Id$
 *}
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,7 +11,7 @@
 <head>
 <title>{const name='app_name_ja'} {$title|default:$module.title}</title>
 {js_cache name=$jsset}
-{css_cache name=$styleset}
+{css_cache name=$theme.name|default:'cfms'}
 {if $is_debug}
 <style type="text/css">
 body {ldelim}background: url(/carrotlib/images/background/test.gif) repeat-y;{rdelim}

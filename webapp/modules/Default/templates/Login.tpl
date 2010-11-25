@@ -6,7 +6,6 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-{assign var='styleset' value='carrot.LoginForm'}
 {assign var='body.id' value='LoginFormContainer'}
 {include file='AdminHeader'}
 

@@ -11,7 +11,7 @@
 <head>
 <title>{const name='app_name_ja'} {$title|default:$module.title}</title>
 {js_cache name=$jsset}
-{css_cache name=$styleset}
+{css_cache name=$theme.name|default:'cfms'}
 </head>
 <body {if $body.id}id="{$body.id}"{/if}>
 
