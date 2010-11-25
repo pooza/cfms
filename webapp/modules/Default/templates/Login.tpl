@@ -14,7 +14,7 @@
 
 	{include file='ErrorMessages' hide_error_code=true}
 
-	<table class="LoginPane">
+	<table>
 		<tr>
 			<th>メールアドレス</th>
 			<td>

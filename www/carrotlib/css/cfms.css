@@ -24,8 +24,7 @@ ol,ul {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: -20px;
-	_margin-left: 20px; /* IE6 Hack */
-	/margin-left: 20px; /* IE7 Hack */
+	/margin-left: 20px;
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
@@ -49,18 +48,6 @@ img {
 }
 img.bordered {
 	border: 1px solid black;
-}
-
-del {
-	text-decoration: line-through;
-}
-
-big {
-	font-size: 14px;
-}
-
-small {
-	font-size: 10px;
 }
 
 h1 {
@@ -143,17 +130,6 @@ table th.holiday {
 
 .alert {
 	color: red;
-}
-
-.smarty_preformatted {
-	font-family: monospace;
-	color: #333333;
-}
-
-.smarty_preformatted em {
-	font-family: monospace;
-	font-style: normal;
-	color: navy;
 }
 
 .common_block {
@@ -254,23 +230,23 @@ table th.holiday {
 	text-decoration: underline;
 }
 
-table.Detail th {
+table.detail th {
 	width: 120px;
 	text-align: left;
 }
 
-table.Detail td {
+table.detail td {
 	width: 480px;
 }
 
-table.Detail td td {
+table.detail td td {
 	width: auto;
 }
-table.Detail td th {
+table.detail td th {
 	width: auto;
 }
 
-table.Detail .image_uploader_half {
+table.detail .image_uploader_half {
 	float: left;
 	width: 220px;
 	height: 60px;
@@ -279,7 +255,7 @@ table.Detail .image_uploader_half {
 	margin: 2px;
 }
 
-table.Detail .image_uploader {
+table.detail .image_uploader {
 	float: left;
 	width: 220px;
 	height: 250px;
@@ -297,23 +273,23 @@ table.Detail .image_uploader {
 	margin: auto;
 }
 
-table.LoginPane {
+#LoginForm table {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
 
-table.LoginPane th {
+#LoginForm table th {
 	width: 120px;
 	text-align: left;
 }
 
-table.LoginPane td {
+#LoginForm table td {
 	width: 240px;
 	text-align: center;
 }
 
-table.LoginPane td.BottomCell {
+#LoginForm table td.BottomCell {
 	width: 360px;
 }
