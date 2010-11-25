@@ -4,8 +4,8 @@
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 # @version $Id$
 
-root_url: http://carrot.glaive.local/
-root_url_https: http://carrot.glaive.local/
+root_url: http://cfms.glaive.local/
+root_url_https: http://cfms.glaive.local/
 debug: yes
 
 admin:
@@ -20,17 +20,9 @@ app:
 
 pdo:
   default:
-    #dsn: mysql:host=127.0.0.1;dbname=carrot
-    #dsn: pgsql:host=localhost dbname=carrot user=postgres
+    dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
     password:
 
 mysql:
   dir: /opt/local/lib/mysql5
-
-pgsql:
-  dir: /opt/local/lib/postgresql84
-
-awstats:
-  log_dir: /var/log/httpd/www.example.com
-  server_name_aliases: 

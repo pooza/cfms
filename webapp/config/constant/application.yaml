@@ -6,18 +6,13 @@
 
 app:
   name:
-    ja: __NAME_JA__
-    en: __NAME_EN__
-  ver: 1.0.0-dev
+    ja: コモンズファイル管理システム
+    en: COMMONS File Management System
+  ver: 2.0.0-dev
 
 author:
-  name: 有限会社 ビーショック
-  email: info@b-shock.co.jp
+  name: コモンズ株式会社
+  email: info@commons.co.jp
 
 crypt:
-  salt: carrot
-
-service:
-  google:
-    analytics:
-      id: 0000000-00 # 先頭の "UA-" は含めない。
+  salt: TEBE1CXJ7V7OZ6DC
