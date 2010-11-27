@@ -12,20 +12,20 @@ fields:
   name:
     required: yes
   name_en:
-    required: yes:
+    required: yes
     validators:
       - english
   name_read:
-    required: yes:
+    required: yes
     validators:
       - kana
-  email
-    required: yes:
+  email:
+    required: yes
     validators:
       - email
       - email_unique
   password:
-    required: yes:
+    required: yes
     validators:
       - password
   password_confirm:

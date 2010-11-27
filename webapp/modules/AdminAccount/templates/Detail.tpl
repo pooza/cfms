@@ -50,8 +50,8 @@
 		<tr>
 			<th>パスワード</th>
 			<td>
-				<input type="password" name="password" value="{$params.password}" size="20" /><br/>
-				<input type="password" name="password_confirm" value="{$params.password_confirm}" size="20" />(確認)<br/>
+				<input type="password" name="password" size="20" /><br/>
+				<input type="password" name="password_confirm" size="20" />(確認)<br/>
 				<span class="alert">※ 変更するときだけ入力してください。</span>
 			</td>
 		</tr>
