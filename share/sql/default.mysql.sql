@@ -54,8 +54,8 @@ DROP TABLE IF EXISTS `account_project`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account_project` (
-  `account_id` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `project_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `account_id` smallint(5) unsigned NOT NULL,
+  `project_id` smallint(5) unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`project_id`),
   KEY `project_id` (`project_id`),
   CONSTRAINT `account_project_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE,
@@ -73,13 +73,13 @@ LOCK TABLES `account_project` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `document`
+-- Table structure for table `idea`
 --
 
-DROP TABLE IF EXISTS `document`;
+DROP TABLE IF EXISTS `idea`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `document` (
+CREATE TABLE `idea` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `name_en` varchar(64) DEFAULT NULL,
@@ -93,38 +93,38 @@ CREATE TABLE `document` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `document`
+-- Dumping data for table `idea`
 --
 
-LOCK TABLES `document` WRITE;
-/*!40000 ALTER TABLE `document` DISABLE KEYS */;
-/*!40000 ALTER TABLE `document` ENABLE KEYS */;
+LOCK TABLES `idea` WRITE;
+/*!40000 ALTER TABLE `idea` DISABLE KEYS */;
+/*!40000 ALTER TABLE `idea` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `document_tag`
+-- Table structure for table `idea_tag`
 --
 
-DROP TABLE IF EXISTS `document_tag`;
+DROP TABLE IF EXISTS `idea_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `document_tag` (
-  `document_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `tag_id` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`document_id`,`tag_id`),
+CREATE TABLE `idea_tag` (
+  `idea_id` int(10) unsigned NOT NULL,
+  `tag_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idea_id`,`tag_id`),
   KEY `tag_id` (`tag_id`),
-  CONSTRAINT `document_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `document_tag_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`) ON DELETE CASCADE
+  CONSTRAINT `idea_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `idea_tag_ibfk_1` FOREIGN KEY (`idea_id`) REFERENCES `idea` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `document_tag`
+-- Dumping data for table `idea_tag`
 --
 
-LOCK TABLES `document_tag` WRITE;
-/*!40000 ALTER TABLE `document_tag` DISABLE KEYS */;
-/*!40000 ALTER TABLE `document_tag` ENABLE KEYS */;
+LOCK TABLES `idea_tag` WRITE;
+/*!40000 ALTER TABLE `idea_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `idea_tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -194,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-26 11:37:57
+-- Dump completed on 2010-11-27 15:20:49
