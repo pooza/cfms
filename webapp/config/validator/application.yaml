@@ -4,7 +4,27 @@
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 # @version $Id$
 
+end_date:
+  class: BSPairValidator
+  params:
+    field: start_date
+    equal: no
+    greater: yes
+    greater_error: 期間が正しくありません。
 password_pair:
   class: BSPairValidator
   params:
     field: password
+start_date:
+  class: BSPairValidator
+  params:
+    field: end_date
+    equal: no
+    lesser: yes
+    lesser_error: 期間が正しくありません。
+status:
+  class: BSChoiceValidator
+  params:
+    choices:
+      - show
+      - hide

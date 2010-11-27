@@ -3,7 +3,7 @@
  * Listアクション
  *
  * @package jp.co.commons.cfms
- * @subpackage AdminAccount
+ * @subpackage AdminProject
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  * @version $Id$
  */
@@ -18,7 +18,7 @@ class ListAction extends BSPaginateTableAction {
 			if ($key = $this->request['key']) {
 				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
 				$criteria->setGlue('OR');
-				foreach (array('name', 'name_en', 'name_read', 'email') as $field) {
+				foreach (array('name', 'name_en', 'name_read') as $field) {
 					$criteria->register($field, '%' . $key . '%', 'LIKE');
 				}
 			}
@@ -38,7 +38,7 @@ class ListAction extends BSPaginateTableAction {
 	}
 
 	public function execute () {
-		$this->request->setAttribute('accounts', $this->getRows());
+		$this->request->setAttribute('projects', $this->getRows());
 		return BSView::SUCCESS;
 	}
 }

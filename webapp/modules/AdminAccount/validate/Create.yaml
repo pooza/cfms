@@ -44,7 +44,3 @@ validators:
       field: email
       exist: no
       update: no
-  status:
-    class: BSChoiceValidator
-    params:
-      class: Account
