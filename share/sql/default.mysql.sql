@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account` (
-  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `id` smallint(5) unsigned NOT NULL,
   `name` varchar(64) NOT NULL,
   `name_en` varchar(64) NOT NULL,
   `name_read` varchar(64) NOT NULL,
@@ -84,11 +84,14 @@ CREATE TABLE `idea` (
   `name` varchar(64) NOT NULL,
   `name_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) DEFAULT NULL,
+  `project_id` smallint(5) unsigned NOT NULL,
   `type` varchar(128) NOT NULL DEFAULT 'application/octet-stream',
   `status` varchar(64) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `project_id` (`project_id`),
+  CONSTRAINT `idea_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -197,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-27 15:37:53
+-- Dump completed on 2010-11-27 16:09:12

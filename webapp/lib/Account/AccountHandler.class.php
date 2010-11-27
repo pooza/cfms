@@ -20,6 +20,35 @@ class AccountHandler extends BSTableHandler {
 	protected function isInsertable () {
 		return true;
 	}
+
+	/**
+	 * レコード作成
+	 *
+	 * @access public
+	 * @param mixed $values 値
+	 * @param integer $flags フラグのビット列
+	 *   BSDatabase::WITHOUT_LOGGING ログを残さない
+	 * @return string レコードの主キー
+	 */
+	public function createRecord ($values, $flags = null) {
+		$values = new BSArray($values);
+		$values['password'] = BSCrypt::getDigest($values['password']);
+		return parent::createRecord($values, $flags);
+	}
+
+	/**
+	 * 全ステータスを返す
+	 *
+	 * @access public
+	 * @param mixed[] $values 値
+	 * @static
+	 */
+	static public function getStatusOptions () {
+		return BSTranslateManager::getInstance()->getHash(array(
+			'show',
+			'hide',
+		));
+	}
 }
 
 /* vim:set tabstop=4 */
