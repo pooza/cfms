@@ -28,6 +28,9 @@ fields:
     required: yes:
     validators:
       - password
+  password_confirm:
+    validators:
+      - password_pair
   status:
     required: yes
     validators:
