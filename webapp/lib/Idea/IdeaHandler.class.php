@@ -9,7 +9,7 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  * @version $Id$
  */
-class IdeaHandler extends BSTableHandler implements BSExportable {
+class IdeaHandler extends BSTableHandler {
 
 	/**
 	 * レコード追加可能か？

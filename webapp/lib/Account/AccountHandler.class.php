@@ -9,7 +9,7 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  * @version $Id$
  */
-class AccountHandler extends BSTableHandler implements BSExportable {
+class AccountHandler extends BSTableHandler {
 
 	/**
 	 * レコード追加可能か？
