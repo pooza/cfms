@@ -12,6 +12,18 @@
 	<a href="#">{$action.title}</a>
 </div>
 
+{form method="get" style_class='common_block'}
+	<input type="text" name="key" value="{$params.key}" />
+	<select name="status">
+		<option value="">状態...</option>
+		{html_options options=$status_options selected=$params.status}
+	</select>
+	<input type="submit" value="抽出" />
+	<input type="button" value="抽出の解除" onclick="CarrotLib.redirect('{$module.name}','ListAll')" />
+{/form}
+
+{include file='ErrorMessages'}
+
 <h1>{$action.title}</h1>
 <table>
 	<tr>
@@ -35,6 +47,17 @@
 	</tr>
 {/foreach}
 
+	<tr>
+		<td colspan="2" style="text-align:center">
+{strip}
+			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page=1{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
+			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page={$page-1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;
+			[{$page}]&nbsp;
+			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$page+1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right1.gif" width="14" height="14" alt="&gt;" /></a></span>&nbsp;
+			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$lastpage}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right3.gif" width="14" height="14" alt="&gt;|" /></a></span>
+{/strip}
+		</td>
+	</tr>
 </table>
 
 {include file='AdminFooter'}
