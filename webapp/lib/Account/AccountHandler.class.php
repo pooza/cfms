@@ -35,20 +35,6 @@ class AccountHandler extends BSTableHandler {
 		$values['password'] = BSCrypt::getDigest($values['password']);
 		return parent::createRecord($values, $flags);
 	}
-
-	/**
-	 * 全ステータスを返す
-	 *
-	 * @access public
-	 * @param mixed[] $values 値
-	 * @static
-	 */
-	static public function getStatusOptions () {
-		return BSTranslateManager::getInstance()->getHash(array(
-			'show',
-			'hide',
-		));
-	}
 }
 
 /* vim:set tabstop=4 */
