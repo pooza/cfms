@@ -10,6 +10,7 @@
  * @version $Id$
  */
 class Account extends BSRecord implements BSUserIdentifier {
+	private $projects;
 
 	/**
 	 * 更新可能か？
@@ -38,6 +39,54 @@ class Account extends BSRecord implements BSUserIdentifier {
 			$values['password'] = BSCrypt::getDigest($values['password']);
 		}
 		parent::update($values, $flags);
+	}
+
+	/**
+	 * プロジェクトを返す
+	 *
+	 * @access public
+	 * @return ProjectHandler プロジェクト
+	 */
+	public function getProjects () {
+		if (!$this->projects) {
+			$criteria = $this->createCriteriaSet();
+			$criteria->register('account_id', $this);
+			$sql = BSSQL::getSelectQueryString('project_id', 'account_project', $criteria);
+
+			$ids = new BSArray;
+			foreach ($this->getDatabase()->query($sql) as $row) {
+				$ids[] = $row['project_id'];
+			}
+
+			$this->projects = new ProjectHandler;
+			$this->projects->getCriteria()->register('id', $ids);
+		}
+		return $this->projects;
+	}
+
+	/**
+	 * プロジェクトを更新
+	 *
+	 * @access public
+	 * @params BSArray $ids プロジェクトIDの配列
+	 */
+	public function updateProjects (BSArray $ids) {
+		$criteria = $this->createCriteriaSet();
+		$criteria->register('account_id', $this);
+		$sql = BSSQL::getDeleteQueryString('account_project', $criteria);
+		$this->getDatabase()->exec($sql);
+
+		$ids->uniquize();
+		foreach ($ids as $id) {
+			$values = new BSArray;
+			$values['account_id'] = $this->getID();
+			$values['project_id'] = $id;
+			$sql = BSSQL::getInsertQueryString('account_project', $values);
+			$this->getDatabase()->exec($sql);
+		}
+
+		$this->projects = null;
+		$this->touch();
 	}
 
 	/**
@@ -108,6 +157,9 @@ class Account extends BSRecord implements BSUserIdentifier {
 		if (!$this->credentials) {
 			$this->credentials = new BSArray;
 			$this->credentials[] = 'User';
+			foreach ($this->getProjects() as $project) {
+				$this->credentials[] = $project->getCredential();
+			}
 		}
 		return $this->credentials;
 	}

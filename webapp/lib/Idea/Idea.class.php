@@ -32,6 +32,16 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * 親レコードを返す
+	 *
+	 * @access public
+	 * @return BSRecord 親レコード
+	 */
+	public function getParent () {
+		return $this->getProject();
+	}
+
+	/**
 	 * シリアライズするか？
 	 *
 	 * @access public
