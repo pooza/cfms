@@ -12,7 +12,6 @@ fields:
   name:
     required: yes
   name_en:
-    required: yes
     validators:
       - english
   name_read:

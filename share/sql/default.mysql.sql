@@ -143,8 +143,8 @@ CREATE TABLE `project` (
   `name_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) DEFAULT NULL,
   `theme` varchar(32) NOT NULL DEFAULT 'default',
-  `start_date` datetime DEFAULT NULL,
-  `end_date` datetime DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
   `status` varchar(8) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
@@ -174,6 +174,7 @@ CREATE TABLE `tag` (
   `name_en` varchar(64) DEFAULT NULL,
   `project_id` smallint(5) unsigned NOT NULL,
   `create_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `name_en` (`name_en`),
@@ -200,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-27 16:55:41
+-- Dump completed on 2010-11-29 22:32:20

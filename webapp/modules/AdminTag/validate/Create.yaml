@@ -1,0 +1,16 @@
+# タグ登録画面バリデーション設定ファイル
+#
+# @package jp.co.commons.cfms
+# @subpackage AdminTag
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+# @version $Id$
+
+methods:
+  - POST
+
+fields:
+  name:
+    required: yes
+  name_en:
+    validators:
+      - english

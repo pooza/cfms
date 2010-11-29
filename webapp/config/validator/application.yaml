@@ -15,6 +15,10 @@ password_pair:
   class: BSPairValidator
   params:
     field: password
+project:
+  class: BSRecordValidator
+  params:
+    class: Project
 start_date:
   class: BSPairValidator
   params:

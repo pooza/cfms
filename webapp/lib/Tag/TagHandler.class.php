@@ -12,6 +12,20 @@
 class TagHandler extends BSTableHandler {
 
 	/**
+	 * @access public
+	 * @param string $criteria 抽出条件
+	 * @param string $order ソート順
+	 */
+	public function __construct ($criteria = null, $order = null) {
+		if (!$order) {
+			$order = new BSTableFieldSet;
+			$order->push('name_en');
+			$order->push('name');
+		}
+		parent::__construct($criteria, $order);
+	}
+
+	/**
 	 * レコード追加可能か？
 	 *
 	 * @access protected
