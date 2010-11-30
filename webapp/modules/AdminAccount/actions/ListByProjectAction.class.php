@@ -1,13 +1,13 @@
 <?php
 /**
- * ListByAccountアクション
+ * ListByProjectアクション
  *
  * @package jp.co.commons.cfms
- * @subpackage AdminProject
+ * @subpackage AdminAccount
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  * @version $Id$
  */
-class ListByAccountAction extends BSPaginateTableAction {
+class ListByProjectAction extends BSPaginateTableAction {
 	protected function getPageSize () {
 		return 20;
 	}
@@ -18,7 +18,7 @@ class ListByAccountAction extends BSPaginateTableAction {
 			if ($key = $this->request['key']) {
 				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
 				$criteria->setGlue('OR');
-				foreach (array('name', 'name_en', 'name_read') as $field) {
+				foreach (array('name', 'name_en', 'name_read', 'email') as $field) {
 					$criteria->register($field, '%' . $key . '%', 'LIKE');
 				}
 			}
@@ -35,11 +35,11 @@ class ListByAccountAction extends BSPaginateTableAction {
 	}
 
 	public function execute () {
-		$this->request->setAttribute('projects', $this->getRows());
-		if ($account = BSModule::getInstance('AdminAccount')->getRecord()) {
-			$this->request['projects'] = new BSArray;
-			foreach ($account->getProjects()->getIDs() as $id) {
-				$this->request['projects'][$id] = 1;
+		$this->request->setAttribute('accounts', $this->getRows());
+		if ($project = BSModule::getInstance('AdminProject')->getRecord()) {
+			$this->request['accounts'] = new BSArray;
+			foreach ($project->getAccounts()->getIDs() as $id) {
+				$this->request['accounts'][$id] = 1;
 			}
 		}
 		return BSView::SUCCESS;

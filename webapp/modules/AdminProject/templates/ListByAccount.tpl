@@ -8,10 +8,6 @@
 *}
 {form method="get" style_class='common_block'}
 	<input type="text" id="key" value="{$params.key}" />
-	<select id="status">
-		<option value="">状態...</option>
-		{html_options options=$status_options selected=$params.status}
-	</select>
 	<input type="button" value="抽出" onclick="CFMSLib.updateProjectList()" />
 	<input type="button" value="抽出の解除" onclick="CFMSLib.initializeProjectList()" />
 {/form}

@@ -4,6 +4,10 @@
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 # @version $Id$
 
+account:
+  class: BSRecordValidator
+  params:
+    class: Account
 end_date:
   class: BSPairValidator
   params:
