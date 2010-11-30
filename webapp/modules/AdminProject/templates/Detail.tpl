@@ -76,6 +76,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="更新" />
+					<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
 				</td>
 			</tr>
 		</table>

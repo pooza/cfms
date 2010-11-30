@@ -82,6 +82,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="更新" />
+					<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
 				</td>
 			</tr>
 		</table>
@@ -95,7 +96,7 @@ document.observe('dom:loaded', function(){ldelim}
   new ProtoTabs('Tabs', {ldelim}
     defaultPanel:'{$params.pane|default:'DetailForm'}',
     ajaxUrls: {ldelim}
-      ProjectList: '/AdminProject/ListByAccount?account=' + {$account.id|default:'NaN'}
+      ProjectList: '/AdminProject/ListByAccount'
     {rdelim}
   {rdelim});
 {rdelim});

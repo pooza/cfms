@@ -1,0 +1,19 @@
+# バリデーション設定ファイル
+#
+# @package jp.co.commons.cfms
+# @subpackage AdminAccount
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+# @version $Id$
+
+methods:
+  - POST
+
+fields:
+  project_id:
+    required: yes
+    validators:
+      - project
+  status:
+    required: yes
+    validators:
+      - flag

@@ -59,27 +59,27 @@ class Project extends BSRecord {
 	}
 
 	/**
-	 * アカウントを更新
+	 * アカウントとの紐づけを更新
 	 *
 	 * @access public
-	 * @params BSArray $ids アカウントIDの配列
+	 * @params Account $account アカウント
+	 * @params boolean $status 状態
 	 */
-	public function updateAccounts (BSArray $ids) {
-		$criteria = $this->createCriteriaSet();
-		$criteria->register('project_id', $this);
-		$sql = BSSQL::getDeleteQueryString('account_project', $criteria);
-		$this->getDatabase()->exec($sql);
-
-		$ids->uniquize();
-		foreach ($ids as $id) {
+	public function updateAccountStatus (Account $account, $status) {
+		if (!!$status) {
 			$values = new BSArray;
-			$values['account_id'] = $id;
+			$values['account_id'] = $account->getID();
 			$values['project_id'] = $this->getID();
 			$sql = BSSQL::getInsertQueryString('account_project', $values);
-			$this->getDatabase()->exec($sql);
+		} else {
+			$criteria = $this->createCriteriaSet();
+			$criteria->register('account_id', $account);
+			$criteria->register('project_id', $this);
+			$sql = BSSQL::getDeleteQueryString('account_project', $criteria);
 		}
+		$this->getDatabase()->exec($sql);
 
-		$this->account = null;
+		$this->accounts = null;
 		$this->touch();
 	}
 

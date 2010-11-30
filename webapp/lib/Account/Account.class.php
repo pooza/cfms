@@ -42,6 +42,16 @@ class Account extends BSRecord implements BSUserIdentifier {
 	}
 
 	/**
+	 * 削除可能か？
+	 *
+	 * @access protected
+	 * @return boolean 削除可能ならTrue
+	 */
+	protected function isDeletable () {
+		return true;
+	}
+
+	/**
 	 * プロジェクトを返す
 	 *
 	 * @access public
@@ -65,25 +75,25 @@ class Account extends BSRecord implements BSUserIdentifier {
 	}
 
 	/**
-	 * プロジェクトを更新
+	 * プロジェクトとの紐づけを更新
 	 *
 	 * @access public
-	 * @params BSArray $ids プロジェクトIDの配列
+	 * @params Project $project プロジェクト
+	 * @params boolean $status 状態
 	 */
-	public function updateProjects (BSArray $ids) {
-		$criteria = $this->createCriteriaSet();
-		$criteria->register('account_id', $this);
-		$sql = BSSQL::getDeleteQueryString('account_project', $criteria);
-		$this->getDatabase()->exec($sql);
-
-		$ids->uniquize();
-		foreach ($ids as $id) {
+	public function updateProjectStatus (Project $project, $status) {
+		if (!!$status) {
 			$values = new BSArray;
 			$values['account_id'] = $this->getID();
-			$values['project_id'] = $id;
+			$values['project_id'] = $project->getID();
 			$sql = BSSQL::getInsertQueryString('account_project', $values);
-			$this->getDatabase()->exec($sql);
+		} else {
+			$criteria = $this->createCriteriaSet();
+			$criteria->register('account_id', $this);
+			$criteria->register('project_id', $project);
+			$sql = BSSQL::getDeleteQueryString('account_project', $criteria);
 		}
+		$this->getDatabase()->exec($sql);
 
 		$this->projects = null;
 		$this->touch();
