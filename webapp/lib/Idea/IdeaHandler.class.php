@@ -30,7 +30,7 @@ class IdeaHandler extends BSTableHandler {
 	 */
 	static public function getAttachmentNames () {
 		return new BSArray(array(
-			'main',
+			'attachment',
 		));
 	}
 }

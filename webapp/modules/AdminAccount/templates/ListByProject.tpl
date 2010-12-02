@@ -18,6 +18,7 @@
 <table>
 	<tr>
 		<th width="30"></th>
+		<th width="32"></th>
 		<th width="300">名前</th>
 	</tr>
 
@@ -26,16 +27,17 @@
 		<td width="30" align="center">
 			<input id="account_{$account.id}" type="checkbox" {if $params.accounts[$account.id]}checked="checked"{/if} onchange="CFMSLib.updateAccountStatus(this)" />
 		</td>
+		<td width="32" align="center">{image_cache id=$account.id size='icon' pixel=32}</td>
 		<td width="300"><a href="/{$module.name}/Detail/{$account.id}">{$account.name}</a></td>
 	</tr>
 {foreachelse}
 	<tr>
-		<td colspan="2" class="alert">未登録です。</td>
+		<td colspan="3" class="alert">未登録です。</td>
 	</tr>
 {/foreach}
 
 	<tr>
-		<td colspan="2" style="text-align:center">
+		<td colspan="3" style="text-align:center">
 {strip}
 			<span><a href="javascript:void({if 1<$page}new Ajax.Updater('AccountList', '/{$module.name}/{$action.name}?page=1'){else}0{/if})"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
 			<span><a href="javascript:void({if 1<$page}new Ajax.Updater('AccountList', '/{$module.name}/{$action.name}?page={$page-1}'){else}0{/if})"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;

@@ -18,6 +18,7 @@
 <table>
 	<tr>
 		<th width="30"></th>
+		<th width="32"></th>
 		<th width="300">名前</th>
 		<th width="180">期間</th>
 	</tr>
@@ -27,6 +28,7 @@
 		<td width="30" align="center">
 			<input id="project_{$project.id}" type="checkbox" {if $params.projects[$project.id]}checked="checked"{/if} onchange="CFMSLib.updateProjectStatus(this)" />
 		</td>
+		<td width="32" align="center">{image_cache id=$project.id size='logo' pixel=32}</td>
 		<td width="300"><a href="/{$module.name}/Detail/{$project.id}">{$project.name}</a></td>
 		<td width="180" align="center">
 			{if $project.start_date||$project.end_date}
@@ -36,12 +38,12 @@
 	</tr>
 {foreachelse}
 	<tr>
-		<td colspan="3" class="alert">未登録です。</td>
+		<td colspan="4" class="alert">未登録です。</td>
 	</tr>
 {/foreach}
 
 	<tr>
-		<td colspan="3" style="text-align:center">
+		<td colspan="4" style="text-align:center">
 {strip}
 			<span><a href="javascript:void({if 1<$page}new Ajax.Updater('ProjectList', '/{$module.name}/{$action.name}?page=1'){else}0{/if})"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
 			<span><a href="javascript:void({if 1<$page}new Ajax.Updater('ProjectList', '/{$module.name}/{$action.name}?page={$page-1}'){else}0{/if})"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;

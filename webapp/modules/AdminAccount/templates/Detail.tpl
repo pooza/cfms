@@ -23,7 +23,7 @@
 </div>
 
 <div id="DetailForm" class="panel">
-	{form}
+	{form attachable=true}
 		<h2>■{$module.record_class|translate}詳細</h2>
 
 		{include file='ErrorMessages'}
@@ -63,6 +63,19 @@
 					<input type="password" name="password" size="20" /><br/>
 					<input type="password" name="password_confirm" size="20" />(確認)<br/>
 					<span class="alert">※ 変更するときだけ入力してください。</span>
+				</td>
+			</tr>
+			<tr>
+				<th>アイコン</th>
+				<td>
+					<input type="file" name="icon" size="20" /><br/>
+{if $account.has_icon}
+					<div class="common_block">
+						{image_cache mode='lightbox' size='icon' pixel=32 style_class='bordered' flags='WIDTH_FIXED' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
+						{image_cache size='icon' mode='size'}
+						[<a href="/{$module.name}/DeleteImage?name=icon">この画像を削除</a>]
+					</div>
+{/if}
 				</td>
 			</tr>
 			<tr>

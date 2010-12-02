@@ -24,7 +24,7 @@
 </div>
 
 <div id="DetailForm" class="panel">
-	{form}
+	{form attachable=true}
 		<h2>■{$module.record_class|translate}詳細</h2>
 
 		{include file='ErrorMessages'}
@@ -57,6 +57,19 @@
 				<td>
 					<input type="text" id="start_date" name="start_date" value="{$params.start_date|date_format:'Y.m.d'}" size="10" maxlength="10" class="english" /> 〜
 					<input type="text" id="end_date" name="end_date" value="{$params.end_date|date_format:'Y.m.d'}" size="10" maxlength="10" class="english" />
+				</td>
+			</tr>
+			<tr>
+				<th>ロゴ</th>
+				<td>
+					<input type="file" name="logo" size="20" /><br/>
+{if $project.has_logo}
+					<div class="common_block">
+						{image_cache mode='lightbox' size='logo' pixel=240 style_class='bordered' flags='WIDTH_FIXED' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
+						{image_cache size='logo' mode='size'}
+						[<a href="/{$module.name}/DeleteImage?name=logo">この画像を削除</a>]
+					</div>
+{/if}
 				</td>
 			</tr>
 			<tr>
