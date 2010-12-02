@@ -36,3 +36,8 @@ status:
     choices:
       - show
       - hide
+theme:
+  class: BSChoiceValidator
+  params:
+    class: Theme
+    function: getNames

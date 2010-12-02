@@ -1,0 +1,93 @@
+/**
+ * デフォルトテーマ
+ *
+ * @package jp.co.commons.cfms
+ * @version $Id$
+ */
+
+* {
+	color: black;
+	font-family: serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	line-break: strict;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+pre,code,tt {
+	font-family: monospace;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+a {
+	font-family: sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	color: #0000d2;
+}
+a:hover {
+	color: white;
+	background-color: #0000d2;
+}
+
+img {
+	border: 0;
+}
+img.bordered {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	border: solid 2px black;
+}
+
+table caption {
+	font-family: sans-serif;
+	text-align: left;
+}
+
+table th {
+	vertical-align: top;
+	font-family: sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	border: solid 1px black;
+}
+
+table td {
+	font-family: serif;
+	line-height: 14px;
+	vertical-align: top;
+	border: solid 1px black;
+	word-wrap: break-word;
+}
+
+input,textarea {
+	ime-mode: active;
+}
+
+input.english,textarea.english {
+	ime-mode: inactive;
+}
+
+.clearfix:after{ /*for modern browser*/
+	content:".";
+	display: block;
+	height:0px;
+	clear:both;
+	line-height:0; 
+	visibility:hidden;
+}
+.clearfix { /*for IE 5.5-7*/
+	zoom:1;
+}

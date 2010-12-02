@@ -20,6 +20,7 @@ class CreateAction extends BSRecordAction {
 			'name' => $this->request['name'],
 			'name_en' => $this->request['name_en'],
 			'name_read' => $this->request['name_read'],
+			'theme' => $this->request['theme'],
 			'start_date' => $this->request['start_date'],
 			'end_date' => $this->request['end_date'],
 			'status' => $this->request['status'],

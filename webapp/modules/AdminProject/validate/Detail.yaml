@@ -18,6 +18,10 @@ fields:
     required: yes
     validators:
       - kana
+  theme:
+    required: yes
+    validators:
+      - theme
   start_date:
     validators:
       - date

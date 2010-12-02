@@ -53,6 +53,12 @@
 				</td>
 			</tr>
 			<tr>
+				<th>テーマ</th>
+				<td>
+					{html_options name='theme' values=$themes output=$themes selected=$params.theme}
+				</td>
+			</tr>
+			<tr>
 				<th>期間</th>
 				<td>
 					<input type="text" id="start_date" name="start_date" value="{$params.start_date|date_format:'Y.m.d'}" size="10" maxlength="10" class="english" /> 〜

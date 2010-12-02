@@ -10,3 +10,6 @@ idea:
   parent: var
 project:
   parent: var
+themes:
+  parent: webapp
+  suffixes: .css
