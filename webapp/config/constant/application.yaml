@@ -16,3 +16,8 @@ author:
 
 crypt:
   salt: TEBE1CXJ7V7OZ6DC
+
+languages:
+  - ja
+  - en
+
