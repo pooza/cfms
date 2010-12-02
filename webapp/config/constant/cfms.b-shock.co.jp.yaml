@@ -1,0 +1,23 @@
+# ホスト別設定ファイル
+#
+# @package jp.co.commons.cfms
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+# @version $Id$
+
+root_url: http://cfms.b-shock.co.jp/
+root_url_https: http://cfms.b-shock.co.jp/
+debug: yes
+
+admin:
+  email: admin@b-shock.co.jp
+  password: 7e240de74fb1ed08fa08d38063f6a6a91462a815
+
+app:
+  process:
+    uid: www
+
+pdo:
+  default:
+    dsn: mysql:host=127.0.0.1;dbname=cfms
+    uid: root
+    password:
