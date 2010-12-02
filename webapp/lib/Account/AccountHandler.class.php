@@ -35,6 +35,19 @@ class AccountHandler extends BSTableHandler {
 		$values['password'] = BSCrypt::getDigest($values['password']);
 		return parent::createRecord($values, $flags);
 	}
+
+	/**
+	 * 画像のサイズ名を全てを返す
+	 *
+	 * @access public
+	 * @return BSArray 画像のサイズ名
+	 * @static
+	 */
+	static public function getImageNames () {
+		return new BSArray(array(
+			'icon',
+		));
+	}
 }
 
 /* vim:set tabstop=4 */

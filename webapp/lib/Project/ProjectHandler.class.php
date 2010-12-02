@@ -20,6 +20,33 @@ class ProjectHandler extends BSTableHandler {
 	protected function isInsertable () {
 		return true;
 	}
+
+	/**
+	 * 画像のサイズ名を全てを返す
+	 *
+	 * @access public
+	 * @return BSArray 画像のサイズ名
+	 * @static
+	 */
+	static public function getImageNames () {
+		return new BSArray(array(
+			'logo',
+		));
+	}
+
+	/**
+	 * 子クラスを返す
+	 *
+	 * @access public
+	 * @return BSArray 子クラス名の配列
+	 * @static
+	 */
+	public function getChildClasses () {
+		return new BSArray(array(
+			'Idea',
+			'Tag',
+		));
+	}
 }
 
 /* vim:set tabstop=4 */

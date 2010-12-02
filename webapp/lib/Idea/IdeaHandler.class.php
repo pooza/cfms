@@ -20,6 +20,19 @@ class IdeaHandler extends BSTableHandler {
 	protected function isInsertable () {
 		return true;
 	}
+
+	/**
+	 * 添付ファイル名を全てを返す
+	 *
+	 * @access public
+	 * @return BSArray 添付ファイル名
+	 * @static
+	 */
+	static public function getAttachmentNames () {
+		return new BSArray(array(
+			'main',
+		));
+	}
 }
 
 /* vim:set tabstop=4 */
