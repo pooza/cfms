@@ -4,5 +4,7 @@ account_id,アカウント
 account_project,アカウント_プロジェクト
 name_en,名前(英)
 name_read,フリガナ
+company,会社
+company_en,会社(英)
 password_confirm,パスワード(確認)
 icon,アイコン

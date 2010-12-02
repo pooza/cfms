@@ -187,6 +187,25 @@ class Account extends BSRecord implements BSUserIdentifier {
 			BSDate::getNow('YmdHis'),
 		));
 	}
+
+	/**
+	 * ラベルを返す
+	 *
+	 * @access public
+	 * @param string $language 言語
+	 * @return string ラベル
+	 */
+	public function getLabel ($language = 'ja') {
+		$label = new BSArray;
+		foreach (array('company', 'name') as $name) {
+			foreach (array(null, '_' . $language) as $suffix) {
+				if (!BSString::isBlank($value = $this[$name . $suffix])) {
+					$label[] = $value;
+				}
+			}
+		}
+		return $label->join(' ');
+	}
 }
 
 /* vim:set tabstop=4 */

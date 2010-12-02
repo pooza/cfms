@@ -52,6 +52,18 @@
 				</td>
 			</tr>
 			<tr>
+				<th>会社</th>
+				<td>
+					<input type="text" name="company" value="{$params.company}" size="40" maxlength="64" />
+				</td>
+			</tr>
+			<tr>
+				<th>会社(英)</th>
+				<td>
+					<input type="text" name="company_en" value="{$params.company_en}" size="40" maxlength="64" class="english" />
+				</td>
+			</tr>
+			<tr>
 				<th>メールアドレス</th>
 				<td>
 					<input type="text" name="email" value="{$params.email}" size="40" maxlength="64" class="english" />

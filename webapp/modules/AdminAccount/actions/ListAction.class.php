@@ -18,7 +18,11 @@ class ListAction extends BSPaginateTableAction {
 			if ($key = $this->request['key']) {
 				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
 				$criteria->setGlue('OR');
-				foreach (array('name', 'name_en', 'name_read', 'email') as $field) {
+				$fields = array(
+					'name', 'name_en', 'name_read',
+					'company', 'company_en', 'email',
+				);
+				foreach ($fields as $field) {
 					$criteria->register($field, '%' . $key . '%', 'LIKE');
 				}
 			}

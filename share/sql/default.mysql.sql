@@ -26,6 +26,8 @@ CREATE TABLE `account` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `name_en` varchar(64) NOT NULL,
+  `company` varchar(64) DEFAULT NULL,
+  `company_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
   `password` char(40) NOT NULL,
@@ -201,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-29 22:32:20
+-- Dump completed on 2010-12-02 22:03:22

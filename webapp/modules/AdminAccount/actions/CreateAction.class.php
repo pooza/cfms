@@ -20,6 +20,8 @@ class CreateAction extends BSRecordAction {
 			'name' => $this->request['name'],
 			'name_en' => $this->request['name_en'],
 			'name_read' => $this->request['name_read'],
+			'company' => $this->request['company'],
+			'company_en' => $this->request['company_en'],
 			'email' => $this->request['email'],
 			'password' => $this->request['password'],
 			'status' => $this->request['status'],
