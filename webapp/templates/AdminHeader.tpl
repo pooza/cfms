@@ -11,7 +11,7 @@
 <head>
 <title>{const name='app_name_ja'} {$title|default:$module.title}</title>
 {js_cache name=$jsset}
-{css_cache name=$theme.name|default:'cfms'}
+{css_cache name='cfms'}
 {if $is_debug}
 <style type="text/css">
 body {ldelim}background: url(/carrotlib/images/background/test.gif) repeat-y;{rdelim}

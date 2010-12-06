@@ -19,12 +19,7 @@ function smarty_function_css_cache ($params, &$smarty) {
 		$element->setAttribute('rel', 'stylesheet');
 		$element->setAttribute('charset', 'utf-8');
 		$element->setAttribute('type', BSMIMEType::getType('css'));
-
-		$url = BSFileUtility::getURL('css');
-		if ($file = $theme->getFile()) {
-			$url['path'] .= $file->getName();
-			$element->setAttribute('href', $url->getContents());
-		}
+		$element->setAttribute('href', $theme->getStyleSet()->getURL()->getContents());
 		return $element->getContents();
 	}
 }

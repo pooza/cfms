@@ -12,6 +12,7 @@
 class Theme implements BSAssignable {
 	protected $name;
 	protected $file;
+	protected $styleset;
 	static private $names;
 
 	/**
@@ -39,9 +40,28 @@ class Theme implements BSAssignable {
 	 */
 	public function getFile () {
 		if (!$this->file) {
-			$this->file = BSFileUtility::getDirectory('themes')->getEntry($this->getName());
+			$this->file = BSFileUtility::getDirectory('themes')->getEntry(
+				$this->getName(),
+				'BSCSSFile'
+			);
 		}
 		return $this->file;
+	}
+
+	/**
+	 * スタイルセットを返す
+	 *
+	 * @access public
+	 * @param string $nmae スタイルセット名
+	 * @return BSStyleSet スタイルセット
+	 */
+	public function getStyleSet () {
+		if (!$this->styleset) {
+			$this->styleset = new BSStyleSet($this->getName());
+			$this->styleset->register($this->getFile());
+			$this->styleset->update();
+		}
+		return $this->styleset;
 	}
 
 	/**
