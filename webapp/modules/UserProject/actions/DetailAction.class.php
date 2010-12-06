@@ -13,12 +13,11 @@ class DetailAction extends BSRecordAction {
 		return BSView::SUCCESS;
 	}
 
-	/**
-	 * 必要なクレデンシャルを返す
-	 *
-	 * @access public
-	 * @return string 必要なクレデンシャル
-	 */
+	public function deny () {
+		$this->user->setAttribute('requested_url', $this->request->getURL()->getContents());
+		return parent::deny();
+	}
+
 	public function getCredential () {
 		return $this->getRecord()->getCredential();
 	}

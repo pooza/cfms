@@ -16,8 +16,10 @@ class LoginAction extends BSAction {
 		));
 		if ($account = $accounts->getRecord($values)) {
 			if ($this->user->login($account, $this->request['password'])) {
-				$url = BSURL::getInstance();
-				$url['path'] = '/UserProject/';
+				if (!$url = BSURL::getInstance($this->user->getAttribute('requested_url'))) {
+					$url = BSURL::getInstance();
+					$url['path'] = '/UserProject/';
+				}
 				return $url->redirect();
 			}
 		}
