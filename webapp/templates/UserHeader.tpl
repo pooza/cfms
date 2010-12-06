@@ -21,4 +21,30 @@
 {const name='app_name_ja'} {$title|default:$module.title}
 </div>
 
+{if $menu}
+<div id="Menu">
+	<ul>
+{foreach from=$menu item=item}
+	{if $item.separator}
+		<li class="separator">&nbsp;</li>
+	{elseif $item.href}
+		<li><a href="{$item.href}" target="{$item.target|default:'_blank'}">{$item.title}</a></li>
+	{else}
+		<li><a href="/{$item.module}/{$item.action}">{$item.title}</a></li>
+	{/if}
+{/foreach}
+	</ul>
+</div>
+<script type="text/javascript">
+document.observe('dom:loaded', function () {ldelim}
+  new Elevator($('Menu'), 10, 30, 10);
+  new PeriodicalExecuter(function () {ldelim}
+    new Ajax.Request('/Ping', {ldelim}
+      method: 'get'
+    {rdelim});
+  {rdelim}, 300);
+{rdelim});
+</script>
+{/if}
+
 {* vim: set tabstop=4: *}

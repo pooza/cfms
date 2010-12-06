@@ -6,7 +6,7 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-{include file='AdminHeader'}
+{include file='UserHeader'}
 
 {form method="get" style_class='common_block'}
 	<input type="text" name="key" value="{$params.key}" />
@@ -53,6 +53,6 @@
 	</tr>
 </table>
 
-{include file='AdminFooter'}
+{include file='UserFooter'}
 
 {* vim: set tabstop=4: *}
