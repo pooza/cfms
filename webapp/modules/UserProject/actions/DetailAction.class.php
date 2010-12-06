@@ -9,8 +9,7 @@
  */
 class DetailAction extends BSRecordAction {
 	public function execute () {
-		$this->request->setAttribute('theme', $this->getRecord()->getTheme());
-		return BSView::SUCCESS;
+		return BSModule::getInstance('UserIdea')->getAction('List')->forward();
 	}
 
 	public function deny () {
