@@ -6,3 +6,4 @@
 # @version $Id$
 
 - class: BSSecurityFilter
+- class: BSMenuFilter

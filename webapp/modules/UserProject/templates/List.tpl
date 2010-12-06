@@ -6,7 +6,6 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-{assign var='body.id' value='ProjectListPage'}
 {include file='AdminHeader'}
 
 {form method="get" style_class='common_block'}

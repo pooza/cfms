@@ -1,0 +1,11 @@
+# メニュー設定ファイル - ユーザー向けメニュー
+#
+# @package jp.co.commons.cfms
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+# @version $Id$
+
+- module: UserProject
+- separator: yes
+- title: ログアウト
+  module: Default
+  action: Logout
