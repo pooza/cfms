@@ -41,7 +41,7 @@
 		</td>
 		<td width="300"><a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a></td>
 		<td width="20" align="center">
-			<img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" />
+			<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
 		</td>
 	</tr>
 {foreachelse}

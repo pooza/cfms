@@ -51,7 +51,7 @@
 					{if $idea.is_image}
 						{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
 					{/if}
-					<img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" />
+					<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
 					{$idea.attachment.type}
 					{$idea.attachment.size|binary_size_format}B
 				</div>
