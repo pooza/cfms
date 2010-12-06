@@ -22,6 +22,19 @@ class IdeaHandler extends BSTableHandler {
 	}
 
 	/**
+	 * 画像のサイズ名を全てを返す
+	 *
+	 * @access public
+	 * @return BSArray 画像のサイズ名
+	 * @static
+	 */
+	static public function getImageNames () {
+		return new BSArray(array(
+			'attachment',
+		));
+	}
+
+	/**
 	 * 添付ファイル名を全てを返す
 	 *
 	 * @access public

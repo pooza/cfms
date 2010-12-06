@@ -91,6 +91,20 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * 添付ファイルをまとめて設定
+	 *
+	 * @access public
+	 * @param BSWebRequest $request リクエスト
+	 */
+	public function setAttachments (BSWebRequest $request) {
+		foreach ($this->getTable()->getAttachmentNames() as $name) {
+			if ($info = $request[$name]) {
+				$this->setAttachment(new BSFile($info['tmp_name']), $name);
+			}
+		}
+	}
+
+	/**
 	 * シリアライズするか？
 	 *
 	 * @access public
@@ -98,6 +112,20 @@ class Idea extends BSRecord {
 	 */
 	public function isSerializable () {
 		return true;
+	}
+
+	/**
+	 * 全てのファイル属性
+	 *
+	 * @access protected
+	 * @return BSArray ファイル属性の配列
+	 */
+	protected function getFullAttributes () {
+		$values = parent::getFullAttributes();
+		if ($file = $this->getAttachment('attachment')) {
+			$values['is_image'] = mb_ereg('^image/', $file->getType());
+		}
+		return $values;
 	}
 }
 

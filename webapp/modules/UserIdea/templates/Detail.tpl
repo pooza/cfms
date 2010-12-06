@@ -48,6 +48,9 @@
 				<input type="file" name="attachment" size="20" /><br/>
 				{if $idea.has_attachment}
 				<div class="common_block">
+					{if $idea.is_image}
+						{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
+					{/if}
 					<img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" />
 					{$idea.attachment.type}
 					{$idea.attachment.size|binary_size_format}B

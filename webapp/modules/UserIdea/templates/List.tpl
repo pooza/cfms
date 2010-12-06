@@ -36,7 +36,9 @@
 
 {foreach from=$ideas item='idea'}
 	<tr class="{$idea.status}">
-		<td width="32" align="center">{image_cache id=$idea.id size='attachment' pixel=32}</td>
+		<td width="32" align="center">
+			{if $idea.is_image}{image_cache id=$idea.id size='attachment' pixel=32}{/if}
+		</td>
 		<td width="300"><a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a></td>
 		<td width="20" align="center">
 			<img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" />
