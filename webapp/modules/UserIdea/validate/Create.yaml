@@ -18,3 +18,8 @@ fields:
     required: yes
     validators:
       - kana
+  attachment:
+    required: yes
+    file: yes
+    validators:
+      - largefile

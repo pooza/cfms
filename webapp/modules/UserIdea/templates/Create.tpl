@@ -39,6 +39,12 @@
 			</td>
 		</tr>
 		<tr>
+			<th>ファイル</th>
+			<td>
+				<input type="file" name="attachment" size="20" />
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<input type="submit" value="登録" />
 			</td>

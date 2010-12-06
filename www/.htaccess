@@ -33,3 +33,8 @@ php_flag session.use_only_cookies On
 php_flag session.cookie_httponly On
 php_flag session.use_trans_sid Off
 php_flag session.hash_function On
+
+# 大容量ファイルのアップロード
+php_value post_max_size 120M
+php_value upload_max_filesize 100M
+php_value memory_limit 240M
