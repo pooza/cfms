@@ -14,6 +14,7 @@ class Project extends BSRecord {
 	private $ideas;
 	private $tags;
 	private $credential;
+	private $theme;
 
 	/**
 	 * 更新可能か？
@@ -33,6 +34,19 @@ class Project extends BSRecord {
 	 */
 	protected function isDeletable () {
 		return true;
+	}
+
+	/**
+	 * テーマを返す
+	 *
+	 * @access public
+	 * @return Theme テーマ
+	 */
+	public function getTheme () {
+		if (!$this->theme) {
+			$this->theme = new Theme($this['theme']);
+		}
+		return $this->theme;
 	}
 
 	/**

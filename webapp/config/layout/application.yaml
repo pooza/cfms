@@ -12,4 +12,4 @@ project:
   parent: var
 themes:
   parent: webapp
-  suffixes: .css
+  suffix: .css

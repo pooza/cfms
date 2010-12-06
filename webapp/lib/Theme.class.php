@@ -9,7 +9,7 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  * @version $Id$
  */
-class Theme {
+class Theme implements BSAssignable {
 	protected $name;
 	protected $file;
 	static private $names;
@@ -42,6 +42,18 @@ class Theme {
 			$this->file = BSFileUtility::getDirectory('themes')->getEntry($this->getName());
 		}
 		return $this->file;
+	}
+
+	/**
+	 * アサインすべき値を返す
+	 *
+	 * @access public
+	 * @return mixed アサインすべき値
+	 */
+	public function getAssignValue () {
+		return new BSArray(array(
+			'name' => $this->getName(),
+		));
 	}
 
 	/**
