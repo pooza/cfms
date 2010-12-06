@@ -17,7 +17,7 @@ class UserTagModule extends BSModule {
 	 */
 	public function getProject () {
 		if ($this->getRecord()) {
-			$this->getRecord()->getProject();
+			return $this->getRecord()->getProject();
 		} 
 		return BSModule::getInstance('UserProject')->getRecord();
 	}

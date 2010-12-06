@@ -46,6 +46,11 @@ class DetailAction extends BSRecordAction {
 		return $this->getDefaultView();
 	}
 
+	public function deny () {
+		$this->user->setAttribute('requested_url', $this->request->getURL()->getContents());
+		return parent::deny();
+	}
+
 	public function getCredential () {
 		return $this->getModule()->getProject()->getCredential();
 	}

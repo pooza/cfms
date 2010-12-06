@@ -6,7 +6,7 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-{include file='AdminHeader'}
+{include file='UserHeader'}
 
 <div id="BreadCrumbs">
 	<a href="/UserProject/">プロジェクト一覧</a>
@@ -59,6 +59,6 @@
 	</table>
 {/form}
 
-{include file='AdminFooter'}
+{include file='UserFooter'}
 
 {* vim: set tabstop=4: *}
