@@ -8,10 +8,6 @@
  * @version $Id$
  */
 class ListAction extends BSPaginateTableAction {
-	protected function getPageSize () {
-		return 20;
-	}
-
 	public function getCriteria () {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();
