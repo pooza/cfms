@@ -9,31 +9,37 @@
  */
 class LoginAction extends BSAction {
 	public function execute () {
-		$url = BSURL::getInstance($this->controller->getAttribute('ROOT_URL_HTTPS'));
-		$url['path'] = '/AdminProject/';
-		return $url->redirect();
+		$accounts = new AccountHandler;
+		$values = new BSArray(array(
+			'email' => $this->request['email'],
+			'status' => 'show',
+		));
+		if ($account = $accounts->getRecord($values)) {
+			if ($this->user->login($account, $this->request['password'])) {
+				$url = BSURL::getInstance();
+				$url['path'] = '/UserProject/';
+				return $url->redirect();
+			}
+		}
+
+		$role = BSAdministratorRole::getInstance();
+		$email = BSMailAddress::getInstance($this->request['email']);
+		if ($email->getContents() == $role->getMailAddress()->getContents()) {
+			if ($this->user->login($role, $this->request['password'])) {
+				$url = BSURL::getInstance();
+				$url['path'] = '/AdminProject/';
+				return $url->redirect();
+			}
+		}
+		$this->request->setError('email', 'ユーザー又はパスワードが違います。');
 	}
 
 	public function getDefaultView () {
-		$this->request->clearAttributes();
-		$this->user->clearAttributes();
-		$this->user->clearCredentials();
 		return BSView::INPUT;
 	}
 
 	public function handleError () {
 		return $this->getDefaultView();
-	}
-
-	public function validate () {
-		$role = BSAdministratorRole::getInstance();
-		$email = BSMailAddress::getInstance($this->request['email']);
-		if ($email->getContents() != $role->getMailAddress()->getContents()) {
-			$this->request->setError('email', 'ユーザー又はパスワードが違います。');
-		} else if (!$this->user->login($role, $this->request['password'])) {
-			$this->request->setError('password', 'ユーザー又はパスワードが違います。');
-		}
-		return !$this->request->hasErrors();
 	}
 }
 

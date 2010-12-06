@@ -17,6 +17,11 @@ author:
 crypt:
   salt: TEBE1CXJ7V7OZ6DC
 
+module:
+  secure:
+    module: Default
+    action: Login
+
 languages:
   - ja
   - en

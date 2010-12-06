@@ -48,6 +48,20 @@ class AccountHandler extends BSTableHandler {
 			'icon',
 		));
 	}
+
+	/**
+	 * ログイン中アカウント返す
+	 *
+	 * @access public
+	 * @return Account ログイン中アカウント
+	 * @static
+	 */
+	static public function getCurrent () {
+		if ($id = BSUser::getInstance()->getID()) {
+			$table = new self;
+			return $table->getRecord($id);
+		}
+	}
 }
 
 /* vim:set tabstop=4 */

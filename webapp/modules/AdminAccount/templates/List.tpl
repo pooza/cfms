@@ -6,7 +6,7 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-{include file='AdminHeader' styleset='minc.admin'}
+{include file='AdminHeader'}
 
 <div id="BreadCrumbs">
 	<a href="#">{$action.title}</a>

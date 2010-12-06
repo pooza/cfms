@@ -11,6 +11,7 @@
  */
 class Account extends BSRecord implements BSUserIdentifier {
 	private $projects;
+	private $credentials;
 
 	/**
 	 * 更新可能か？

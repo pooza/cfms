@@ -2,22 +2,15 @@
 一覧画面テンプレート
 
 @package jp.co.commons.cfms
-@subpackage AdminProject
+@subpackage UserProject
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
+{assign var='body.id' value='ProjectListPage'}
 {include file='AdminHeader'}
-
-<div id="BreadCrumbs">
-	<a href="#">{$action.title}</a>
-</div>
 
 {form method="get" style_class='common_block'}
 	<input type="text" name="key" value="{$params.key}" />
-	<select name="status">
-		<option value="">状態...</option>
-		{html_options options=$status_options selected=$params.status}
-	</select>
 	<input type="submit" value="抽出" />
 	<input type="button" value="抽出の解除" onclick="CarrotLib.redirect('{$module.name}','ListAll')" />
 {/form}
@@ -30,11 +23,6 @@
 		<th width="32"></th>
 		<th width="300">名前</th>
 		<th width="180">期間</th>
-	</tr>
-	<tr>
-		<td colspan="3">
-			<a href="/{$module.name}/Create">新しい{$module.record_class|translate}を登録...</a>
-		</td>
 	</tr>
 
 {foreach from=$projects item='project'}
