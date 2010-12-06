@@ -8,6 +8,54 @@
 *}
 {include file='UserHeader'}
 
+<div id="BreadCrumbs">
+	<a href="/UserProject/">プロジェクト一覧</a>
+	<a href="#">プロジェクト:{$project.name}</a>
+</div>
+
+{form method="get" style_class='common_block'}
+	<input type="text" name="key" value="{$params.key}" />
+	<input type="submit" value="抽出" />
+	<input type="button" value="抽出の解除" onclick="CarrotLib.redirect('{$module.name}','ListAll')" />
+{/form}
+
+{include file='ErrorMessages'}
+
+<h1>プロジェクト:{$project.name}</h1>
+<table>
+	<tr>
+		<th width="32"></th>
+		<th width="300">名前</th>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="/{$module.name}/Create">新しい{$module.record_class|translate}を登録...</a>
+		</td>
+	</tr>
+
+{foreach from=$ideas item='idea'}
+	<tr class="{$idea.status}">
+		<td width="32" align="center">{image_cache id=$idea.id size='logo' pixel=32}</td>
+		<td width="300"><a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a></td>
+	</tr>
+{foreachelse}
+	<tr>
+		<td colspan="2" class="alert">未登録です。</td>
+	</tr>
+{/foreach}
+
+	<tr>
+		<td colspan="2" style="text-align:center">
+{strip}
+			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page=1{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
+			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page={$page-1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;
+			[{$page}]&nbsp;
+			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$page+1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right1.gif" width="14" height="14" alt="&gt;" /></a></span>&nbsp;
+			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$lastpage}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right3.gif" width="14" height="14" alt="&gt;|" /></a></span>
+{/strip}
+		</td>
+	</tr>
+</table>
 
 {include file='UserFooter'}
 
