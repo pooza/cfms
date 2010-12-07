@@ -59,7 +59,7 @@
 						{/if}
 						<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
 						{$idea.attachment.type}
-						{$idea.attachment.size|binary_size_format}B
+						{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
 					</div>
 					{/if}
 				</td>
