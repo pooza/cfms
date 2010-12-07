@@ -2,7 +2,7 @@
 ファイル詳細画面テンプレート
 
 @package jp.co.commons.cfms
-@subpackage AdminIdea
+@subpackage UserIdea
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
