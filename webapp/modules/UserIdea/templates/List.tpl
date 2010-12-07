@@ -31,10 +31,11 @@
 		<th width="300">名前</th>
 		<th width="60">サイズ</th>
 		<th width="90">タイプ</th>
+		<th width="90">更新日</th>
 		<th width="20"></th>
 	</tr>
 	<tr>
-		<td colspan="5">
+		<td colspan="6">
 			<a href="/{$module.name}/Create">新しい{$module.record_class|translate}を登録...</a>
 		</td>
 	</tr>
@@ -47,18 +48,19 @@
 		<td width="300"><a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a></td>
 		<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>
 		<td width="90">{$idea.attachment.type}</td>
+		<td width="90" align="center">{$idea.update_date|date_format:'Y.m.d(ww)'}</td>
 		<td width="20" align="center">
 			<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
 		</td>
 	</tr>
 {foreachelse}
 	<tr>
-		<td colspan="5" class="alert">未登録です。</td>
+		<td colspan="6" class="alert">未登録です。</td>
 	</tr>
 {/foreach}
 
 	<tr>
-		<td colspan="5" style="text-align:center">
+		<td colspan="6" style="text-align:center">
 {strip}
 			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page=1{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
 			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page={$page-1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;

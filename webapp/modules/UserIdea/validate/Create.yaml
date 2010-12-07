@@ -17,6 +17,7 @@ fields:
   name_read:
     validators:
       - kana
+  description:
   attachment:
     required: yes
     file: yes

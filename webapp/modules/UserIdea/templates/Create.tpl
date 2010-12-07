@@ -39,6 +39,12 @@
 			</td>
 		</tr>
 		<tr>
+			<th>説明</th>
+			<td>
+				<textarea name="description" cols="60" rows="5" />{$params.description}</textarea>
+			</td>
+		</tr>
+		<tr>
 			<th>ファイル</th>
 			<td>
 				<input type="file" name="attachment" size="20" />

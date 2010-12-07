@@ -22,6 +22,10 @@ module:
     module: Default
     action: Login
 
+image:
+  thumbnail:
+    bgcolor: white
+
 languages:
   - ja
   - en
