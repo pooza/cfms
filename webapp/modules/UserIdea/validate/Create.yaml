@@ -15,7 +15,6 @@ fields:
     validators:
       - english
   name_read:
-    required: yes
     validators:
       - kana
   attachment:

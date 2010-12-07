@@ -11,6 +11,7 @@
  */
 class Idea extends BSRecord {
 	private $tags;
+	private $logs;
 
 	/**
 	 * 更新可能か？
@@ -20,6 +21,27 @@ class Idea extends BSRecord {
 	 */
 	protected function isUpdatable () {
 		return true;
+	}
+
+	/**
+	 * 更新
+	 *
+	 * @access public
+	 * @param mixed $values 更新する値
+	 * @param integer $flags フラグのビット列
+	 *   BSDatabase::WITHOUT_LOGGING ログを残さない
+	 *   BSDatabase::WITHOUT_SERIALIZE シリアライズしない
+	 */
+	public function update ($values, $flags = null) {
+		parent::update($values, $flags);
+		if ($account = AccountHandler::getCurrent()) {
+			$values = array(
+				'idea_id' => $this->getID(),
+				'account_id' => $account->getID(),
+				'body' => '更新しました。',
+			);
+			$this->getLogs()->createRecord($values);
+		}
 	}
 
 	/**
@@ -40,6 +62,20 @@ class Idea extends BSRecord {
 	 */
 	public function getParent () {
 		return $this->getProject();
+	}
+
+	/**
+	 * ログを返す
+	 *
+	 * @access public
+	 * @return IdeaLogHandler ログテーブル
+	 */
+	public function getLogs () {
+		if (!$this->logs) {
+			$this->logs = new IdeaLogHandler;
+			$this->logs->getCriteria()->register('idea_id', $this);
+		}
+		return $this->logs;
 	}
 
 	/**

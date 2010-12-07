@@ -87,7 +87,7 @@ CREATE TABLE `idea` (
   `name_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) DEFAULT NULL,
   `project_id` smallint(5) unsigned NOT NULL,
-  `type` varchar(128) NOT NULL DEFAULT 'application/octet-stream',
+  `description` text,
   `status` varchar(64) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
@@ -104,6 +104,36 @@ CREATE TABLE `idea` (
 LOCK TABLES `idea` WRITE;
 /*!40000 ALTER TABLE `idea` DISABLE KEYS */;
 /*!40000 ALTER TABLE `idea` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `idea_log`
+--
+
+DROP TABLE IF EXISTS `idea_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `idea_log` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `idea_id` int(10) unsigned NOT NULL,
+  `account_id` smallint(5) unsigned NOT NULL,
+  `body` text NOT NULL,
+  `create_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idea_id` (`idea_id`),
+  KEY `account_id` (`account_id`),
+  CONSTRAINT `idea_log_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `idea_log_ibfk_1` FOREIGN KEY (`idea_id`) REFERENCES `idea` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `idea_log`
+--
+
+LOCK TABLES `idea_log` WRITE;
+/*!40000 ALTER TABLE `idea_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `idea_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -203,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-02 22:03:22
+-- Dump completed on 2010-12-07 19:07:47
