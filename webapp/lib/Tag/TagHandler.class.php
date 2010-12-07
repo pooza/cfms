@@ -19,7 +19,6 @@ class TagHandler extends BSTableHandler {
 	public function __construct ($criteria = null, $order = null) {
 		if (!$order) {
 			$order = new BSTableFieldSet;
-			$order->push('name_en');
 			$order->push('name');
 		}
 		parent::__construct($criteria, $order);
