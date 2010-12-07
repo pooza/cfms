@@ -33,6 +33,19 @@ class IdeaLogHandler extends BSTableHandler {
 	protected function isInsertable () {
 		return true;
 	}
+
+	/**
+	 * レコード追加
+	 *
+	 * @access public
+	 * @param mixed $values 値
+	 * @param integer $flags フラグのビット列
+	 *   BSDatabase::WITH_LOGGING ログを残さない
+	 * @return string レコードの主キー
+	 */
+	public function createRecord ($values, $flags = self::WITHOUT_LOGGING) {
+		return parent::createRecord($values, $flags);
+	}
 }
 
 /* vim:set tabstop=4 */
