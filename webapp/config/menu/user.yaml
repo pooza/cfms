@@ -5,6 +5,7 @@
 # @version $Id$
 
 - module: UserProject
+- module: UserAccount
 - separator: yes
 - title: ログアウト
   module: Default

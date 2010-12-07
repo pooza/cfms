@@ -1,0 +1,49 @@
+# アカウント詳細画面バリデーション設定ファイル
+#
+# @package jp.co.commons.cfms
+# @subpackage UserAccount
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+# @version $Id$
+
+methods:
+  - POST
+
+fields:
+  name:
+    required: yes
+  name_en:
+    required: yes
+    validators:
+      - english
+  name_read:
+    required: yes
+    validators:
+      - kana
+  company:
+  company_en:
+    validators:
+      - english
+  email:
+    required: yes
+    validators:
+      - email
+      - email_unique
+  password:
+    validators:
+      - password
+  password_confirm:
+    validators:
+      - password_pair
+  icon:
+    file: yes
+    validators:
+      - image
+
+validators:
+  email_unique:
+    class: BSRecordValidator
+    params:
+      class: Account
+      field: email
+      exist: no
+      update: yes
