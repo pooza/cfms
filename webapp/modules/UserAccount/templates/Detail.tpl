@@ -19,10 +19,6 @@
 {form attachable=true}
 	<table class="detail">
 		<tr>
-			<th>{$module.record_class|translate}ID</th>
-			<td>{$account.id}</td>
-		</tr>
-		<tr>
 			<th>名前</th>
 			<td>
 				<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
