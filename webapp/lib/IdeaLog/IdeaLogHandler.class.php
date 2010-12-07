@@ -43,7 +43,7 @@ class IdeaLogHandler extends BSTableHandler {
 	 *   BSDatabase::WITH_LOGGING ログを残さない
 	 * @return string レコードの主キー
 	 */
-	public function createRecord ($values, $flags = self::WITHOUT_LOGGING) {
+	public function createRecord ($values, $flags = BSDatabase::WITHOUT_LOGGING) {
 		return parent::createRecord($values, $flags);
 	}
 }
