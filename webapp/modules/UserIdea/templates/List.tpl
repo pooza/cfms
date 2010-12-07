@@ -21,7 +21,10 @@
 
 {include file='ErrorMessages'}
 
-<h1>プロジェクト:{$project.name}</h1>
+<h1>{strip}
+	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
+	プロジェクト:{$project.name}
+{/strip}</h1>
 <table>
 	<tr>
 		<th width="32"></th>

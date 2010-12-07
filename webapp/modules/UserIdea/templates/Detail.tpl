@@ -89,7 +89,7 @@ document.observe('dom:loaded', function () {ldelim}
   new ProtoTabs('Tabs', {ldelim}
     defaultPanel:'{$params.pane|default:'DetailForm'}',
     ajaxUrls: {ldelim}
-      LogList: '/UserItemLog/'
+      LogList: '/UserIdeaLog/'
     {rdelim}
   {rdelim});
 {rdelim});

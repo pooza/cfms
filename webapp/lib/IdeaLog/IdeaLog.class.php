@@ -20,6 +20,18 @@ class IdeaLog extends BSRecord {
 	public function getParent () {
 		return $this->getItem();
 	}
+
+	/**
+	 * アサインすべき値を返す
+	 *
+	 * @access public
+	 * @return mixed アサインすべき値
+	 */
+	public function getAssignValue () {
+		$values = parent::getAssignValue();
+		$values['account'] = $this->getAccount()->getAssignValue();
+		return $values;
+	}
 }
 
 /* vim:set tabstop=4 */
