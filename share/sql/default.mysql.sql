@@ -208,9 +208,8 @@ CREATE TABLE `tag` (
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_en` (`name_en`),
-  KEY `project_id` (`project_id`),
+  UNIQUE KEY `name` (`project_id`,`name`),
+  UNIQUE KEY `name_en` (`project_id`,`name_en`),
   CONSTRAINT `tag_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -233,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-07 19:07:47
+-- Dump completed on 2010-12-07 21:34:42
