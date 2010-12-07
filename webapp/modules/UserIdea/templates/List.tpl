@@ -45,7 +45,10 @@
 		<td width="32" align="center">
 			{if $idea.is_image}{image_cache id=$idea.id size='attachment' pixel=32}{/if}
 		</td>
-		<td width="300"><a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a></td>
+		<td width="300">
+			<a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a>
+			{if $idea.description}<br/><span class="description">{$idea.description|truncate:48}</span>{/if}
+		</td>
 		<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>
 		<td width="90">{$idea.attachment.type}</td>
 		<td width="90" align="center">{$idea.update_date|date_format:'Y.m.d(ww)'}</td>
