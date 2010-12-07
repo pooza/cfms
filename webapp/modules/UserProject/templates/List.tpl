@@ -8,6 +8,10 @@
 *}
 {include file='UserHeader'}
 
+<div id="BreadCrumbs">
+	<a href="#">プロジェクト一覧</a>
+</div>
+
 {form method="get" style_class='common_block'}
 	<input type="text" name="key" value="{$params.key}" />
 	<input type="submit" value="抽出" />
