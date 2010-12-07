@@ -127,6 +127,19 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * 添付ファイルのダウンロード時の名を返す
+	 *
+	 * @access public
+	 * @param string $name 名前
+	 * @return string ダウンロード時ファイル名
+	 */
+	public function getAttachmentFileName ($name = null) {
+		if ($file = $this->getAttachment($name)) {
+			return $this->getName() . $file->getSuffix();
+		}
+	}
+
+	/**
 	 * 添付ファイルをまとめて設定
 	 *
 	 * @access public

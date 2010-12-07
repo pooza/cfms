@@ -52,7 +52,10 @@ class DetailAction extends BSRecordAction {
 	}
 
 	public function getCredential () {
-		return $this->getModule()->getProject()->getCredential();
+		if ($project = $this->getModule()->getProject()) {
+			return $project->getCredential();
+		}
+		return 'NeverMatch';
 	}
 }
 

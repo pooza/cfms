@@ -59,6 +59,8 @@ class Theme implements BSAssignable {
 		if (!$this->styleset) {
 			$this->styleset = new BSStyleSet($this->getName());
 			$this->styleset->register($this->getFile());
+			$this->styleset->register('protocalendar');
+			$this->styleset->register('prototabs');
 			$this->styleset->update();
 		}
 		return $this->styleset;
