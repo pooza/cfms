@@ -6,7 +6,6 @@
 @author 小石達也 <tkoishi@b-shock.co.jp>
 @version $Id$
 *}
-<h2>■{$action.title}</h2>
 <table>
 	<tr>
 		<th width="120">日付</th>
