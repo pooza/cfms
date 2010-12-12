@@ -85,7 +85,7 @@ var CFMSLib = {
     });
   },
 
-  toggleTag: function (field, name, force) {
+  toggleTag: function (field, name) {
     var names = CFMSLib.getTagNames(field);
     name = name.trim();
     var nodes = $(field.id + '_TagCloud').childNodes;
@@ -99,7 +99,7 @@ var CFMSLib = {
       }
     }
     if (container) {
-      if (names.member(name) && !force) {
+      if (names.member(name)) {
         container.className = container.className.replace(/selected/g, '');
         names.each (function(value, index) {
           if (value == name) {
