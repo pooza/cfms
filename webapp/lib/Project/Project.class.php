@@ -126,6 +126,32 @@ class Project extends BSRecord {
 	}
 
 	/**
+	 * タグを返す
+	 *
+	 * なければ生成。
+	 *
+	 * @access public
+	 * @param string $name タグ名
+	 * @return Tag タグ
+	 */
+	public function getTag ($name) {
+		$tags = $this->getTags();
+		$tags->query();
+
+		$values = new BSArray;
+		$values['project_id'] = $this->getID();
+		$values['name'] = $name;
+		if (!$tag = $tags->getRecord($values)) {
+			$values = new BSArray;
+			$values['project_id'] = $this->getID();
+			$values['name'] = $name;
+			$id = $tags->createRecord($values);
+			$tag = $tags->getRecord($id);
+		}
+		return $tag;
+	}
+
+	/**
 	 * 認証時に与えられるクレデンシャルを返す
 	 *
 	 * @access public

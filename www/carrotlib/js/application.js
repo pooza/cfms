@@ -85,5 +85,44 @@ var CFMSLib = {
     });
   },
 
+  toggleTag: function (field, name, force) {
+    var names = CFMSLib.getTagNames(field);
+    name = name.trim();
+    var nodes = $(field.id + '_TagCloud').childNodes;
+    var container;
+    for (var i = 0 ; i < nodes.length ; i ++) {
+      var node = nodes[i];
+      if ((node.nodeType == 1) && (node.tagName == 'A')) {
+        if (node.firstChild.nodeValue == name) {
+          container = node;
+        }
+      }
+    }
+    if (container) {
+      if (names.member(name) && !force) {
+        container.className = container.className.replace(/selected/g, '');
+        names.each (function(value, index) {
+          if (value == name) {
+            names.splice(index, 1);
+          }
+        });
+      } else {
+        names.push(name);
+        container.className += ' selected';
+      }
+    }
+    field.value = names.uniq().join("\n");
+  },
+
+  getTagNames: function (field) {
+    var names = [];
+    field.value.split(/\r?\n|\r/).each (function(value) {
+      if (value = value.trim()) {
+        names.push(value);
+      }
+    });
+    return names;
+  },
+
   initialized: true
 }

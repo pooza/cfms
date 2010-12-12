@@ -33,6 +33,18 @@ class TagHandler extends BSTableHandler {
 	protected function isInsertable () {
 		return true;
 	}
+
+	/**
+	 * 文字列をタグに分割
+	 *
+	 * @access public
+	 * @param string $path パス
+	 * @return BSArray タグ文字列の配列
+	 * @static
+	 */
+	static public function split ($contents) {
+		return BSString::explode("\n", $contents)->uniquize()->trim();
+	}
 }
 
 /* vim:set tabstop=4 */

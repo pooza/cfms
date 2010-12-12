@@ -34,13 +34,15 @@ class Idea extends BSRecord {
 	 */
 	public function update ($values, $flags = null) {
 		parent::update($values, $flags);
-		if ($account = AccountHandler::getCurrent()) {
-			$values = array(
-				'idea_id' => $this->getID(),
-				'account_id' => $account->getID(),
-				'body' => '更新しました。',
-			);
-			$this->getLogs()->createRecord($values);
+		if (!($flags & BSDatabase::WITHOUT_LOGGING)) {
+			if ($account = AccountHandler::getCurrent()) {
+				$values = array(
+					'idea_id' => $this->getID(),
+					'account_id' => $account->getID(),
+					'body' => '更新しました。',
+				);
+				$this->getLogs()->createRecord($values);
+			}
 		}
 	}
 
@@ -105,25 +107,43 @@ class Idea extends BSRecord {
 	 * タグを更新
 	 *
 	 * @access public
-	 * @params BSArray $ids タグIDの配列
+	 * @params BSArray $names タグ名の配列
 	 */
-	public function updateTags (BSArray $ids) {
+	public function updateTags (BSArray $names) {
 		$criteria = $this->createCriteriaSet();
 		$criteria->register('idea_id', $this);
 		$sql = BSSQL::getDeleteQueryString('idea_tag', $criteria);
 		$this->getDatabase()->exec($sql);
 
-		$ids->uniquize();
-		foreach ($ids as $id) {
+		$tags = new TagHandler;
+		$names->uniquize();
+		foreach ($names as $name) {
 			$values = new BSArray;
 			$values['idea_id'] = $this->getID();
-			$values['tag_id'] = $id;
+			$values['tag_id'] = $this->getProject()->getTag($name)->getID();
 			$sql = BSSQL::getInsertQueryString('idea_tag', $values);
 			$this->getDatabase()->exec($sql);
 		}
 
 		$this->tags = null;
 		$this->touch();
+	}
+
+	/**
+	 * タグクラウドを返す
+	 *
+	 * @access public
+	 * @return BSArray タグクラウド
+	 */
+	public function getTagCloud () {
+		$cloud = new BSArray;
+		$ids = $this->getTags()->getIDs();
+		foreach ($this->getProject()->getTags() as $tag) {
+			$row = $tag->getAttributes();
+			$row['is_selected'] = $ids->isContain($tag->getID());
+			$cloud[$tag->getID()] = $row;
+		}
+		return $cloud;
 	}
 
 	/**

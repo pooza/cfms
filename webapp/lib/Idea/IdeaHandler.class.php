@@ -33,13 +33,15 @@ class IdeaHandler extends BSTableHandler {
 	public function createRecord ($values, $flags = null) {
 		$id = parent::createRecord($values, $flags);
 		$idea = $this->getRecord($id);
-		if ($account = AccountHandler::getCurrent()) {
-			$values = array(
-				'idea_id' => $idea->getID(),
-				'account_id' => $account->getID(),
-				'body' => '作成しました。',
-			);
-			$idea->getLogs()->createRecord($values);
+		if (!($flags & BSDatabase::WITHOUT_LOGGING)) {
+			if ($account = AccountHandler::getCurrent()) {
+				$values = array(
+					'idea_id' => $idea->getID(),
+					'account_id' => $account->getID(),
+					'body' => '作成しました。',
+				);
+				$idea->getLogs()->createRecord($values);
+			}
 		}
 		return $id;
 	}

@@ -28,6 +28,7 @@ class DetailAction extends BSRecordAction {
 		try {
 			$this->database->beginTransaction();
 			$this->updateRecord();
+			$this->getRecord()->updateTags(TagHandler::split($this->request['tags']));
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
@@ -38,8 +39,15 @@ class DetailAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
+		$tags = new BSArray;
+		foreach ($this->getRecord()->getTags() as $tag) {
+			$tags[] = $tag->getName();
+		}
+		$this->request['tags'] = $tags->join("\n");
+
 		$this->request->setAttribute('project', $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
+		$this->request->setAttribute('tag_cloud', $this->getRecord()->getTagCloud());
 		return BSView::INPUT;
 	}
 

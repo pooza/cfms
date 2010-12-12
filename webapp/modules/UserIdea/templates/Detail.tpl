@@ -49,6 +49,17 @@
 				</td>
 			</tr>
 			<tr>
+				<th>タグ</th>
+				<td>
+					<textarea id="tags" name="tags" cols="20" rows="10" />{$params.tags}</textarea>
+					<div class="tag_cloud" id="tags_TagCloud">
+						{foreach from=$tag_cloud item='tag'}
+							<a href="javascript:void(CFMSLib.toggleTag($('tags'), '{$tag.name}'))" class="{if $tag.is_selected}selected{/if}">{$tag.name}</a>
+						{/foreach}
+					</div>
+				</td>
+			</tr>
+			<tr>
 				<th>説明</th>
 				<td>
 					<textarea name="description" cols="60" rows="5" />{$params.description}</textarea>
