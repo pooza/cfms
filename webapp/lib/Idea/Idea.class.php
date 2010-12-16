@@ -147,6 +147,30 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * メールを送信
+	 *
+	 * @access public
+	 */
+	public function sendMails () {
+		$mail = new BSSmartyMail;
+		$mail->getRenderer()->setTemplate(get_class($this) . '.mail');
+
+		$values = $this->getAssignValue();
+		$values['project'] = $this->getProject()->getAssignValue();
+		$values['tags'] = new BSArray;
+		$values['accounts'] = new BSArray;
+		foreach ($this->getTags() as $tag) {
+			$values['tags'][$tag->getID()] = $tag->getAssignValue();
+		}
+		foreach ($this->getProject()->getAccounts() as $account) {
+			$values['accounts'][$account->getID()] = $account->getAssignValue();
+		}
+
+		$mail->getRenderer()->setAttribute('idea', $values);
+		$mail->send();
+	}
+
+	/**
 	 * 添付ファイルのダウンロード時の名を返す
 	 *
 	 * @access public

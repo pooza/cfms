@@ -101,21 +101,6 @@ class Account extends BSRecord implements BSUserIdentifier {
 	}
 
 	/**
-	 * メールを送信
-	 *
-	 * @access public
-	 * @param BSArray $params アサインするパラメータ
-	 * @param string $template テンプレート名
-	 */
-	public function sendMail (BSArray $params, $template = 'register') {
-		$mail = new BSSmartyMail;
-		$mail->getRenderer()->setTemplate(get_class($this) . '.' . $template . '.mail');
-		$mail->getRenderer()->setAttribute('account', $this);
-		$mail->getRenderer()->setAttribute('params', $params);
-		$mail->send();
-	}
-
-	/**
 	 * メールアドレスを返す
 	 *
 	 * @access public
@@ -173,20 +158,6 @@ class Account extends BSRecord implements BSUserIdentifier {
 			}
 		}
 		return $this->credentials;
-	}
-
-	/**
-	 * トークンを生成して返す
-	 *
-	 * @access public
-	 * @param BSMailAddress $email メールアドレス
-	 * @return string トークン
-	 */
-	public function getToken () {
-		return BSCrypt::getDigest(array(
-			$this->getMailAddress()->getContents(),
-			BSDate::getNow('YmdHis'),
-		));
 	}
 
 	/**

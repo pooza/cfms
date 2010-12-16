@@ -92,6 +92,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="更新" />
+					<input type="button" id="send_button" value="{$module.record_class|translate}の情報をメールで送信" />
 					<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
 				</td>
 			</tr>
@@ -108,6 +109,17 @@ document.observe('dom:loaded', function () {ldelim}
     ajaxUrls: {ldelim}
       LogList: '/UserIdeaLog/'
     {rdelim}
+  {rdelim});
+
+  $('send_button').observe('click', function() {ldelim}
+    new Ajax.Request('/{$module.name}/Send', {ldelim}
+      onSuccess:function (response) {ldelim}
+        alert('メールを送信しました。');
+      {rdelim},
+      onFailure: function (response) {ldelim}
+        alert('メールの送信に失敗しました。 ' + response.responseText);
+      {rdelim}
+    {rdelim});
   {rdelim});
 {rdelim});
 </script>
