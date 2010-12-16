@@ -10,6 +10,7 @@
  * @version $Id$
  */
 class Tag extends BSRecord {
+	private $ideas;
 
 	/**
 	 * 更新可能か？
@@ -39,6 +40,29 @@ class Tag extends BSRecord {
 	 */
 	public function getParent () {
 		return $this->getProject();
+	}
+
+	/**
+	 * アイデアを返す
+	 *
+	 * @access public
+	 * @return IdeaHandler アイデア
+	 */
+	public function getIdeas () {
+		if (!$this->ideas) {
+			$criteria = $this->createCriteriaSet();
+			$criteria->register('tag_id', $this);
+			$sql = BSSQL::getSelectQueryString('idea_id', 'idea_tag', $criteria);
+
+			$ids = new BSArray;
+			foreach ($this->getDatabase()->query($sql) as $row) {
+				$ids[] = $row['idea_id'];
+			}
+
+			$this->ideas = new IdeaHandler;
+			$this->ideas->getCriteria()->register('id', $ids);
+		}
+		return $this->ideas;
 	}
 
 	/**

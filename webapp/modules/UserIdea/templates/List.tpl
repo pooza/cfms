@@ -14,6 +14,7 @@
 </div>
 
 {form method="get" style_class='common_block'}
+	{html_checkboxes name='tags' options=$tags selected=$params.tags separator='&nbsp;&nbsp;'}<br/>
 	<input type="text" name="key" value="{$params.key}" />
 	<input type="submit" value="抽出" />
 	<input type="button" value="抽出の解除" onclick="CarrotLib.redirect('{$module.name}','ListAll')" />

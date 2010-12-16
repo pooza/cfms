@@ -12,6 +12,14 @@ class ListAction extends BSPaginateTableAction {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();
 			$this->criteria->register('project_id', $this->getModule()->getProject());
+			if ($tags = $this->request['tags']) {
+				$table = new TagHandler;
+				foreach ($tags as $tag) {
+					if ($tag = $table->getRecord($tag)) {
+						$this->criteria->register('id', $tag->getIdeas()->getIDs());
+					}
+				}
+			}
 			if ($key = $this->request['key']) {
 				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
 				$criteria->setGlue('OR');
