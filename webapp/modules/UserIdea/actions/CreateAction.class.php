@@ -25,6 +25,16 @@ class CreateAction extends BSRecordAction {
 		);
 	}
 
+	public function initialize () {
+		parent::initialize();
+		if (BSString::isBlank($this->request['name'])) {
+			if ($info = $this->request['attachment']) {
+				$this->request['name'] = $info['name'];
+			}
+		}
+		return true;
+	}
+
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
