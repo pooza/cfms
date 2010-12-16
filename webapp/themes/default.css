@@ -151,6 +151,15 @@ table th.holiday {
 	border:solid 1px gray;
 }
 
+table.idea_list {
+}
+table.idea_list .tag {
+	font-size: 10px;
+	border: 1px solid #999999;
+	background-color: #cccccc;
+	padding: 0 1px;
+}
+
 .tag_cloud {
 	padding:3px;
 	border:solid 1px gray;

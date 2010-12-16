@@ -25,7 +25,7 @@
 	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
 	プロジェクト:{$project.name}
 {/strip}</h1>
-<table>
+<table class="idea_list">
 	<tr>
 		<th width="32"></th>
 		<th width="300">名前</th>
@@ -47,6 +47,9 @@
 		</td>
 		<td width="300">
 			<a href="/{$module.name}/Detail/{$idea.id}">{$idea.name}</a>
+			{foreach from=$idea.tags item='tag'}
+				<span class="tag">{$tag.name}</span>
+			{/foreach}
 			{if $idea.description}<br/><span class="description">{$idea.description|truncate:48}</span>{/if}
 		</td>
 		<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>

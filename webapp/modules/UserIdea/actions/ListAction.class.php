@@ -31,6 +31,21 @@ class ListAction extends BSPaginateTableAction {
 		return $this->order;
 	}
 
+	protected function getRows () {
+		if (!$this->rows) {
+			$this->rows = new BSArray;
+			foreach ($this->getTable() as $idea) {
+				$row = $idea->getAssignValue();
+				$row['tags'] = new BSArray;
+				foreach ($idea->getTags() as $tag) {
+					$row['tags'][$tag->getID()] = $tag->getAssignValue();
+				}
+				$this->rows[$idea->getID()] = $row;
+			}
+		}
+		return $this->rows;
+	}
+
 	public function execute () {
 		$this->request->setAttribute('ideas', $this->getRows());
 		$this->request->setAttribute('project', $this->getModule()->getProject());
