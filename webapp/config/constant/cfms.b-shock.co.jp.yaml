@@ -20,7 +20,7 @@ pdo:
   default:
     dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
-    password: fjq85sdEUUs01dCVq8wnnA==
+    password: jjpDnBSuppcEfW+Y0fDr9Q==
 
 file:
   types:
