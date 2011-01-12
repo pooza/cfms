@@ -8,7 +8,7 @@
  * GD画像レンダラー
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id: BSImage.class.php 2356 2010-09-24 08:17:52Z pooza $
+ * @version $Id: BSImage.class.php 2455 2011-01-12 04:53:17Z pooza $
  */
 class BSImage implements BSImageRenderer {
 	protected $type;
