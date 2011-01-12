@@ -67,6 +67,19 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * 画像か？
+	 *
+	 * @access public
+	 * @return boolean 画像ならTrue
+	 */
+	public function isImage () {
+		$file = $this->getAttachment('attachment');
+		return (mb_ereg('^image/', $file->getType())
+			|| $file->getType() == BSMIMEType::getType('pdf')
+		);
+	}
+
+	/**
 	 * ログを返す
 	 *
 	 * @access public
@@ -215,8 +228,8 @@ class Idea extends BSRecord {
 	 */
 	protected function getFullAttributes () {
 		$values = parent::getFullAttributes();
-		if ($file = $this->getAttachment('attachment')) {
-			$values['is_image'] = mb_ereg('^image/', $file->getType());
+		if ($this->getAttachment('attachment')) {
+			$values['is_image'] = $this->isImage();
 		}
 		return $values;
 	}

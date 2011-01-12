@@ -27,6 +27,7 @@ class DetailAction extends BSRecordAction {
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
+			$this->getRecord()->clearImageCache('attachment');
 			$this->updateRecord();
 			$this->getRecord()->updateTags(TagHandler::split($this->request['tags']));
 			$this->database->commit();
