@@ -16,6 +16,19 @@ class ExportAction extends BSAttachmentAction {
 	public function getCredential () {
 		return $this->getModule()->getProject()->getCredential();
 	}
+
+	public function execute () {
+		if ($account = AccountHandler::getCurrent()) {
+			$idea = $this->getRecord();
+			$values = array(
+				'idea_id' => $idea->getID(),
+				'account_id' => $account->getID(),
+				'body' => 'ダウンロードしました。',
+			);
+			$idea->getLogs()->createRecord($values);
+		}
+		return parent::execute();
+	}
 }
 
 /* vim:set tabstop=4: */
