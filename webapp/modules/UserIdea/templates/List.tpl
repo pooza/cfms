@@ -26,6 +26,17 @@
 	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
 	プロジェクト:{$project.name}
 {/strip}</h1>
+
+<div class="common_block">
+{foreach from=$project.accounts key='id' item='account'}
+	<div>
+		{image_cache class='Account' id=$account.id size='icon' pixel=16}
+		{$account.country}
+		{$account.name}
+	</div>
+{/foreach}
+</div>
+
 <table class="idea_list">
 	<tr>
 		<th width="32"></th>

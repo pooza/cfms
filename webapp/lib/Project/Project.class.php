@@ -193,6 +193,10 @@ class Project extends BSRecord {
 		foreach ($this->getIdeas() as $idea) {
 			$values['ideas'][$idea->getID()] = $idea->getAssignValue();
 		}
+		$values['accounts'] = new BSArray;
+		foreach ($this->getAccounts() as $idea) {
+			$values['accounts'][$idea->getID()] = $idea->getAssignValue();
+		}
 		return $values;
 	}
 }

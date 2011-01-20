@@ -56,7 +56,7 @@ class ListAction extends BSPaginateTableAction {
 
 	public function execute () {
 		$this->request->setAttribute('ideas', $this->getRows());
-		$this->request->setAttribute('project', $this->getModule()->getProject());
+		$this->request->setAttribute('project', $project = $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
 		return BSView::SUCCESS;
 	}
