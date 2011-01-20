@@ -29,7 +29,7 @@ class CreateAction extends BSRecordAction {
 		parent::initialize();
 		if (BSString::isBlank($this->request['name'])) {
 			if ($info = $this->request['attachment']) {
-				$this->request['name'] = $info['name'];
+				$this->request['name'] = mb_ereg_replace('\\.[^.]+$', '', $info['name']);
 			}
 		}
 		return true;
