@@ -42,7 +42,7 @@
 	<tr class="{$account.status}">
 		<td width="60" align="right">{$account.id}</td>
 		<td width="32" align="center">{image_cache id=$account.id size='icon' pixel=32}</td>
-		<td width="210">{$account.company}</td>
+		<td width="210">{$account.company|default:'(空欄)'}</td>
 		<td width="150"><a href="/{$module.name}/Detail/{$account.id}">{$account.name}</a></td>
 	</tr>
 {foreachelse}

@@ -28,7 +28,7 @@
 		<td width="30" align="center">
 			<input id="account_{$account.id}" type="checkbox" {if $params.accounts[$account.id]}checked="checked"{/if} onchange="CFMSLib.updateAccountStatus(this)" />
 		</td>
-		<td width="32" align="center">{image_cache id=$account.id size='icon' pixel=32}</td>
+		<td width="32" align="center">{if $account.has_icon}{image_cache id=$account.id size='icon' pixel=32}{/if}</td>
 		<td width="210">{$account.company}</td>
 		<td width="150"><a href="/{$module.name}/Detail/{$account.id}">{$account.name}</a></td>
 	</tr>
