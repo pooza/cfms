@@ -31,7 +31,7 @@
 {foreach from=$project.accounts key='id' item='account'}
 	<div>
 		{image_cache class='Account' id=$account.id size='icon' pixel=16}
-		{$account.country}
+		{$account.company}
 		{$account.name}
 	</div>
 {/foreach}
