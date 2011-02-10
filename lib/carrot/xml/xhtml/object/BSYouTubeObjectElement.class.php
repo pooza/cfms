@@ -8,7 +8,6 @@
  * YouTube用object要素
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id: BSYouTubeObjectElement.class.php 2473 2011-01-26 03:51:48Z pooza $
  */
 class BSYouTubeObjectElement extends BSObjectElement {
 
@@ -42,6 +41,7 @@ class BSYouTubeObjectElement extends BSObjectElement {
 		$url->setParameters($params);
 
 		$this->setAttribute('data', $url->getContents());
+		$this->setParameter('movie', $url->getContents());
 	}
 }
 

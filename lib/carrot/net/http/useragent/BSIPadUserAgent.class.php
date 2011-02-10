@@ -8,7 +8,6 @@
  * iPadユーザーエージェント
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id: BSIPadUserAgent.class.php 2442 2010-12-07 03:04:46Z pooza $
  */
 class BSIPadUserAgent extends BSWebKitUserAgent {
 
@@ -19,6 +18,16 @@ class BSIPadUserAgent extends BSWebKitUserAgent {
 	protected function __construct ($name = null) {
 		parent::__construct($name);
 		$this->attributes['is_tablet'] = true;
+	}
+
+	/**
+	 * タブレット型か？
+	 *
+	 * @access public
+	 * @return boolean タブレット型ならTrue
+	 */
+	public function isTablet () {
+		return true;
 	}
 
 	/**

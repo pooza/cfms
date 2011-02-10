@@ -8,7 +8,6 @@
  * JSONシリアライザー
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id: BSJSONSerializer.class.php 1812 2010-02-03 15:15:09Z pooza $
  */
 class BSJSONSerializer implements BSSerializer {
 
@@ -31,6 +30,10 @@ class BSJSONSerializer implements BSSerializer {
 	 */
 	public function encode ($value) {
 		$value = BSString::convertEncoding($value, 'utf-8');
+		if (BSArray::isArray($value)) {
+			$value = new BSArray($value);
+			$value = $value->decode();
+		}
 		return json_encode($value);
 	}
 
