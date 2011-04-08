@@ -107,7 +107,7 @@ class Account extends BSRecord implements BSUserIdentifier {
 	 * @return BSMailAddress メールアドレス
 	 */
 	public function getMailAddress () {
-		return BSMailAddress::getInstance($this['email']);
+		return BSMailAddress::create($this['email']);
 	}
 
 	/**
