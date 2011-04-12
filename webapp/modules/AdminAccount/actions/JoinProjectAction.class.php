@@ -5,7 +5,6 @@
  * @package jp.co.commons.cfms
  * @subpackage AdminAccount
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id$
  */
 class JoinProjectAction extends BSRecordAction {
 	private $project;

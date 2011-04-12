@@ -5,7 +5,6 @@
  * @package jp.co.dipps.minc.core
  * @subpackage UserEvent
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id$
  */
 class ExportAction extends BSAttachmentAction {
 	public function deny () {

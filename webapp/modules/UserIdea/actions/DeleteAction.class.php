@@ -5,7 +5,6 @@
  * @package jp.co.commons.cfms
  * @subpackage UserIdea
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id$
  */
 class DeleteAction extends BSRecordAction {
 	public function execute () {

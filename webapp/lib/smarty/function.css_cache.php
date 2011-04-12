@@ -9,7 +9,6 @@
  * テーマ対応
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id$
  */
 function smarty_function_css_cache ($params, &$smarty) {
 	$params = new BSArray($params);

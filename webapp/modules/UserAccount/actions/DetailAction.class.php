@@ -5,7 +5,6 @@
  * @package jp.co.commons.cfms
  * @subpackage UserAccount
  * @author 小石達也 <tkoishi@b-shock.co.jp>
- * @version $Id$
  */
 class DetailAction extends BSRecordAction {
 

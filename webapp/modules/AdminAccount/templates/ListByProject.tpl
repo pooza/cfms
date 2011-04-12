@@ -4,7 +4,6 @@
 @package jp.co.commons.cfms
 @subpackage AdminAccount
 @author 小石達也 <tkoishi@b-shock.co.jp>
-@version $Id$
 *}
 {form method="get" style_class='common_block'}
 	<input type="text" id="key" value="{$params.key}" />

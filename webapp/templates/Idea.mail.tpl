@@ -3,7 +3,6 @@
  
 @package jp.co.commons.cfms
 @author 小石達也 <tkoishi@b-shock.co.jp>
-@version $Id$
 *}
 Subject: [{const name='app_name_ja'}] "{$idea.name}" ({$idea.project.name})
 To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
