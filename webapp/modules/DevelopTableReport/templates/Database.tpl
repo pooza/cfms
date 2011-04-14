@@ -1,7 +1,7 @@
 {*
 一覧画面テンプレート
 
-@package jp.co.commons.cfms
+@package org.carrot-framework
 @subpackage DevelopTableReport
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}

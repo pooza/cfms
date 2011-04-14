@@ -27,7 +27,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" class="BottomCell">
+			<td colspan="2" class="bottom">
 				<input type="submit" value="ログイン" />
 			</td>
 		</tr>

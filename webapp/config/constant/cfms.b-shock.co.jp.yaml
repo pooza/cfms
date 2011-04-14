@@ -20,8 +20,3 @@ pdo:
     dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
     password: jjpDnBSuppcEfW+Y0fDr9Q==
-
-file:
-  types:
-    file: /etc/httpd/mime.types
-
