@@ -47,6 +47,7 @@ class DetailAction extends BSRecordAction {
 
 		$this->request->setAttribute('project', $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
+		$this->request->setAttribute('accounts', $this->getModule()->getProject()->getAccounts());
 		$this->request->setAttribute('tag_cloud', $this->getRecord()->getTagCloud());
 		return BSView::INPUT;
 	}

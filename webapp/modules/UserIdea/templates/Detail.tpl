@@ -18,6 +18,7 @@
 <div class="tabs10">
 	<ul id="Tabs">
 		<li><a href="#DetailForm"><span>{$module.record_class|translate}詳細</span></a></li>
+		<li><a href="#MailForm"><span>通知</span></a></li>
 		<li><a href="#LogList"><span>履歴</span></a></li>
 	</ul>
 </div>
@@ -91,7 +92,6 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="更新" />
-					<input type="button" id="send_button" value="{$module.record_class|translate}の情報をメールで送信" />
 					<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
 				</td>
 			</tr>
@@ -99,28 +99,80 @@
 	{/form}
 </div>
 
+<div id="MailForm" class="panel">
+	<table class="detail">
+		<tr>
+			<th>宛先</th>
+			<td>
+				<div id="members" class="common_blick">
+					{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
+				</div>
+				<input type="button" id="members_checkall_button" value="全て選択" />
+				<input type="button" id="members_uncheckall_button" value="全て解除" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" id="send_button" value="{$module.record_class|translate}の情報をメールで送信" />
+			</td>
+		</tr>
+	</table>
+</div>
+
 <div id="LogList" class="panel"></div>
 
 <script type="text/javascript">
-document.observe('dom:loaded', function () {ldelim}
-  new ProtoTabs('Tabs', {ldelim}
-    defaultPanel:'{$params.pane|default:'DetailForm'}',
-    ajaxUrls: {ldelim}
-      LogList: '/UserIdeaLog/'
-    {rdelim}
-  {rdelim});
+{literal}
+document.observe('dom:loaded', function () {
+  function updateCheckBoxes (flag) {
+    $$('#members input').each(function (element) {
+      element.checked = flag;
+    });
+  }
 
-  $('send_button').observe('click', function() {ldelim}
-    new Ajax.Request('/{$module.name}/Send', {ldelim}
-      onSuccess:function (response) {ldelim}
-        alert('メールを送信しました。');
-      {rdelim},
-      onFailure: function (response) {ldelim}
-        alert('メールの送信に失敗しました。 ' + response.responseText);
-      {rdelim}
-    {rdelim});
-  {rdelim});
-{rdelim});
+  var pane = 'DetailForm';
+  if (CarrotLib.getQueryParameter('pane')) {
+    pane = CarrotLib.getQueryParameter('pane');
+  }
+
+  new ProtoTabs('Tabs', {
+    defaultPanel: pane,
+    ajaxUrls: {
+      LogList: '/UserIdeaLog/'
+    }
+  });
+
+  $('send_button').observe('click', function() {
+    var members = [];
+    $$('#members input').each(function (element) {
+      if (element.checked) {
+        members.push(element.value);
+      }
+    });
+    if (members = members.join(',')) {
+      new Ajax.Request('/UserIdea/Send', {
+        parameters: 'accounts=' + members,
+        onSuccess:function (response) {
+          updateCheckBoxes(false);
+          alert('メールを送信しました。');
+        },
+        onFailure: function (response) {
+          updateCheckBoxes(false);
+          alert('メールの送信に失敗しました。 ' + response.responseText);
+        }
+      });
+    }
+  });
+
+  $('members_checkall_button').observe('click', function() {
+    updateCheckBoxes(true);
+  });
+
+  $('members_uncheckall_button').observe('click', function() {
+    updateCheckBoxes(false);
+  });
+});
+{/literal}
 </script>
 
 {include file='UserFooter'}

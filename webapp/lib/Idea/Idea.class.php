@@ -162,8 +162,9 @@ class Idea extends BSRecord {
 	 * メールを送信
 	 *
 	 * @access public
+	 * @param BSArray $ids アカウントIDのリスト
 	 */
-	public function sendMails () {
+	public function sendMails (BSArray $ids) {
 		$mail = new BSSmartyMail;
 		$mail->getRenderer()->setTemplate(get_class($this) . '.mail');
 
@@ -174,7 +175,10 @@ class Idea extends BSRecord {
 		foreach ($this->getTags() as $tag) {
 			$values['tags'][$tag->getID()] = $tag->getAssignValue();
 		}
-		foreach ($this->getProject()->getAccounts() as $account) {
+
+		$accounts = new AccountHandler;
+		$accounts->getCriteria()->register('id', $ids);
+		foreach ($accounts as $account) {
 			$values['accounts'][$account->getID()] = $account->getAssignValue();
 		}
 

@@ -9,9 +9,10 @@
 class SendAction extends BSRecordAction {
 	public function execute () {
 		try {
-			$this->getRecord()->sendMails();
+			$this->getRecord()->sendMails(
+				BSString::explode(',', $this->request['accounts'])
+			);
 		} catch (Exception $e) {
-			$this->database->rollBack();
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return BSView::ERROR;
 		}
