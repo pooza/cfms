@@ -38,6 +38,7 @@ class CreateAction extends BSRecordAction {
 		try {
 			$this->database->beginTransaction();
 			$this->updateRecord();
+			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
@@ -50,6 +51,7 @@ class CreateAction extends BSRecordAction {
 	public function getDefaultView () {
 		$this->request->setAttribute('project', $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
+		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
 		return BSView::INPUT;
 	}
 

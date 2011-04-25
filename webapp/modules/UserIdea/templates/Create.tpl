@@ -44,6 +44,12 @@
 			</td>
 		</tr>
 		<tr>
+			<th>タグ</th>
+			<td>
+				{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+			</td>
+		</tr>
+		<tr>
 			<th>ファイル</th>
 			<td>
 				<input type="file" name="attachment" size="20" />

@@ -17,6 +17,7 @@ fields:
     validators:
       - kana
   tags:
+    required: yes
   description:
   attachment:
     file: yes

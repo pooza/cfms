@@ -35,6 +35,10 @@ status:
     choices:
       - show
       - hide
+tag:
+  class: BSRecordValidator
+  params:
+    class: Tag
 theme:
   class: BSChoiceValidator
   params:
