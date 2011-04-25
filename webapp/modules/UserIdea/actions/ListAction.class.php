@@ -11,12 +11,9 @@ class ListAction extends BSPaginateTableAction {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();
 			$this->criteria->register('project_id', $this->getModule()->getProject());
-			if ($tags = $this->request['tags']) {
-				$table = new TagHandler;
-				foreach ($tags as $tag) {
-					if ($tag = $table->getRecord($tag)) {
-						$this->criteria->register('id', $tag->getIdeas()->getIDs());
-					}
+			if ($id = $this->request['tag_id']) {
+				if ($tag = BSTableHandler::getInstance('tag')->getRecord($id)) {
+					$this->criteria->register('id', $tag->getIdeas()->getIDs());
 				}
 			}
 			if ($key = $this->request['key']) {
@@ -57,6 +54,7 @@ class ListAction extends BSPaginateTableAction {
 		$this->request->setAttribute('ideas', $this->getRows());
 		$this->request->setAttribute('project', $project = $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
+		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
 		return BSView::SUCCESS;
 	}
 
