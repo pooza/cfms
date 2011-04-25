@@ -104,7 +104,7 @@
 		<tr>
 			<th>宛先</th>
 			<td>
-				<div id="members" class="common_blick">
+				<div id="members" class="common_block">
 					{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
 				</div>
 				<input type="button" id="members_checkall_button" value="全て選択" />

@@ -29,14 +29,8 @@
 	プロジェクト:{$project.name}
 {/strip}</h1>
 
-<div class="common_block">
-{foreach from=$project.accounts key='id' item='account'}
-	<div>
-		{image_cache class='Account' id=$account.id size='icon' pixel=16}
-		{$account.company}
-		{$account.name}
-	</div>
-{/foreach}
+<div id="members" class="common_block">
+	[<a id="account_list_link" href="#">メンバー...</a>]
 </div>
 
 <table class="idea_list">
@@ -91,6 +85,16 @@
 		</td>
 	</tr>
 </table>
+
+<script type="text/javascript">
+{literal}
+document.observe('dom:loaded', function () {
+  $('account_list_link').observe('click', function() {
+    new Ajax.Updater('members', '/UserAccount/List');
+  });
+});
+{/literal}
+</script>
 
 {include file='UserFooter'}
 
