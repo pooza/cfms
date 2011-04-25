@@ -36,6 +36,7 @@ class LoginAction extends BSAction {
 			}
 		}
 		$this->request->setError('email', 'ユーザー又はパスワードが違います。');
+		return $this->handleError();
 	}
 
 	public function getDefaultView () {

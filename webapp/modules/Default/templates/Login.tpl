@@ -5,7 +5,7 @@
 @subpackage Default
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-{assign var='body.id' value='LoginFormContainer'}
+{assign var='theme.name' value='login'}
 {include file='AdminHeader'}
 
 {form id="LoginForm"}
