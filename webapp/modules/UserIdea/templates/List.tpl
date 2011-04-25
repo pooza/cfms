@@ -90,6 +90,7 @@
 {literal}
 document.observe('dom:loaded', function () {
   $('account_list_link').observe('click', function() {
+    $('members').innerHTML = 'Loading...';
     new Ajax.Updater('members', '/UserAccount/List');
   });
 });
