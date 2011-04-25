@@ -15,7 +15,7 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 説明:
 {$idea.description|nl2br|default:'(空欄)'}
 
-タグ:
+フォルダ:
 {foreach from=$idea.tags item='tag'}[{$tag.name}] {/foreach}
 
 

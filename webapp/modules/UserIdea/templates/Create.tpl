@@ -44,7 +44,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th>タグ</th>
+			<th>フォルダ</th>
 			<td>
 				{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
 			</td>

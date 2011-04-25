@@ -15,7 +15,7 @@
 {form method="get" style_class='common_block'}
 	<input type="text" name="key" value="{$params.key}" />
 	<select name="tag_id">
-		<option value="">タグ...</option>
+		<option value="">フォルダ...</option>
 		{html_options options=$tags selected=$params.tag_id}
 	</select>
 	<input type="submit" value="抽出" />

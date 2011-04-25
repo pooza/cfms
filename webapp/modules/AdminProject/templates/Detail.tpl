@@ -17,7 +17,7 @@
 <div class="tabs10">
 	<ul id="Tabs">
 		<li><a href="#DetailForm"><span>{$module.record_class|translate}詳細</span></a></li>
-		<li><a href="#TagList"><span>タグ</span></a></li>
+		<li><a href="#TagList"><span>フォルダ</span></a></li>
 		<li><a href="#AccountList"><span>アカウント</span></a></li>
 	</ul>
 </div>

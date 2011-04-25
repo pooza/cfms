@@ -48,7 +48,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>タグ</th>
+				<th>フォルダ</th>
 				<td>
 					<textarea id="tags" name="tags" cols="20" rows="10" />{$params.tags}</textarea>
 					<div class="tag_cloud" id="tags_TagCloud">
