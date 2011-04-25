@@ -66,8 +66,8 @@
 			{/foreach}
 			{if $idea.description}<br/><span class="description">{$idea.description|truncate:48}</span>{/if}
 		</td>
-		<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>
-		<td width="90">{$idea.attachment.type}</td>
+		<td width="60" align="right">{if $idea.attachment}{$idea.attachment.size|binary_size_format}B{/if}</td>
+		<td width="90">{if $idea.attachment}{$idea.attachment.type}{/if}</td>
 		<td width="90" align="center">{$idea.update_date|date_format:'Y.m.d(ww)'}</td>
 		<td width="20" align="center">
 			<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
