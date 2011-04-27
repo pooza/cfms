@@ -13,14 +13,7 @@
 function smarty_function_css_cache ($params, &$smarty) {
 	$params = new BSArray($params);
 	if ($theme = new Theme($params['name'])) {
-		$styleset = $theme->getStyleSet();
-		$element = new BSXHTMLElement('link');
-		$element->setEmptyElement(true);
-		$element->setAttribute('rel', 'stylesheet');
-		$element->setAttribute('charset', $styleset->getEncoding());
-		$element->setAttribute('type', $styleset->getType());
-		$element->setAttribute('href', $styleset->getURL()->getContents());
-		return $element->getContents();
+		return $theme->getStyleSet()->getElement()->getContents();
 	}
 }
 
