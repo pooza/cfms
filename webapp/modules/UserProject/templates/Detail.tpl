@@ -48,7 +48,7 @@
 	</tr>
 	<tr>
 		<td colspan="6">
-			<a href="/{$module.name}/Create?">新しい{$module.record_class|translate}を登録...</a>
+			<a href="/UserIdea/Create?tags={$ideaset.tag.name|urlencode}">新しいファイルを登録...</a>
 		</td>
 	</tr>
 
