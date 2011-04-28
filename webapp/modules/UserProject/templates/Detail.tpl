@@ -72,7 +72,7 @@
 	{/foreach}
 	</table>
 
-	<a href="#tag_index">↑</a>
+	[<a href="#tag_index">↑#tag_index</a>]
 </div>
 {/foreach}
 

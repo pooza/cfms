@@ -10,7 +10,10 @@ class DetailAction extends BSRecordAction {
 	public function execute () {
 		$this->request->setAttribute('project', $this->getRecord());
 		$this->request->setAttribute('theme', $this->getRecord()->getTheme());
-		$this->request->setAttribute('ideasets', $this->getRecord()->getIdeasGrouped());
+		$this->request->setAttribute(
+			'ideasets',
+			$this->getRecord()->getIdeasGrouped($this->request['key'])
+		);
 		return BSView::SUCCESS;
 	}
 
