@@ -9,33 +9,34 @@
 
 <div id="BreadCrumbs">
 	<a href="/UserProject/">プロジェクト一覧</a>
-	<a href="#">プロジェクト:{$project.name}</a>
+	<a href="#">{$action.title}</a>
 </div>
 
 {form method="get" style_class='common_block'}
 	<input type="text" name="key" value="{$params.key}" />
-	<select name="tag_id">
-		<option value="">フォルダ...</option>
-		{html_options options=$tags selected=$params.tag_id}
-	</select>
 	<input type="submit" value="抽出" />
-	<input type="button" value="抽出の解除" onclick="CarrotLib.redirect('{$module.name}','ListAll')" />
 {/form}
 
 {include file='ErrorMessages'}
 
 <h1>{strip}
 	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
-	プロジェクト:{$project.name}
+	{$action.title}
 {/strip}</h1>
 
 <div id="members" class="common_block">
 	[<a id="account_list_link" href="#">メンバー...</a>]
 </div>
 
+<div id="tag_index" class="common_block">
 {foreach from=$ideasets item='ideaset'}
-<div class="tag_entry common_block">
-	<h2>フォルダ:{$ideaset.tag.name}</h2>
+	[<a href="#tag_{$ideaset.tag.name|urlencode}">{$ideaset.tag.name}</a>]
+{/foreach}
+</div>
+
+{foreach from=$ideasets item='ideaset'}
+<div id="tag_{$ideaset.tag.name|urlencode}" class="tag_entry common_block">
+<h2>フォルダ:{$ideaset.tag.name}</h2>
 
 <table class="idea_list">
 	<tr>
@@ -70,6 +71,8 @@
 		</tr>
 	{/foreach}
 	</table>
+
+	<a href="#tag_index">↑</a>
 </div>
 {/foreach}
 
