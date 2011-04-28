@@ -11,6 +11,7 @@
 class Project extends BSRecord {
 	private $accounts;
 	private $ideas;
+	private $ideasGrouped;
 	private $tags;
 	private $credential;
 	private $theme;
@@ -108,6 +109,27 @@ class Project extends BSRecord {
 			$this->ideas->getCriteria()->register('project_id', $this);
 		}
 		return $this->ideas;
+	}
+
+	/**
+	 * アイデアをグループ化して返す
+	 *
+	 * @access public
+	 * @return BSArray グループ化されたアイデアの配列
+	 */
+	public function getIdeasGrouped () {
+		if (!$this->ideasGrouped) {
+			$this->ideasGrouped = new BSArray;
+			foreach ($this->getTags() as $tag) {
+				$this->ideasGrouped[$tag->getID()] = $ideas = new BSArray;
+				$ideas['tag'] = $tag->getAssignValue();
+				$ideas['ideas'] = new BSArray;
+				foreach ($tag->getIdeas() as $idea) {
+					$ideas['ideas'][$idea->getID()] = $idea->getAssignValue();
+				}
+			}
+		}
+		return $this->ideasGrouped;
 	}
 
 	/**
