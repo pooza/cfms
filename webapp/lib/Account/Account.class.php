@@ -36,7 +36,7 @@ class Account extends BSRecord implements BSUserIdentifier {
 		if (BSString::isBlank($values['password'])) {
 			$values->removeParameter('password');
 		} else {
-			$values['password'] = BSCrypt::getDigest($values['password']);
+			$values['password'] = BSCrypt::digest($values['password']);
 		}
 		parent::update($values, $flags);
 	}
@@ -138,7 +138,7 @@ class Account extends BSRecord implements BSUserIdentifier {
 	 */
 	public function auth ($password = null) {
 		return ($this->isVisible()
-			&& (BSCrypt::getDigest($password) == $this['password'])
+			&& (BSCrypt::digest($password) == $this['password'])
 		);
 	}
 

@@ -31,7 +31,7 @@ class AccountHandler extends BSTableHandler {
 	 */
 	public function createRecord ($values, $flags = null) {
 		$values = new BSArray($values);
-		$values['password'] = BSCrypt::getDigest($values['password']);
+		$values['password'] = BSCrypt::digest($values['password']);
 		return parent::createRecord($values, $flags);
 	}
 
