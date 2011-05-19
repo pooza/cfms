@@ -3,8 +3,7 @@
 # @package jp.co.commons.cfms
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 
-- class: BSDeniedUserAgentFilter
-#- class: BSPictogramRequestFilter
+- class: BSPictogramRequestFilter
 - class: BSEncodingRequestFilter
 - class: BSNewLineRequestFilter
 - class: BSCookieFilter
