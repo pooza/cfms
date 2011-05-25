@@ -13,7 +13,7 @@
 function smarty_function_css_cache ($params, &$smarty) {
 	$params = new BSArray($params);
 	if ($theme = new Theme($params['name'])) {
-		return $theme->getStyleSet()->getElement()->getContents();
+		return $theme->getStyleSet()->createElement()->getContents();
 	}
 }
 
