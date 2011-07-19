@@ -26,9 +26,9 @@ class IdeaLog extends BSRecord {
 	 * @access public
 	 * @return mixed アサインすべき値
 	 */
-	public function getAssignValue () {
-		$values = parent::getAssignValue();
-		$values['account'] = $this->getAccount()->getAssignValue();
+	public function getAssignableValues () {
+		$values = parent::getAssignableValues();
+		$values['account'] = $this->getAccount()->getAssignableValues();
 		return $values;
 	}
 }

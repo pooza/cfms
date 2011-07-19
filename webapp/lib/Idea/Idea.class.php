@@ -168,18 +168,18 @@ class Idea extends BSRecord {
 		$mail = new BSSmartyMail;
 		$mail->getRenderer()->setTemplate(get_class($this) . '.mail');
 
-		$values = $this->getAssignValue();
-		$values['project'] = $this->getProject()->getAssignValue();
+		$values = $this->getAssignableValues();
+		$values['project'] = $this->getProject()->getAssignableValues();
 		$values['tags'] = new BSArray;
 		$values['accounts'] = new BSArray;
 		foreach ($this->getTags() as $tag) {
-			$values['tags'][$tag->getID()] = $tag->getAssignValue();
+			$values['tags'][$tag->getID()] = $tag->getAssignableValues();
 		}
 
 		$accounts = new AccountHandler;
 		$accounts->getCriteria()->register('id', $ids);
 		foreach ($accounts as $account) {
-			$values['accounts'][$account->getID()] = $account->getAssignValue();
+			$values['accounts'][$account->getID()] = $account->getAssignableValues();
 		}
 
 		$mail->getRenderer()->setAttribute('idea', $values);
@@ -229,8 +229,8 @@ class Idea extends BSRecord {
 	 * @access protected
 	 * @return BSArray ファイル属性の配列
 	 */
-	protected function getFullAttributes () {
-		$values = parent::getFullAttributes();
+	protected function getSerializableValues () {
+		$values = parent::getSerializableValues();
 		if ($this->getAttachment('attachment')) {
 			$values['is_image'] = $this->isImage();
 		}

@@ -71,7 +71,7 @@ class Theme implements BSAssignable {
 	 * @access public
 	 * @return mixed アサインすべき値
 	 */
-	public function getAssignValue () {
+	public function getAssignableValues () {
 		return new BSArray(array(
 			'name' => $this->getName(),
 		));

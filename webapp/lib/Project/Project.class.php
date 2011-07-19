@@ -123,7 +123,7 @@ class Project extends BSRecord {
 			$this->ideasGrouped = new BSArray;
 			foreach ($this->getTags() as $tag) {
 				$this->ideasGrouped[$tag->getID()] = $ideas = new BSArray;
-				$ideas['tag'] = $tag->getAssignValue();
+				$ideas['tag'] = $tag->getAssignableValues();
 				$ideas['ideas'] = new BSArray;
 
 				$table = clone $tag->getIdeas();
@@ -136,7 +136,7 @@ class Project extends BSRecord {
 					$table->getCriteria()->push($criteria);
 				}
 				foreach ($table as $idea) {
-					$ideas['ideas'][$idea->getID()] = $idea->getAssignValue();
+					$ideas['ideas'][$idea->getID()] = $idea->getAssignableValues();
 				}
 			}
 		}
@@ -215,19 +215,19 @@ class Project extends BSRecord {
 	 * @access protected
 	 * @return BSArray ファイル属性の配列
 	 */
-	protected function getFullAttributes () {
-		$values = parent::getFullAttributes();
+	protected function getSerializableValues () {
+		$values = parent::getSerializableValues();
 		$values['tags'] = new BSArray;
 		foreach ($this->getTags() as $tag) {
-			$values['tags'][$tag->getID()] = $tag->getAssignValue();
+			$values['tags'][$tag->getID()] = $tag->getAssignableValues();
 		}
 		$values['ideas'] = new BSArray;
 		foreach ($this->getIdeas() as $idea) {
-			$values['ideas'][$idea->getID()] = $idea->getAssignValue();
+			$values['ideas'][$idea->getID()] = $idea->getAssignableValues();
 		}
 		$values['accounts'] = new BSArray;
 		foreach ($this->getAccounts() as $idea) {
-			$values['accounts'][$idea->getID()] = $idea->getAssignValue();
+			$values['accounts'][$idea->getID()] = $idea->getAssignableValues();
 		}
 		return $values;
 	}
