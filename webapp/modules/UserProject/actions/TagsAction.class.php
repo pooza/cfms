@@ -17,6 +17,10 @@ class TagsAction extends BSRecordAction {
 		return BSView::SUCCESS;
 	}
 
+	public function handleError () {
+		return $this->execute();
+	}
+
 	public function deny () {
 		$this->user->setAttribute('requested_url', $this->request->getURL()->getContents());
 		return parent::deny();

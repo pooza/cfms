@@ -17,32 +17,36 @@
 	<input type="submit" value="抽出" />
 {/form}
 
-{include file='ErrorMessages'}
-
 <h1>{strip}
 	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
 	{$action.title}
 {/strip}</h1>
 
-<div id="members" class="common_block">
-	[<a id="account_list_link" href="#">メンバー...</a>]
-</div>
+<div id="members" class="common_block"></div>
 
 <div id="tag_index" class="common_block">
-{foreach from=$ideasets item='ideaset'}
-	[<a href="#tag_{$ideaset.tag.name|urlencode}">{$ideaset.tag.name}</a>]
-{foreachelse}
-	(フォルダ未登録)
-{/foreach}
+	<h2>tag_index</h2>
+	{foreach from=$ideasets item='ideaset'}
+		[<a href="#tag_{$ideaset.tag.name|urlencode}">{$ideaset.tag.name}</a>]
+	{foreachelse}
+		(フォルダ未登録)
+	{/foreach}
 </div>
 <div>
 	[<a href="/{$module.name}/Wall/{$project.id}">ウォールビュー</a>]
 	[<a href="/{$module.name}/Tags/{$project.id}">フォルダビュー</a>]
 </div>
 
+{form module='UserTag' action='Create' style_class='common_block'}
+	<h2>フォルダ登録</h2>
+	{include file='ErrorMessages'}
+	<input type="text" name="name" />
+	<input type="submit" value="登録" />
+{/form}
+
 {foreach from=$ideasets item='ideaset'}
 <div id="tag_{$ideaset.tag.name|urlencode}" class="tag_entry common_block">
-<h2>フォルダ:{$ideaset.tag.name}</h2>
+<h2><a href="/UserTag/Detail/{$ideaset.tag.id}">フォルダ:{$ideaset.tag.name}</a></h2>
 
 <table class="idea_list">
 	<tr>
@@ -65,7 +69,7 @@
 				{if $idea.is_image}{image_cache class='Idea' id=$idea.id size='attachment' pixel=32}{/if}
 			</td>
 			<td width="300">
-				<a href="/UserIdea/Wall/{$idea.id}">{$idea.name}</a>
+				<a href="/UserIdea/Detail/{$idea.id}">{$idea.name}</a>
 				{if $idea.body}<br/><span class="body">{$idea.body|truncate:48}</span>{/if}
 			</td>
 			<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>
@@ -85,10 +89,7 @@
 <script type="text/javascript">
 {literal}
 document.observe('dom:loaded', function () {
-  $('account_list_link').observe('click', function() {
-    $('members').innerHTML = 'Loading...';
-    new Ajax.Updater('members', '/UserAccount/List');
-  });
+  new Ajax.Updater('members', '/UserAccount/List');
 });
 {/literal}
 </script>

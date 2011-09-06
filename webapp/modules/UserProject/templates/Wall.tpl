@@ -17,9 +17,7 @@
 	{$action.title}
 {/strip}</h1>
 
-<div id="members" class="common_block">
-	[<a id="account_list_link" href="#">メンバー...</a>]
-</div>
+<div id="members" class="common_block"></div>
 
 <div>
 	[<a href="/{$module.name}/Wall/{$project.id}">ウォールビュー</a>]
@@ -31,10 +29,7 @@
 <script type="text/javascript">
 {literal}
 document.observe('dom:loaded', function () {
-  $('account_list_link').observe('click', function() {
-    $('members').innerHTML = 'Loading...';
-    new Ajax.Updater('members', '/UserAccount/List');
-  });
+  new Ajax.Updater('members', '/UserAccount/List');
 });
 {/literal}
 </script>
