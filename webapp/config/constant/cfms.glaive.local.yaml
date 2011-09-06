@@ -13,15 +13,8 @@ admin:
   networks:
     - 192.168.102.0/24
 
-app:
-  process:
-    uid: www
-
 pdo:
   default:
     dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
     password:
-
-mysql:
-  dir: /opt/local/lib/mysql5

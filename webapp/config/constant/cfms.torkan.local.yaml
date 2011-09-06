@@ -3,8 +3,8 @@
 # @package jp.co.commons.cfms
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 
-root_url: http://cfms.toroid.local/
-root_url_https: http://cfms.toroid.local/
+root_url: http://cfms.torkan.local/
+root_url_https: http://cfms.torkan.local/
 debug: yes
 
 admin:
@@ -15,15 +15,8 @@ admin:
     - 192.168.1.0/24
     - 192.168.101.0/24
 
-app:
-  process:
-    uid: www
-
 pdo:
   default:
     dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
     password:
-
-mysql:
-  dir: /opt/local/lib/mysql5
