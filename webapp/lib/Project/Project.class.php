@@ -245,6 +245,22 @@ class Project extends BSRecord {
 		}
 		return $values;
 	}
+
+	/**
+	 * リダイレクト対象
+	 *
+	 * @access public
+	 * @return BSURL
+	 */
+	public function getURL () {
+		if (!$this->url) {
+			$this->url = BSURL::create(null, 'carrot');
+			$this->url['module'] = 'UserProject';
+			$this->url['action'] = 'Wall';
+			$this->url['record'] = $this;
+		}
+		return $this->url;
+	}
 }
 
 /* vim:set tabstop=4 */
