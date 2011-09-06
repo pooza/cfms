@@ -38,6 +38,7 @@ class ListAction extends BSPaginateTableAction {
 
 	public function execute () {
 		$this->request->setAttribute('projects', $this->getRows());
+		$this->getModule()->setListAction($this);
 		return BSView::SUCCESS;
 	}
 }

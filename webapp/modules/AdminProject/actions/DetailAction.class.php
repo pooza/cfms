@@ -40,6 +40,7 @@ class DetailAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
+		$this->request->setAttribute('account', $this->getModule()->getAccount());
 		return BSView::INPUT;
 	}
 

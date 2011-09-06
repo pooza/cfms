@@ -35,6 +35,7 @@ class ListByAccountAction extends BSPaginateTableAction {
 
 	public function execute () {
 		$this->request->setAttribute('projects', $this->getRows());
+		$this->getModule()->setListAction($this);
 		if ($account = BSModule::getInstance('AdminAccount')->getRecord()) {
 			$this->request['projects'] = new BSArray;
 			foreach ($account->getProjects()->getIDs() as $id) {

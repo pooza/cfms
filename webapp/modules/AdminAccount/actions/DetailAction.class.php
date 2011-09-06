@@ -41,6 +41,7 @@ class DetailAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
+		$this->request->setAttribute('project', $this->getModule()->getProject());
 		return BSView::INPUT;
 	}
 

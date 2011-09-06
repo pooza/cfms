@@ -8,7 +8,12 @@
 {include file='AdminHeader'}
 
 <div id="BreadCrumbs">
-	<a href="/{$module.name}/">{$module.record_class|translate}一覧</a>
+	{if $project}
+		<a href="/AdminProject/">プロジェクト一覧</a>
+		<a href="/AdminProject/Detail/{$project.id}?pane=AccountList">プロジェクト:{$project.name}</a>
+	{else}
+		<a href="/{$module.name}/">{$module.record_class|translate}一覧</a>
+	{/if}
 	<a href="#">{$action.title}</a>
 </div>
 
@@ -17,7 +22,7 @@
 <div class="tabs10">
 	<ul id="Tabs">
 		<li><a href="#DetailForm"><span>{$module.record_class|translate}詳細</span></a></li>
-		<li><a href="#ProjectList"><span>プロジェクト</span></a></li>
+		{if !$project}<li><a href="#ProjectList"><span>プロジェクト</span></a></li>{/if}
 	</ul>
 </div>
 
@@ -113,7 +118,7 @@
 	{/form}
 </div>
 
-<div id="ProjectList" class="panel"></div>
+{if !$project}<div id="ProjectList" class="panel"></div>{/if}
 
 <script type="text/javascript">
 document.observe('dom:loaded', function(){ldelim}

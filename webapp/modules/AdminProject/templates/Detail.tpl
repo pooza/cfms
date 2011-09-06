@@ -8,7 +8,12 @@
 {include file='AdminHeader'}
 
 <div id="BreadCrumbs">
-	<a href="/{$module.name}/">{$module.record_class|translate}一覧</a>
+	{if $account}
+		<a href="/AdminAccount/">アカウント一覧</a>
+		<a href="/AdminAccount/Detail/{$account.id}?pane=ProjectList">アカウント:{$account.company} {$account.name}</a>
+	{else}
+		<a href="/{$module.name}/">{$module.record_class|translate}一覧</a>
+	{/if}
 	<a href="#">{$action.title}</a>
 </div>
 
@@ -18,7 +23,7 @@
 	<ul id="Tabs">
 		<li><a href="#DetailForm"><span>{$module.record_class|translate}詳細</span></a></li>
 		<li><a href="#TagList"><span>フォルダ</span></a></li>
-		<li><a href="#AccountList"><span>アカウント</span></a></li>
+		{if !$account}<li><a href="#AccountList"><span>アカウント</span></a></li>{/if}
 	</ul>
 </div>
 
@@ -102,7 +107,7 @@
 </div>
 
 <div id="TagList" class="panel"></div>
-<div id="AccountList" class="panel"></div>
+{if !$account}<div id="AccountList" class="panel"></div>{/if}
 
 <script type="text/javascript">
 document.observe('dom:loaded', function () {ldelim}
