@@ -31,6 +31,7 @@ class CreateAction extends BSRecordAction {
 			'name_read' => $this->request['name_read'],
 			'body' => $this->request['body'],
 			'project_id' => $this->getModule()->getProject()->getID(),
+			'account_id' => AccountHandler::getCurrent()->getID(),
 		);
 	}
 

@@ -104,23 +104,6 @@ class Idea extends BSRecord {
 	}
 
 	/**
-	 * タグクラウドを返す
-	 *
-	 * @access public
-	 * @return BSArray タグクラウド
-	 */
-	public function getTagCloud () {
-		$cloud = new BSArray;
-		$ids = $this->getTags()->getIDs();
-		foreach ($this->getProject()->getTags() as $tag) {
-			$row = $tag->getAttributes();
-			$row['is_selected'] = $ids->isContain($tag->getID());
-			$cloud[$tag->getID()] = $row;
-		}
-		return $cloud;
-	}
-
-	/**
 	 * メールを送信
 	 *
 	 * @access public

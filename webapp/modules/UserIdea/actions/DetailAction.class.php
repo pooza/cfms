@@ -38,7 +38,7 @@ class DetailAction extends BSRecordAction {
 			$this->database->beginTransaction();
 			$this->getRecord()->clearImageCache('attachment');
 			$this->updateRecord();
-			$this->getRecord()->updateTags(TagHandler::split($this->request['tags']));
+			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
@@ -49,16 +49,15 @@ class DetailAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
-		$tags = new BSArray;
+		$this->request['tags'] = new BSArray;
 		foreach ($this->getRecord()->getTags() as $tag) {
-			$tags[] = $tag->getName();
+			$this->request['tags'][] = $tag->getName();
 		}
-		$this->request['tags'] = $tags->join("\n");
 
 		$this->request->setAttribute('project', $this->getModule()->getProject());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
+		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
 		$this->request->setAttribute('accounts', $this->getModule()->getProject()->getAccounts());
-		$this->request->setAttribute('tag_cloud', $this->getRecord()->getTagCloud());
 		return BSView::INPUT;
 	}
 

@@ -42,12 +42,7 @@
 		<tr>
 			<th>フォルダ</th>
 			<td>
-				<textarea id="tags" name="tags" cols="20" rows="10" />{$params.tags}</textarea>
-				<div class="tag_cloud" id="tags_TagCloud">
-					{foreach from=$tag_cloud item='tag'}
-						<a href="javascript:void(CFMSLib.toggleTag($('tags'), '{$tag.name}'))" class="{if $tag.is_selected}selected{/if}">{$tag.name}</a>
-					{/foreach}
-				</div>
+				{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
 			</td>
 		</tr>
 		<tr>
