@@ -1,12 +1,12 @@
 <?php
 /**
- * Detailアクション
+ * Groupsアクション
  *
  * @package jp.co.commons.cfms
  * @subpackage UserProject
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
-class DetailAction extends BSRecordAction {
+class GroupsAction extends BSRecordAction {
 	public function execute () {
 		$this->request->setAttribute('project', $this->getRecord());
 		$this->request->setAttribute('theme', $this->getRecord()->getTheme());

@@ -30,7 +30,7 @@
 {foreach from=$projects item='project'}
 	<tr class="{$project.status}">
 		<td width="32" align="center">{image_cache id=$project.id size='logo' pixel=32}</td>
-		<td width="300"><a href="/{$module.name}/Detail/{$project.id}">{$project.name}</a></td>
+		<td width="300"><a href="/{$module.name}/Wall/{$project.id}">{$project.name}</a></td>
 		<td width="180" align="center">
 			{if $project.start_date||$project.end_date}
 				{$project.start_date|date_format:'Y.m.d'}〜{$project.end_date|date_format:'Y.m.d'}
