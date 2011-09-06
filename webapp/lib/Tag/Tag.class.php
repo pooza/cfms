@@ -28,7 +28,7 @@ class Tag extends BSRecord {
 	 * @return boolean 削除可能ならTrue
 	 */
 	protected function isDeletable () {
-		return true;
+		return 1 < $this->getProject()->getTags()->count();
 	}
 
 	/**

@@ -18,7 +18,6 @@
 <div class="tabs10">
 	<ul id="Tabs">
 		<li><a href="#DetailForm"><span>{$module.record_class|translate}詳細</span></a></li>
-		<li><a href="#MailForm"><span>通知</span></a></li>
 		<li><a href="#LogList"><span>履歴</span></a></li>
 	</ul>
 </div>
@@ -97,9 +96,7 @@
 			</tr>
 		</table>
 	{/form}
-</div>
 
-<div id="MailForm" class="panel">
 	<table class="detail">
 		<tr>
 			<th>宛先</th>
