@@ -73,6 +73,20 @@ class Project extends BSRecord {
 	}
 
 	/**
+	 * 規定タグを作成
+	 *
+	 * @access public
+	 */
+	public function createDefaultTag () {
+		$values = new BSArray(array(
+			'name' => $this['name'],
+			'name_en' => $this['name_en'],
+			'project_id' => $this->getID(),
+		));
+		BSTableHandler::create('tag')->createRecord($values);
+	}
+
+	/**
 	 * アカウントとの紐づけを更新
 	 *
 	 * @access public

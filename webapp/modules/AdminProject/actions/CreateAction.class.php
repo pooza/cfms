@@ -30,6 +30,7 @@ class CreateAction extends BSRecordAction {
 		try {
 			$this->database->beginTransaction();
 			$this->updateRecord();
+			$this->getRecord()->createDefaultTag();
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();

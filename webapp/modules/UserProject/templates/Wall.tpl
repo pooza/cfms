@@ -12,13 +12,6 @@
 	<a href="#">{$action.title}</a>
 </div>
 
-{form method="get" style_class='common_block'}
-	<input type="text" name="key" value="{$params.key}" />
-	<input type="submit" value="抽出" />
-{/form}
-
-{include file='ErrorMessages'}
-
 <h1>{strip}
 	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
 	{$action.title}
@@ -28,19 +21,23 @@
 	[<a id="account_list_link" href="#">メンバー...</a>]
 </div>
 
-<div id="tag_index" class="common_block">
-{foreach from=$ideasets item='ideaset'}
-	[<a href="#tag_{$ideaset.tag.name|urlencode}">{$ideaset.tag.name}</a>]
-{foreachelse}
-	(フォルダ未登録)
-{/foreach}
-</div>
 <div>
 	[<a href="/{$module.name}/Wall/{$project.id}">ウォールビュー</a>]
 	[<a href="/{$module.name}/Tags/{$project.id}">フォルダビュー</a>]
 </div>
 
 <h2>ウォール</h2>
+
+<script type="text/javascript">
+{literal}
+document.observe('dom:loaded', function () {
+  $('account_list_link').observe('click', function() {
+    $('members').innerHTML = 'Loading...';
+    new Ajax.Updater('members', '/UserAccount/List');
+  });
+});
+{/literal}
+</script>
 
 {include file='UserFooter'}
 
