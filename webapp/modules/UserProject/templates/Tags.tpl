@@ -31,7 +31,13 @@
 <div id="tag_index" class="common_block">
 {foreach from=$ideasets item='ideaset'}
 	[<a href="#tag_{$ideaset.tag.name|urlencode}">{$ideaset.tag.name}</a>]
+{foreachelse}
+	(フォルダ未登録)
 {/foreach}
+</div>
+<div>
+	[<a href="/{$module.name}/Wall/{$project.id}">ウォールビュー</a>]
+	[<a href="/{$module.name}/Tags/{$project.id}">フォルダビュー</a>]
 </div>
 
 {foreach from=$ideasets item='ideaset'}
