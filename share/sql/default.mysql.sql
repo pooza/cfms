@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.53, for apple-darwin10.5.0 (i386)
+-- MySQL dump 10.13  Distrib 5.1.57, for apple-darwin11.0.0 (i386)
 --
 -- Host: localhost    Database: cfms
 -- ------------------------------------------------------
--- Server version	5.1.53
+-- Server version	5.1.57-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,13 +87,21 @@ CREATE TABLE `idea` (
   `name_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) DEFAULT NULL,
   `project_id` smallint(5) unsigned NOT NULL,
-  `description` text,
+  `account_id` smallint(5) unsigned NOT NULL,
+  `parent_idea_id` int(10) unsigned DEFAULT NULL,
+  `body` text,
+  `is_important` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `status` varchar(64) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
+  `delete_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `project_id` (`project_id`),
-  CONSTRAINT `idea_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE
+  KEY `account_id` (`account_id`),
+  KEY `parent_idea_id` (`parent_idea_id`),
+  CONSTRAINT `idea_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `idea_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`),
+  CONSTRAINT `idea_ibfk_3` FOREIGN KEY (`parent_idea_id`) REFERENCES `idea` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -104,36 +112,6 @@ CREATE TABLE `idea` (
 LOCK TABLES `idea` WRITE;
 /*!40000 ALTER TABLE `idea` DISABLE KEYS */;
 /*!40000 ALTER TABLE `idea` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `idea_log`
---
-
-DROP TABLE IF EXISTS `idea_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `idea_log` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `idea_id` int(10) unsigned NOT NULL,
-  `account_id` smallint(5) unsigned NOT NULL,
-  `body` text NOT NULL,
-  `create_date` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idea_id` (`idea_id`),
-  KEY `account_id` (`account_id`),
-  CONSTRAINT `idea_log_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `idea_log_ibfk_1` FOREIGN KEY (`idea_id`) REFERENCES `idea` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `idea_log`
---
-
-LOCK TABLES `idea_log` WRITE;
-/*!40000 ALTER TABLE `idea_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `idea_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -232,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-07 21:34:42
+-- Dump completed on 2011-09-06 20:16:53

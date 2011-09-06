@@ -66,7 +66,7 @@
 			</td>
 			<td width="300">
 				<a href="/UserIdea/Wall/{$idea.id}">{$idea.name}</a>
-				{if $idea.description}<br/><span class="description">{$idea.description|truncate:48}</span>{/if}
+				{if $idea.body}<br/><span class="body">{$idea.body|truncate:48}</span>{/if}
 			</td>
 			<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>
 			<td width="90">{$idea.attachment.type}</td>

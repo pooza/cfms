@@ -40,7 +40,7 @@
 		<tr>
 			<th>説明</th>
 			<td>
-				<textarea name="description" cols="60" rows="5" />{$params.description}</textarea>
+				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
 			</td>
 		</tr>
 		<tr>

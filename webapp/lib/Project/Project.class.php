@@ -144,7 +144,7 @@ class Project extends BSRecord {
 				if (!BSString::isBlank($keyword)) {
 					$criteria = $this->createCriteriaSet();
 					$criteria->setGlue('or');
-					foreach (array('name', 'name_en', 'name_read', 'description') as $field) {
+					foreach (array('name', 'name_en', 'name_read', 'body') as $field) {
 						$criteria->register($field, '%' . $keyword . '%', 'like');
 					}
 					$table->getCriteria()->push($criteria);

@@ -13,7 +13,7 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 フリガナ: {$idea.name_read|default:'(空欄)'}
 
 説明:
-{$idea.description|nl2br|default:'(空欄)'}
+{$idea.body|nl2br|default:'(空欄)'}
 
 フォルダ:
 {foreach from=$idea.tags item='tag'}[{$tag.name}] {/foreach}

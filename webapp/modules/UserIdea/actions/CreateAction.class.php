@@ -29,7 +29,7 @@ class CreateAction extends BSRecordAction {
 			'name' => $this->request['name'],
 			'name_en' => $this->request['name_en'],
 			'name_read' => $this->request['name_read'],
-			'description' => $this->request['description'],
+			'body' => $this->request['body'],
 			'project_id' => $this->getModule()->getProject()->getID(),
 		);
 	}

@@ -21,44 +21,6 @@ class IdeaHandler extends BSTableHandler {
 	}
 
 	/**
-	 * レコード作成
-	 *
-	 * @access public
-	 * @param mixed $values 値
-	 * @param integer $flags フラグのビット列
-	 *   BSDatabase::WITHOUT_LOGGING ログを残さない
-	 * @return string レコードの主キー
-	 */
-	public function createRecord ($values, $flags = null) {
-		$id = parent::createRecord($values, $flags);
-		$idea = $this->getRecord($id);
-		if (!($flags & BSDatabase::WITHOUT_LOGGING)) {
-			if ($account = AccountHandler::getCurrent()) {
-				$values = array(
-					'idea_id' => $idea->getID(),
-					'account_id' => $account->getID(),
-					'body' => '作成しました。',
-				);
-				$idea->getLogs()->createRecord($values);
-			}
-		}
-		return $id;
-	}
-
-	/**
-	 * 子クラスを返す
-	 *
-	 * @access public
-	 * @return BSArray 子クラス名の配列
-	 * @static
-	 */
-	public function getChildClasses () {
-		return new BSArray(array(
-			'IdeaLog',
-		));
-	}
-
-	/**
 	 * 画像のサイズ名を全てを返す
 	 *
 	 * @access public
