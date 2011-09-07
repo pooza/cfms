@@ -129,10 +129,9 @@ class Project extends BSRecord {
 	 * アイデアをグループ化して返す
 	 *
 	 * @access public
-	 * @param string $keyword 検索キーワード
 	 * @return BSArray グループ化されたアイデアの配列
 	 */
-	public function getIdeasGrouped ($keyword = null) {
+	public function getIdeasGrouped () {
 		if (!$this->ideasGrouped) {
 			$this->ideasGrouped = new BSArray;
 			foreach ($this->getTags() as $tag) {
@@ -141,14 +140,8 @@ class Project extends BSRecord {
 				$ideas['ideas'] = new BSArray;
 
 				$table = clone $tag->getIdeas();
-				if (!BSString::isBlank($keyword)) {
-					$criteria = $this->createCriteriaSet();
-					$criteria->setGlue('or');
-					foreach (array('name', 'name_en', 'name_read', 'body') as $field) {
-						$criteria->register($field, '%' . $keyword . '%', 'like');
-					}
-					$table->getCriteria()->push($criteria);
-				}
+				$table->getCriteria()->register('delete_date', null);
+				$table->query();
 				foreach ($table as $idea) {
 					$ideas['ideas'][$idea->getID()] = $idea->getAssignableValues();
 				}
