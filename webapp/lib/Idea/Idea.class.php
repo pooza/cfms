@@ -10,6 +10,8 @@
  */
 class Idea extends BSRecord {
 	private $tags;
+	private $parentIdea;
+	private $comments;
 
 	/**
 	 * 更新可能か？
@@ -63,6 +65,46 @@ class Idea extends BSRecord {
 			'delete_date' => BSDate::getNow('Y-m-d H:i:s'),
 			'status' => 'hide',
 		));
+		$this->clearTags();
+	}
+
+	/**
+	 * 返信を投稿
+	 *
+	 * @access public
+	 * @params Account $account 発言者
+	 * @params string $body 本文
+	 * @return mixed 作成されたアイデアの主キー
+	 */
+	public function reply (Account $account, $body) {
+		$this->touch();
+		$values = new BSArray(array(
+			"name" => 'Re:' . $this['name'],
+			'body' => $body,
+			'parent_idea_id' => $this->getID(),
+			'project_id' => $this->getProject()->getID(),
+			'account_id' => $account->getID(),
+		));
+		if (!BSString::isBlank($this['name_en'])) {
+			$values['name_en'] = 'Re:' . $this['name_en'];
+		}
+		return $this->getTable()->createRecord($values);
+	}
+
+	/**
+	 * コメントを全て返す
+	 *
+	 * @access public
+	 * @return IdeaHandler 全てのコメントを含んだテーブル
+	 */
+	public function getComments () {
+		if (!$this->comments) {
+			$this->comments = new IdeaHandler;
+			$this->comments->getCriteria()->register('status', 'show');
+			$this->comments->getCriteria()->register('delete_date', null);
+			$this->comments->getCriteria()->register('parent_idea_id', $this);
+		}
+		return $this->comments;
 	}
 
 	/**
@@ -73,6 +115,19 @@ class Idea extends BSRecord {
 	 */
 	public function getParent () {
 		return $this->getProject();
+	}
+
+	/**
+	 * 親アイデアを返す
+	 *
+	 * @access public
+	 * @return Idea 親アイデア
+	 */
+	public function getParentIdea () {
+		if (!$this->parentIdea && ($id = $this['parent_idea_id'])) {
+			$this->parentIdea = BSTableHandler::create('idea')->getRecord($id);
+		}
+		return $this->parentIdea;
 	}
 
 	/**
@@ -135,6 +190,15 @@ class Idea extends BSRecord {
 
 		$this->tags = null;
 		$this->touch();
+	}
+
+	/**
+	 * 全てのタグとの関連を削除
+	 *
+	 * @access public
+	 */
+	public function clearTags () {
+		$this->updateTags(new BSArray);
 	}
 
 	/**
@@ -211,9 +275,10 @@ class Idea extends BSRecord {
 	protected function getSerializableValues () {
 		$values = parent::getSerializableValues();
 		$values['account'] = $this->getAccount()->getAssignableValues();
-		if ($this->getAttachment('attachment')) {
-			$values['is_image'] = $this->isImage();
+		if ($parent = $this->getParentIdea()) {
+			$values['parent'] = $parent->getAssignableValues();
 		}
+		$values['is_image'] = $this->getAttachment('attachment') && $this->isImage();
 		return $values;
 	}
 }

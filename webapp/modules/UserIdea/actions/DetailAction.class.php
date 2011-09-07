@@ -55,6 +55,12 @@ class DetailAction extends BSRecordAction {
 			$this->request['tags'][] = $tag->getName();
 		}
 
+		$comments = new BSArray;
+		foreach ($this->getRecord()->getComments() as $comment) {
+			$comments[$comment->getID()] = $comment->getAssignableValues();
+		}
+		$this->request->setAttribute('comments', $comments);
+
 		$this->request->setAttribute('project', $this->getModule()->getProject());
 		$this->request->setAttribute('list_action', $this->getModule()->getListAction());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());

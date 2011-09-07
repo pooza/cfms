@@ -14,8 +14,7 @@
 </div>
 
 <h1>{$action.title}</h1>
-{include file='ErrorMessages'}
-{form attachable=true}
+{if $idea.parent}
 	<table class="detail">
 		<tr>
 			<th>{$module.record_class|translate}ID</th>
@@ -23,55 +22,32 @@
 		</tr>
 		<tr>
 			<th>名前</th>
-			<td>
-				<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
-			</td>
+			<td>{$idea.name|default:'(空欄)'}</td>
 		</tr>
 		<tr>
 			<th>名前(英)</th>
-			<td>
-				<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-			</td>
+			<td>{$idea.name_en|default:'(空欄)'}</td>
 		</tr>
 		<tr>
 			<th>フリガナ</th>
-			<td>
-				<input type="text" name="name_read" value="{$params.name_read}" size="40" maxlength="64" />
-			</td>
-		</tr>
-		<tr>
-			<th>フォルダ</th>
-			<td>
-				{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
-			</td>
+			<td>{$idea.name_read|default:'(空欄)'}</td>
 		</tr>
 		<tr>
 			<th>本文</th>
-			<td>
-				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
-			</td>
-		</tr>
-		<tr>
-			<th>ファイル</th>
-			<td>
-				<input type="file" name="attachment" size="20" /><br/>
-				{if $idea.has_attachment}
-				<div class="common_block">
-					{if $idea.is_image}
-						{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
-					{/if}
-					<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
-					{$idea.attachment.type}
-					{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
-				</div>
-				{/if}
-			</td>
+			<td>{$idea.body|nl2br|default:'(空欄)'}</td>
 		</tr>
 		<tr>
 			<th>作成者</th>
 			<td>
 				{image_cache class='Account' id=$idea.account.id size='icon' pixel=16}
 				{$idea.account.company} {$idea.account.name}
+			</td>
+		</tr>
+		<tr>
+			<th>親</th>
+			<td>
+				<a href="/UserIdea/Detail/{$idea.parent.id}">{$idea.parent.name}</a><br/>
+				{$idea.parent.body|nl2br}
 			</td>
 		</tr>
 		<tr>
@@ -84,13 +60,91 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="更新" />
 				<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
 			</td>
 		</tr>
 	</table>
-{/form}
+{else}
+	{form attachable=true}
+		{include file='ErrorMessages'}
+		<table class="detail">
+			<tr>
+				<th>{$module.record_class|translate}ID</th>
+				<td>{$idea.id}</td>
+			</tr>
+			<tr>
+				<th>名前</th>
+				<td>
+					<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
+				</td>
+			</tr>
+			<tr>
+				<th>名前(英)</th>
+				<td>
+					<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
+				</td>
+			</tr>
+			<tr>
+				<th>フリガナ</th>
+				<td>
+					<input type="text" name="name_read" value="{$params.name_read}" size="40" maxlength="64" />
+				</td>
+			</tr>
+			<tr>
+				<th>フォルダ</th>
+				<td>
+					{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+				</td>
+			</tr>
+			<tr>
+				<th>本文</th>
+				<td>
+					<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>ファイル</th>
+				<td>
+					<input type="file" name="attachment" size="20" /><br/>
+					{if $idea.has_attachment}
+					<div class="common_block">
+						{if $idea.is_image}
+							{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
+						{/if}
+						<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
+						{$idea.attachment.type}
+						{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
+					</div>
+					{/if}
+				</td>
+			</tr>
+			<tr>
+				<th>作成者</th>
+				<td>
+					{image_cache class='Account' id=$idea.account.id size='icon' pixel=16}
+					{$idea.account.company} {$idea.account.name}
+				</td>
+			</tr>
+			<tr>
+				<th>作成日</th>
+				<td>{$idea.create_date|date_format:'Y年 n月j日 (ww) H:i:s'}</td>
+			</tr>
+			<tr>
+				<th>更新日</th>
+				<td>{$idea.update_date|date_format:'Y年 n月j日 (ww) H:i:s'}</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="更新" />
+					<input type="button" value="この{$module.record_class|translate}を削除..." onclick="CarrotLib.confirmDelete('{$module.name}','Delete','{$module.record_class|translate}')" />
+				</td>
+			</tr>
+		</table>
+	{/form}
+{/if}
 
+{if $idea.parent}
+{else}
 <table class="detail">
 	<tr>
 		<th>宛先</th>
@@ -108,7 +162,6 @@
 		</td>
 	</tr>
 </table>
-
 <script type="text/javascript">
 {literal}
 document.observe('dom:loaded', function () {
@@ -150,6 +203,32 @@ document.observe('dom:loaded', function () {
 });
 {/literal}
 </script>
+
+{form action='Comment'}
+	<table class="detail">
+		<tr>
+			<th>コメント</th>
+			<td>
+				{foreach from=$comments item='comment'}
+					<div class="comment_entry common_block">
+						{$comment.body|nl2br}<br/>
+						<a href="/UserIdea/Detail/{$comment.id}">{$comment.create_date|date_format:'Y-m-d(ww) H:i'}</a>
+						{image_cache class='Account' id=$comment.account.id size='icon' pixel=16}
+						{$comment.account.company} {$comment.account.name}
+					</div>
+				{/foreach}
+
+				<textarea name="body" cols="48" rows="5"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="送信" />
+			</td>
+		</tr>
+	</table>
+{/form}
+{/if}
 
 {include file='UserFooter'}
 
