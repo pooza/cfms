@@ -38,7 +38,7 @@ class Idea extends BSRecord {
 		parent::update($values, $flags);
 
 		if ($flags & IdeaHandler::WITH_BACKUP) {
-			$this->getTable()->createRecord($prev, IdeaHandler::WITH_BACKUP);
+			$this->getTable()->createRecord($prev);
 		}
 	}
 
@@ -63,6 +63,7 @@ class Idea extends BSRecord {
 		}
 		$this->update(array(
 			'delete_date' => BSDate::getNow('Y-m-d H:i:s'),
+			'update_date' => $this['update_date'],
 			'status' => 'hide',
 		));
 		$this->clearTags();
@@ -77,7 +78,6 @@ class Idea extends BSRecord {
 	 * @return mixed 作成されたアイデアの主キー
 	 */
 	public function reply (Account $account, $body) {
-		$this->touch();
 		$values = new BSArray(array(
 			"name" => 'Re:' . $this['name'],
 			'body' => $body,
@@ -100,8 +100,6 @@ class Idea extends BSRecord {
 	public function getComments () {
 		if (!$this->comments) {
 			$this->comments = new IdeaHandler;
-			$this->comments->getCriteria()->register('status', 'show');
-			$this->comments->getCriteria()->register('delete_date', null);
 			$this->comments->getCriteria()->register('parent_idea_id', $this);
 		}
 		return $this->comments;
@@ -173,11 +171,7 @@ class Idea extends BSRecord {
 	 * @params BSArray $names タグ名の配列
 	 */
 	public function updateTags (BSArray $names) {
-		$criteria = $this->createCriteriaSet();
-		$criteria->register('idea_id', $this);
-		$sql = BSSQL::getDeleteQueryString('idea_tag', $criteria);
-		$this->getDatabase()->exec($sql);
-
+		$this->clearTags();
 		$tags = new TagHandler;
 		$names->uniquize();
 		foreach ($names as $name) {
@@ -198,7 +192,10 @@ class Idea extends BSRecord {
 	 * @access public
 	 */
 	public function clearTags () {
-		$this->updateTags(new BSArray);
+		$criteria = $this->createCriteriaSet();
+		$criteria->register('idea_id', $this);
+		$sql = BSSQL::getDeleteQueryString('idea_tag', $criteria);
+		$this->getDatabase()->exec($sql);
 	}
 
 	/**

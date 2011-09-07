@@ -14,6 +14,7 @@ class WallListAction extends BSTableAction {
 	public function getCriteria () {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();
+			$this->criteria->register('project_id', $this->getModule()->getProject());
 		}
 		return $this->criteria;
 	}
@@ -25,6 +26,16 @@ class WallListAction extends BSTableAction {
 			$this->order->push('create_date DESC');
 		}
 		return $this->order;
+	}
+
+	protected function getRows () {
+		if (!$this->rows) {
+			$this->rows = new BSArray;
+			foreach ($this->getTable() as $idea) {
+				$this->rows[$idea->getID()] = $idea->getAssignableValues();
+			}
+		}
+		return $this->rows;
 	}
 
 	public function execute () {

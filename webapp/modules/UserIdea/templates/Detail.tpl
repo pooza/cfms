@@ -211,10 +211,14 @@ document.observe('dom:loaded', function () {
 			<td>
 				{foreach from=$comments item='comment'}
 					<div class="comment_entry common_block">
-						{$comment.body|nl2br}<br/>
-						<a href="/UserIdea/Detail/{$comment.id}">{$comment.create_date|date_format:'Y-m-d(ww) H:i'}</a>
-						{image_cache class='Account' id=$comment.account.id size='icon' pixel=16}
-						{$comment.account.company} {$comment.account.name}
+						{if $comment.delete_date}
+							<p class="alert">削除済みです。</p>
+						{else}
+							{$comment.body|nl2br}<br/>
+							<a href="/UserIdea/Detail/{$comment.id}">{$comment.create_date|date_format:'Y-m-d(ww) H:i'}</a>
+							{image_cache class='Account' id=$comment.account.id size='icon' pixel=16}
+							{$comment.account.company} {$comment.account.name}
+						{/if}
 					</div>
 				{/foreach}
 

@@ -9,7 +9,7 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
 class IdeaHandler extends BSTableHandler {
-	const WITH_BACKUP = 8;
+	const WITH_BACKUP = 4096;
 
 	/**
 	 * レコード追加可能か？
@@ -19,26 +19,6 @@ class IdeaHandler extends BSTableHandler {
 	 */
 	protected function isInsertable () {
 		return true;
-	}
-
-	/**
-	 * レコード追加
-	 *
-	 * @access public
-	 * @param mixed $values 値
-	 * @param integer $flags フラグのビット列
-	 *   BSDatabase::WITH_LOGGING ログを残さない
-	 * @return string レコードの主キー
-	 */
-	public function createRecord ($values, $flags = null) {
-		if ($flags & self::WITH_BACKUP) {
-			$db = $this->getDatabase();
-			$db->exec(BSSQL::getInsertQueryString($this, $values, $db));
-			$this->setExecuted(false);
-			return $db->lastInsertId();
-		} else {
-			return parent::createRecord($values, $flags);
-		}
 	}
 
 	/**
