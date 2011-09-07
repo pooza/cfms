@@ -9,7 +9,7 @@
 
 <div id="BreadCrumbs">
 	<a href="/UserProject/">プロジェクト一覧</a>
-	<a href="/UserProject/Detail/{$project.id}">プロジェクト:{$project.name}</a>
+	<a href="/UserProject/{$list_action.name}/{$project.id}">プロジェクト:{$project.name}</a>
 	<a href="#">{$action.title}</a>
 </div>
 

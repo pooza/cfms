@@ -56,11 +56,12 @@ class CreateAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->getModule()->getAction('Detail')->redirect();
+		return $this->getModule()->getListAction()->redirect();
 	}
 
 	public function getDefaultView () {
 		$this->request->setAttribute('project', $this->getModule()->getProject());
+		$this->request->setAttribute('list_action', $this->getModule()->getListAction());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
 		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
 		return BSView::INPUT;

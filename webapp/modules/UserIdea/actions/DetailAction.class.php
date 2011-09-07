@@ -45,7 +45,7 @@ class DetailAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->redirect();
+		return $this->getModule()->getListAction()->redirect();
 	}
 
 	public function getDefaultView () {
@@ -55,6 +55,7 @@ class DetailAction extends BSRecordAction {
 		}
 
 		$this->request->setAttribute('project', $this->getModule()->getProject());
+		$this->request->setAttribute('list_action', $this->getModule()->getListAction());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
 		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
 		$this->request->setAttribute('accounts', $this->getModule()->getProject()->getAccounts());

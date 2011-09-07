@@ -17,7 +17,7 @@ class DeleteAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->getModule()->getAction('Detail')->forward();
 		}
-		return $this->getModule()->redirect();
+		return $this->getModule()->getListAction()->redirect();
 	}
 }
 

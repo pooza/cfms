@@ -8,6 +8,7 @@
  */
 class WallAction extends BSRecordAction {
 	public function execute () {
+		BSModule::getInstance('UserIdea')->setListAction($this);
 		$this->request->setAttribute('project', $this->getRecord());
 		$this->request->setAttribute('theme', $this->getRecord()->getTheme());
 		return BSView::SUCCESS;
