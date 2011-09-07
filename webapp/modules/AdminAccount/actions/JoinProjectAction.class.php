@@ -31,6 +31,10 @@ class JoinProjectAction extends BSRecordAction {
 		}
 		return BSView::SUCCESS;
 	}
+
+	public function getViewClass () {
+		return 'BSJSONView';
+	}
 }
 
 /* vim:set tabstop=4: */
