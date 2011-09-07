@@ -22,6 +22,25 @@ class Idea extends BSRecord {
 	}
 
 	/**
+	 * 更新
+	 *
+	 * @access public
+	 * @param mixed $values 更新する値
+	 * @param integer $flags フラグのビット列
+	 *   BSDatabase::WITHOUT_LOGGING ログを残さない
+	 *   BSDatabase::WITHOUT_SERIALIZE シリアライズしない
+	 */
+	public function update ($values, $flags = null) {
+		$prev = clone $this->getAttributes();
+		$prev->removeParameter('id');
+		parent::update($values, $flags);
+
+		if ($flags & IdeaHandler::WITH_BACKUP) {
+			$this->getTable()->createRecord($prev, IdeaHandler::WITH_BACKUP);
+		}
+	}
+
+	/**
 	 * 削除可能か？
 	 *
 	 * @access protected
@@ -29,6 +48,21 @@ class Idea extends BSRecord {
 	 */
 	protected function isDeletable () {
 		return true;
+	}
+
+	/**
+	 * 削除フラグを立てる
+	 *
+	 * @access public
+	 */
+	public function trash () {
+		if ($file = $this->getAttachment('attachment')) {
+			$file->delete();
+		}
+		$this->update(array(
+			'delete_date' => BSDate::getNow('Y-m-d H:i:s'),
+			'status' => 'hide',
+		));
 	}
 
 	/**
@@ -176,6 +210,7 @@ class Idea extends BSRecord {
 	 */
 	protected function getSerializableValues () {
 		$values = parent::getSerializableValues();
+		$values['account'] = $this->getAccount()->getAssignableValues();
 		if ($this->getAttachment('attachment')) {
 			$values['is_image'] = $this->isImage();
 		}

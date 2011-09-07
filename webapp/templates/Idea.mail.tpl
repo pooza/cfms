@@ -12,7 +12,7 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 名前(英): {$idea.name_en|default:'(空欄)'}
 フリガナ: {$idea.name_read|default:'(空欄)'}
 
-説明:
+本文:
 {$idea.body|nl2br|default:'(空欄)'}
 
 フォルダ:

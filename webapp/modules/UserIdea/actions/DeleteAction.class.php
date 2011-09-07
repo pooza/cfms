@@ -10,7 +10,7 @@ class DeleteAction extends BSRecordAction {
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
-			$this->getRecord()->delete();
+			$this->getRecord()->trash();
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();

@@ -46,7 +46,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th>説明</th>
+			<th>本文</th>
 			<td>
 				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
 			</td>
@@ -65,6 +65,13 @@
 					{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
 				</div>
 				{/if}
+			</td>
+		</tr>
+		<tr>
+			<th>作成者</th>
+			<td>
+				{image_cache class='Account' id=$idea.account.id size='icon' pixel=16}
+				{$idea.account.company} {$idea.account.name}
 			</td>
 		</tr>
 		<tr>

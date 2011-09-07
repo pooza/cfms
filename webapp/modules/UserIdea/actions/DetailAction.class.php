@@ -37,7 +37,8 @@ class DetailAction extends BSRecordAction {
 		try {
 			$this->database->beginTransaction();
 			$this->getRecord()->clearImageCache('attachment');
-			$this->updateRecord();
+			$this->getRecord()->update($this->getRecordValues(), IdeaHandler::WITH_BACKUP);
+			$this->getRecord()->setAttachments($this->request);
 			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
 			$this->database->commit();
 		} catch (Exception $e) {

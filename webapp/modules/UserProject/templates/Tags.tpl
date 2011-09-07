@@ -17,7 +17,9 @@
 	{$action.title}
 {/strip}</h1>
 
-<div id="members" class="common_block"></div>
+<div id="members" class="common_block">
+	Loading...
+</div>
 
 <div>
 	[<a href="/{$module.name}/Wall/{$project.id}">ウォールビュー</a>]

@@ -38,7 +38,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th>説明</th>
+			<th>本文</th>
 			<td>
 				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
 			</td>

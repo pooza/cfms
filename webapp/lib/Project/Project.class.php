@@ -140,10 +140,13 @@ class Project extends BSRecord {
 				$ideas['ideas'] = new BSArray;
 
 				$table = clone $tag->getIdeas();
+				$table->getCriteria()->register('status', 'show');
 				$table->getCriteria()->register('delete_date', null);
 				$table->query();
 				foreach ($table as $idea) {
-					$ideas['ideas'][$idea->getID()] = $idea->getAssignableValues();
+					if ($idea->getAttachment('attachment')) {
+						$ideas['ideas'][$idea->getID()] = $idea->getAssignableValues();
+					}
 				}
 			}
 		}
