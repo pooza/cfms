@@ -45,18 +45,6 @@
 				</td>
 			</tr>
 			<tr>
-				<th>名前(英)</th>
-				<td>
-					<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-				</td>
-			</tr>
-			<tr>
-				<th>フリガナ</th>
-				<td>
-					<input type="text" name="name_read" value="{$params.name_read}" size="40" maxlength="64" />
-				</td>
-			</tr>
-			<tr>
 				<th>テーマ</th>
 				<td>
 					{html_options name='theme' values=$themes output=$themes selected=$params.theme}

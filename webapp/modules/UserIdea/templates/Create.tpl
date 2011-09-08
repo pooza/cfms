@@ -26,18 +26,6 @@
 			</td>
 		</tr>
 		<tr>
-			<th>名前(英)</th>
-			<td>
-				<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-			</td>
-		</tr>
-		<tr>
-			<th>フリガナ</th>
-			<td>
-				<input type="text" name="name_read" value="{$params.name_read}" size="40" maxlength="64" />
-			</td>
-		</tr>
-		<tr>
 			<th>本文</th>
 			<td>
 				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>

@@ -30,12 +30,6 @@
 			</td>
 		</tr>
 		<tr>
-			<th>名前(英)</th>
-			<td>
-				<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-			</td>
-		</tr>
-		<tr>
 			<th>作成日</th>
 			<td>{$tag.create_date|date_format:'Y年 n月j日 (ww) H:i:s'}</td>
 		</tr>

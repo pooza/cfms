@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
-  `name_en` varchar(64) NOT NULL,
+  `name_en` varchar(64) DEFAULT NULL,
   `company` varchar(64) DEFAULT NULL,
   `company_en` varchar(64) DEFAULT NULL,
-  `name_read` varchar(64) NOT NULL,
+  `name_read` varchar(64) DEFAULT NULL,
   `email` varchar(64) NOT NULL,
   `password` char(40) NOT NULL,
   `status` varchar(8) NOT NULL DEFAULT 'show',
@@ -83,19 +83,21 @@ DROP TABLE IF EXISTS `idea`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `idea` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
+  `name` varchar(64) DEFAULT NULL,
   `name_en` varchar(64) DEFAULT NULL,
   `name_read` varchar(64) DEFAULT NULL,
   `project_id` smallint(5) unsigned NOT NULL,
   `account_id` smallint(5) unsigned NOT NULL,
   `parent_idea_id` int(10) unsigned DEFAULT NULL,
   `body` text,
+  `serial` smallint(5) unsigned NOT NULL,
   `is_important` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `status` varchar(64) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   `delete_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `serial` (`serial`,`project_id`),
   KEY `project_id` (`project_id`),
   KEY `account_id` (`account_id`),
   KEY `parent_idea_id` (`parent_idea_id`),
@@ -210,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-06 20:16:53
+-- Dump completed on 2011-09-08 11:03:50

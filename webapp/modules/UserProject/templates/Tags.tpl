@@ -58,7 +58,7 @@
 				{if $idea.is_image}{image_cache class='Idea' id=$idea.id size='attachment' pixel=32}{/if}
 			</td>
 			<td width="300">
-				<a href="/UserIdea/Detail/{$idea.id}">{$idea.name}</a>
+				<a href="/UserIdea/Detail/{$idea.id}">{$idea.name|default:'(空欄)'}</a>
 				{if $idea.body}<br/><span class="body">{$idea.body|truncate:48}</span>{/if}
 			</td>
 			<td width="60" align="right">{$idea.attachment.size|binary_size_format}B</td>

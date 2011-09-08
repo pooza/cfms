@@ -9,10 +9,9 @@
 <table>
 	<tr>
 		<th width="180">名前</th>
-		<th width="180">名前(英)</th>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td colspan="1">
 			<a href="/{$module.name}/Create">新しい{$module.record_class|translate}を登録...</a>
 		</td>
 	</tr>
@@ -20,11 +19,10 @@
 {foreach from=$tags item='tag' name='tags'}
 	<tr class="{$tag.status}">
 		<td width="180"><a href="/{$module.name}/Detail/{$tag.id}">{$tag.name}</a></td>
-		<td width="180">{$tag.name_en|default:'(未定義)'}</td>
 	</tr>
 {foreachelse}
 	<tr>
-		<td colspan="2" class="alert">登録されていません。</td>
+		<td colspan="1" class="alert">登録されていません。</td>
 	</tr>
 {/foreach}
 

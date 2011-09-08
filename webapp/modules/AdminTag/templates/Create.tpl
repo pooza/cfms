@@ -26,12 +26,6 @@
 			</td>
 		</tr>
 		<tr>
-			<th>名前(英)</th>
-			<td>
-				<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-			</td>
-		</tr>
-		<tr>
 			<td colspan="2">
 				<input type="submit" value="登録" />
 			</td>

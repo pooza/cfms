@@ -25,14 +25,6 @@
 			<td>{$idea.name|default:'(空欄)'}</td>
 		</tr>
 		<tr>
-			<th>名前(英)</th>
-			<td>{$idea.name_en|default:'(空欄)'}</td>
-		</tr>
-		<tr>
-			<th>フリガナ</th>
-			<td>{$idea.name_read|default:'(空欄)'}</td>
-		</tr>
-		<tr>
 			<th>本文</th>
 			<td>{$idea.body|nl2br|default:'(空欄)'}</td>
 		</tr>
@@ -76,18 +68,6 @@
 				<th>名前</th>
 				<td>
 					<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
-				</td>
-			</tr>
-			<tr>
-				<th>名前(英)</th>
-				<td>
-					<input type="text" name="name_en" value="{$params.name_en}" size="40" maxlength="64" class="english" />
-				</td>
-			</tr>
-			<tr>
-				<th>フリガナ</th>
-				<td>
-					<input type="text" name="name_read" value="{$params.name_read}" size="40" maxlength="64" />
 				</td>
 			</tr>
 			<tr>
@@ -221,7 +201,6 @@ document.observe('dom:loaded', function () {
 						{/if}
 					</div>
 				{/foreach}
-
 				<textarea name="body" cols="48" rows="5"></textarea>
 			</td>
 		</tr>
