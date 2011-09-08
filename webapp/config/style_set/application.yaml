@@ -9,5 +9,6 @@ cfms:
     - protocalendar
     - prototabs
     - lightbox
+    - glider
     - color_picker
     - application

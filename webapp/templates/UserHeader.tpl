@@ -13,7 +13,7 @@
 {js_cache name=$jsset|default:'user'}
 {css_cache name=$theme.name|default:'default'}
 </head>
-<body id="top">
+<body id="{$body.id}" class="{$body.class}">
 <a name="pagetop" id="pagetop"></a>
 <div id="wrapper">
 {* vim: set tabstop=4: *}

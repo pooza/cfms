@@ -5,8 +5,74 @@
 @subpackage UserProject
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
+{assign var='body.id' value='sec'}
+{assign var='body.class' value='door'}
 {include file='UserHeader'}
+{include file='MemberHeader'}
 
+<div id="container">
+	<h2 class="large door_text"><strong>ようこそ、{$account.name}様</strong></h2>
+	<table width="0" border="0" cellspacing="0" cellpadding="0" class="door_box">
+		<tr>
+			<td class="icon_img"><a href="#"><img src="/images/door_icon_left.gif" width="16" height="60" alt=""></a></td>
+			<td>
+				<table width="0" border="0" cellspacing="0" cellpadding="0" class="door01 roll">
+					<tr>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+					</tr>
+					<tr>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">LOREAL</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">GOLDWIN</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">melvita</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">JAL</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">kraft</a></p>
+						</td>
+					</tr>
+					<tr class="door_mt">
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+						<td width="162"><a href="project.html"><img src="/images/door_img.gif" width="68" height="113" alt=""></a></td>
+					</tr>
+					<tr>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">LOREAL</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">GOLDWIN</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">melvita</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">JAL</a></p>
+						</td>
+						<td class="door_text">
+							<p class="normal text_l"><a href="project.html">kraft</a></p>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td class="icon_img"><a href="#"><img src="/images/door_icon_right.gif" width="16" height="61" alt=""></a></td>
+		</tr>
+	</table>
+</div>
+
+{*
 <div id="BreadCrumbs">
 	<a href="#">プロジェクト一覧</a>
 </div>
@@ -33,29 +99,16 @@
 		<td width="300"><a href="/{$module.name}/Wall/{$project.id}">{$project.name}</a></td>
 		<td width="180" align="center">
 			{if $project.start_date||$project.end_date}
-				{$project.start_date|date_format:'Y.m.d'}〜{$project.end_date|date_format:'Y.m.d'}
+				{$project.start_date|date_format:'Y.m.d'}～{$project.end_date|date_format:'Y.m.d'}
 			{/if}
 		</td>
 	</tr>
-{foreachelse}
-	<tr>
-		<td colspan="3" class="alert">未登録です。</td>
-	</tr>
 {/foreach}
 
-	<tr>
-		<td colspan="3" style="text-align:center">
-{strip}
-			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page=1{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left3.gif" width="14" height="14" alt="|&lt;" /></a></span>&nbsp;
-			<span><a href="{if 1<$page}/{$module.name}/{$action.name}?page={$page-1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/left1.gif" width="14" height="14" alt="&lt;" /></a></span>&nbsp;
-			[{$page}]&nbsp;
-			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$page+1}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right1.gif" width="14" height="14" alt="&gt;" /></a></span>&nbsp;
-			<span><a href="{if $page<$lastpage}/{$module.name}/{$action.name}?page={$lastpage}{else}javascript:void(){/if}"><img src="/carrotlib/images/navigation_arrow/right3.gif" width="14" height="14" alt="&gt;|" /></a></span>
-{/strip}
-		</td>
-	</tr>
 </table>
+*}
 
+{include file='MemberFooter'}
 {include file='UserFooter'}
 
 {* vim: set tabstop=4: *}

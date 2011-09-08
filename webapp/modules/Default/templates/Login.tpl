@@ -5,6 +5,7 @@
 @subpackage Default
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
+{assign var='body.id' value='top'}
 {include file='UserHeader'}
 
 <div id="header">
