@@ -67,13 +67,13 @@
 				<th>アイコン</th>
 				<td>
 					<input type="file" name="icon" size="20" /><br/>
-{if $account.has_icon}
-					<div class="common_block">
-						{image_cache mode='lightbox' size='icon' pixel=32 style_class='bordered' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
-						{image_cache size='icon' mode='size'}
-						[<a href="/{$module.name}/DeleteImage?name=icon">この画像を削除</a>]
-					</div>
-{/if}
+					{if $account.has_icon}
+						<div class="common_block">
+							{image_cache mode='lightbox' size='icon' pixel=32 style_class='bordered' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
+							{image_cache size='icon' mode='size'}
+							[<a href="/{$module.name}/DeleteImage?name=icon">この画像を削除</a>]
+						</div>
+					{/if}
 				</td>
 			</tr>
 			<tr>

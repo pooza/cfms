@@ -16,7 +16,7 @@
 
 {include file='ErrorMessages'}
 
-{form}
+{form attachable=true}
 	<table class="detail">
 		<tr>
 			<th>名前</th>
@@ -41,6 +41,12 @@
 			<td>
 				<input type="password" name="password" size="20" /><br/>
 				<input type="password" name="password_confirm" size="20" />(確認)<br/>
+			</td>
+		</tr>
+		<tr>
+			<th>アイコン</th>
+			<td>
+				<input type="file" name="icon" size="20" /><br/>
 			</td>
 		</tr>
 		<tr>

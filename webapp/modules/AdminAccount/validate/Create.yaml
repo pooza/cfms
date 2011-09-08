@@ -32,6 +32,10 @@ fields:
   password_confirm:
     validators:
       - password_pair
+  icon:
+    file: yes
+    validators:
+      - image
   status:
     required: yes
     validators:
