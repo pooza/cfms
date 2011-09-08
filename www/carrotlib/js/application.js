@@ -5,6 +5,12 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
 
+document.observe('dom:loaded', function () {
+  MJL.event.add(window, "load", function() {
+    MJL.enable.rollover("roll", {disable:"unroll"});
+  });
+});
+
 var CFMSLib = {
   updateProjectList: function () {
     var params = {

@@ -5,12 +5,13 @@
 
 app:
   name:
-    ja: コモンズファイル管理システム
-    en: COMMONS File Management System
-  ver: 2.0.0-dev
+    ja: COMMON TABLE
+    en: COMMON TABLE
+  ver: 2.0.0b1
 
 author:
   name: コモンズ株式会社
+  name_en: COMMONS CO., LTD
   email: info@commons.co.jp
 
 crypt:

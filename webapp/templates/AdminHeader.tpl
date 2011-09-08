@@ -14,7 +14,7 @@
 	{$title|default:$module.title}
 {/strip}</title>
 {js_cache name=$jsset}
-{css_cache name=$theme.name|default:'default'}
+{css_cache name='admin'}
 </head>
 <body {if $body.id}id="{$body.id}"{/if} class="{if $is_debug}debug{/if}">
 

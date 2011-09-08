@@ -5,35 +5,56 @@
 @subpackage Default
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-{assign var='theme.name' value='login'}
-{include file='AdminHeader'}
+{include file='UserHeader'}
 
-{form id="LoginForm"}
-	<h1>{const name='app_name_ja'}</h1>
-
-	{include file='ErrorMessages' hide_error_code=true}
-
-	<table>
+<div id="header">
+	<table cellspacing="0" cellpadding="0">
 		<tr>
-			<th>メールアドレス</th>
-			<td>
-				<input type="text" name="email" value="{$email}" size="24" maxlength="64" class="english" />
+			<td valign="top" class="title">
+				<h1><img src="/images/common/h1-logo.gif" width="335" height="37" alt="COMMONS TABLE">
+				</h1>
 			</td>
-		</tr>
-		<tr>
-			<th>パスワード</th>
-			<td>
-				<input type="password" name="password" size="24" maxlength="64" class="english" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" class="bottom">
-				<input type="submit" value="ログイン" />
+			<td valign="top" class="logo">
+				<h2><img src="/images/common/commons-logo.gif" width="146" height="36" alt="COMMONS">
+				</h2>
 			</td>
 		</tr>
 	</table>
-{/form}
+</div>
+<div id="container">
+	{form}
+		<table cellspacing="0" cellpadding="0" class="tbl_login-form">
+			<tr>
+				<td>
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<th class="pad"><img src="/images/top_ttl-id.gif" width="77" height="16" alt="ID（メールアドレス）"></th>
+							<td class="pad">
+								<input type="text" name="email" value="{$email}" maxlength="64" class="textfield" />
+							</td>
+						</tr>
+						<tr>
+							<th class="pass"><img src="/images/top_ttl-pass.gif" width="77" height="16" alt="PASS"></th>
+							<td>
+								<input type="password" name="password" maxlength="64" class="textfield" />
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="btn"><input type="image" src="/images/top_bt-login.gif" width="54" height="54" alt="LOGIN"></td>
+			</tr>
+		</table>
+	{/form}
+</div>
+<div id="footer">
+	<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="copyright small">{const name='APP_NAME_JA'} Ver.{const name='APP_VER'} (C)2011 {const name='AUTHOR_NAME_EN'}</td>
+			<td class="bnr"><a href="#"><img src="/images/top_foot-bnr.jpg" width="131" height="65" alt="GlobalSign"></a></td>
+		</tr>
+	</table>
+</div>
 
-{include file='AdminFooter'}
+{include file='UserFooter'}
 
 {* vim: set tabstop=4: *}
