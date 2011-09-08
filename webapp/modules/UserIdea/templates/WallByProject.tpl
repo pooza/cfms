@@ -42,7 +42,7 @@
 						</td>
 					</tr>
 				</table>
-				<p class="bnr_upload"><a href="/UserIdea/Create"><img src="/images/project_bnr-newupload.gif" width="531" height="78" alt="新しいファイルをアップする"></a></p>
+				<p class="bnr_upload"><a href="/UserIdea/Create"><img src="/images/project_bnr-newupload_comment.gif" width="531" height="78" alt="新規コメントする"></a></p>
 				<table cellspacing="0" cellpadding="0" class="tab-menu roll">
 					<tr>
 						<td valign="top">

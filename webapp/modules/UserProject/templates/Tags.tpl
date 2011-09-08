@@ -53,16 +53,19 @@
 						</td>
 					</tr>
 				</table><br/>
-				<div class="searchColumn">
+
+				<div class="newFolder">
 					{form module='UserTag' action='Create' style_class='common_block'}
 						<table cellspacing="0" cellpadding="0">
 							<tr>
+								<td class="label"></td>
 								<td class="form"><input name="name" type="text" class="text"></td>
-								<td class="btn"><input type="image" src="/images/bt_search.gif" width="37" height="33" alt="検索する"></a></td>
+								<td class="btn"><input type="image" src="/images/bt_newfolder.gif" width="34" height="26" alt="新規フォルダを作る"></td>
 							</tr>
 						</table>
 					{/form}
 				</div>
+
 
 				{foreach from=$ideasets item='ideaset'}
 					<div class="foldertColumn m57">

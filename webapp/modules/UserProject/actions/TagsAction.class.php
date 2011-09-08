@@ -16,6 +16,9 @@ class TagsAction extends BSRecordAction {
 	}
 
 	public function handleError () {
+		if (!$this->getRecord()) {
+			return $this->controller->getAction('not_found')->forward();
+		}	
 		return $this->execute();
 	}
 
@@ -25,7 +28,9 @@ class TagsAction extends BSRecordAction {
 	}
 
 	public function getCredential () {
-		return $this->getRecord()->getCredential();
+		if ($project = $this->getRecord()) {
+			return $project->getCredential();
+		}
 	}
 }
 

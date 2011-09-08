@@ -12,13 +12,19 @@ class WallAction extends BSRecordAction {
 		return BSModule::getInstance('UserIdea')->getAction('WallByProject')->forward();
 	}
 
+	public function handleError () {
+		return $this->controller->getAction('not_found')->forward();
+	}
+
 	public function deny () {
 		$this->user->setAttribute('requested_url', $this->request->getURL()->getContents());
 		return parent::deny();
 	}
 
 	public function getCredential () {
-		return $this->getRecord()->getCredential();
+		if ($project = $this->getRecord()) {
+			return $project->getCredential();
+		}
 	}
 }
 

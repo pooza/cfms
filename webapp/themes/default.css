@@ -431,6 +431,43 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 	padding-bottom:27px;
 }
 
+/* 新規フォルダ作成
+---------------------------------------------------------- */
+
+.folder .rightArea .newFolder {
+	width:535px;
+	text-align:left;
+	margin-top:16px;
+}
+
+.folder .rightArea .newFolder table {
+	float:left;
+	width:532px;
+	height:39px;
+	text-align:center;
+	background:url(/images/bg_newfolder.gif) no-repeat;
+}
+
+.folder .rightArea .newFolder table td.label {
+	width:174px;
+	text-align:center;
+}
+
+.folder .rightArea .newFolder table td.form {
+	width:300px;
+	text-align:left;
+}
+
+.folder .rightArea .newFolder table td.form .text {
+	width:290px;
+	border:1px solid #ffffff;
+}
+
+.folder .rightArea .newFolder table td.btn {
+	width:58px;
+	text-align:center;
+}
+
 
 /* アップロードバナー ---------------*/
 

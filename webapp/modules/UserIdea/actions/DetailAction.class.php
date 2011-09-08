@@ -96,7 +96,6 @@ class DetailAction extends BSRecordAction {
 		if ($project = $this->getModule()->getProject()) {
 			return $project->getCredential();
 		}
-		return 'NeverMatch';
 	}
 }
 

@@ -37,7 +37,6 @@ class CommentAction extends BSRecordAction {
 		if ($project = $this->getModule()->getProject()) {
 			return $project->getCredential();
 		}
-		return 'NeverMatch';
 	}
 }
 
