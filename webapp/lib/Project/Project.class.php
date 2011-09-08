@@ -134,6 +134,7 @@ class Project extends BSRecord {
 	public function getIdeasGrouped () {
 		if (!$this->ideasGrouped) {
 			$this->ideasGrouped = new BSArray;
+
 			foreach ($this->getTags() as $tag) {
 				$this->ideasGrouped[$tag->getID()] = $ideas = new BSArray;
 				$ideas['tag'] = $tag->getAssignableValues();

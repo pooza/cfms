@@ -493,7 +493,7 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 /* コメント
 ---------------------------------------------------------- */
 
-.project .rightArea .commentColumn .border {
+.commentColumn .border {
 	width:502px;
 	margin:12px auto 0;
 	padding-top:10px;
@@ -502,18 +502,18 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* 通常ボックス ---------------*/
 
-.project .rightArea .commentColumn {
+.commentColumn {
 	width:535px;
 	margin-top:25px;
 	background:url(/images/bg_project-line.jpg) left top repeat-y;
 }
 
-.project .rightArea .commentColumn .bgtop {
+.commentColumn .bgtop {
 	padding-top:12px;
 	background:url(/images/bg_project-top.jpg) left top no-repeat;
 }
 
-.project .rightArea .commentColumn .bgbtm {
+.commentColumn .bgbtm {
 	padding-bottom:18px;
 	background:url(/images/bg_project-btm.jpg) left bottom no-repeat;
 }
@@ -521,26 +521,26 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* 重要ボックス ---------------*/
 
-.project .rightArea .commentColumn.imp {background:url(/images/bg_project-line02.jpg) left top repeat-y;}
-.project .rightArea .commentColumn.imp .bgtop {background:url(/images/bg_project-top02.jpg) left top no-repeat;}
-.project .rightArea .commentColumn.imp .bgbtm {background:url(/images/bg_project-btm02.jpg) left bottom no-repeat;}
+.commentColumn.imp {background:url(/images/bg_project-line02.jpg) left top repeat-y;}
+.commentColumn.imp .bgtop {background:url(/images/bg_project-top02.jpg) left top no-repeat;}
+.commentColumn.imp .bgbtm {background:url(/images/bg_project-btm02.jpg) left bottom no-repeat;}
 
 
 /* コンテンツ ---------------*/
 
-.project .rightArea .commentColumn .tbl_comment {
+.commentColumn .tbl_comment {
 	width:502px;
 	margin:0 auto;
 	color:#6CBB5C;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemHead {
+.commentColumn .tbl_comment .itemHead {
 	width:45px;
 	margin:0;
 	padding:0;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemContents {
+.commentColumn .tbl_comment .itemContents {
 	width:457px;
 	margin:0;
 	padding:0;
@@ -550,12 +550,12 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* チェックボックス */
 
-.project .rightArea .commentColumn .tbl_comment .itemHead .number {
+.commentColumn .tbl_comment .itemHead .number {
 	font-size:184.7%;
 	color:#6CBB5C;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemHead .check {
+.commentColumn .tbl_comment .itemHead .check {
 	padding-top:2px;
 	padding-left:7px;
 }
@@ -563,7 +563,7 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* 名前 */
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name {
+.commentColumn .tbl_comment .itemContents .tbl_name {
 	width:457px;
 	margin:0;
 	padding:0;
@@ -571,32 +571,32 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 }
 
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name th {
+.commentColumn .tbl_comment .itemContents .tbl_name th {
 	width:61px;
 	margin:0;
 	padding:0;
 	text-align: left;
 }
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name th img {border:1px solid #6CBB5C;}
+.commentColumn .tbl_comment .itemContents .tbl_name th img {border:1px solid #6CBB5C;}
 
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt {
+.commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt {
 	width:270px;
 	margin:0;
 	padding:1px 0 0 10px;
 	text-align: left;
 }
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt.sec {width:120px;}
+.commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt.sec {width:120px;}
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt {
+.commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt {
 	margin:0;
 	padding:0;
 	text-align: right;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt .icon {padding-top:5px;}
+.commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt .icon {padding-top:5px;}
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.text {
+.commentColumn .tbl_comment .itemContents .tbl_name td.text {
 	margin:0;
 	padding:0 0 0 10px;
 	text-align: left;
@@ -606,7 +606,7 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* 本文 */
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .commentTxt {
+.commentColumn .tbl_comment .itemContents .commentTxt {
 	margin:0;
 	padding:10px 0 0;
 	text-align: left;
@@ -616,28 +616,28 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 /* ファイル＆返信 */
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file {
+.commentColumn .tbl_comment .itemContents .tbl_file {
 	width:457px;
 	margin:10px 0 0;
 	padding:0;
 	text-align: left;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.file {
+.commentColumn .tbl_comment .itemContents .tbl_file td.file {
 	width:31px;
 	margin:0;
 	padding:0;
 	text-align: left;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.txt {
+.commentColumn .tbl_comment .itemContents .tbl_file td.txt {
 	width:376px;
 	margin:0;
 	padding:0 0 0 10px;
 	text-align: left;
 }
 
-.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.reComment {
+.commentColumn .tbl_comment .itemContents .tbl_file td.reComment {
 	width:37px;
 	margin:0;
 	padding:0;
@@ -916,6 +916,10 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 }
 .profile #container .form_box table td .icon_table td{
 	border:none;
+}
+.profile #container .form_box table td .input04 {
+	border:#c8c7c6 1px solid;
+	margin: 5px 0;
 }
 
 .profile #container .form_box .inputbtn{

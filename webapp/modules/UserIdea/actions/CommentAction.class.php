@@ -17,7 +17,7 @@ class CommentAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->getModule()->getListAction()->redirect();
+		return $this->getModule()->getAction('Detail')->redirect();
 	}
 
 	public function getDefaultView () {

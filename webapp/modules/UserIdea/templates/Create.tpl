@@ -5,52 +5,72 @@
 @subpackage UserIdea
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-{include file='AdminHeader'}
+{assign var='body.id' value='sec'}
+{assign var='body.class' value='profile'}
+{include file='UserHeader'}
+{include file='MemberHeader'}
 
-<div id="BreadCrumbs">
-	<a href="/UserProject/">プロジェクト一覧</a>
-	<a href="/UserProject/{$list_action.name}/{$project.id}">プロジェクト:{$project.name}</a>
-	<a href="#">{$action.title}</a>
+<div id="container">
+	<h2 class="profile_img large">
+		{if $list_action.name=='Tags'}
+			新しいファイルをアップする
+		{else}
+			新規コメントする
+		{/if}
+	</h2>
+	{include file='ErrorMessages'}
+	{form attachable=true}
+		<div class="form_box">
+			<table border="0" cellspacing="4" cellpadding="0">
+				<tr>
+					<th class="large form_text">
+						<p><strong>名前</strong></p>
+					</th>
+					<td>
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p>
+							<strong>
+								{if $list_action.name=='Tags'}
+									本文
+								{else}
+									コメント
+								{/if}
+							</strong>
+						</p>
+					</th>
+					<td>
+						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>フォルダ</strong></p>
+					</th>
+					<td class="normal">
+						<div style="margin:5px 0">
+							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>ファイル</strong></p>
+					</th>
+					<td class="normal">
+						<input type="file" name="attachment" size="20" class="green_solid" />
+					</td>
+				</tr>
+			</table>
+			<input type="image" src="/images/profile_Update_btn.gif" alt="更新" value="更新" class="inputbtn">
+		</div>
+	{/form}
 </div>
 
-<h1>{$action.title}</h1>
-
-{include file='ErrorMessages'}
-
-{form attachable=true}
-	<table class="detail">
-		<tr>
-			<th>名前</th>
-			<td>
-				<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
-			</td>
-		</tr>
-		<tr>
-			<th>本文</th>
-			<td>
-				<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
-			</td>
-		</tr>
-		<tr>
-			<th>フォルダ</th>
-			<td>
-				{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
-			</td>
-		</tr>
-		<tr>
-			<th>ファイル</th>
-			<td>
-				<input type="file" name="attachment" size="20" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="submit" value="登録" />
-			</td>
-		</tr>
-	</table>
-{/form}
-
-{include file='AdminFooter'}
+{include file='MemberFooter'}
+{include file='UserFooter'}
 
 {* vim: set tabstop=4: *}

@@ -13,9 +13,9 @@
 			<td class="gl-menu">
 				<table cellspacing="0" cellpadding="0" class="roll">
 					<tr>
-						<td><a href="/UserProject/"><img src="/images/common/gl-menu01.gif" width="70" height="71" alt="PROJECT" class="{$links.project.class}"></a></td>
+						<td><a href="/UserProject/"><img src="/images/common/gl-menu01.gif" width="70" height="71" alt="PROJECT"></a></td>
 						<td class="sp">&nbsp;</td>
-						<td><a href="/UserAccount/"><img src="/images/common/gl-menu02.gif" width="71" height="71" alt="PROFILE" class="{$links.profile.class}"></a></td>
+						<td><a href="/UserAccount/"><img src="/images/common/gl-menu02.gif" width="71" height="71" alt="PROFILE"></a></td>
 						<td class="sp">&nbsp;</td>
 						<td><a href="/Logout"><img src="/images/common/gl-menu03.gif" width="71" height="71" alt="LOGOUT"></a></td>
 					</tr>

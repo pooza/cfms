@@ -7,7 +7,6 @@
 *}
 {assign var='body.id' value='sec'}
 {assign var='body.class' value='profile'}
-{assign var='links.profile.class' value='unroll'}
 {include file='UserHeader'}
 {include file='MemberHeader'}
 

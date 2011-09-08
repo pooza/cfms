@@ -7,7 +7,6 @@
 *}
 {assign var='body.id' value='sec'}
 {assign var='body.class' value='door'}
-{assign var='links.project.class' value='unroll'}
 {include file='UserHeader'}
 {include file='MemberHeader'}
 
