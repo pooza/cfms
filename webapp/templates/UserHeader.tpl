@@ -12,6 +12,7 @@
 <title>{const name='APP_NAME_JA'}</title>
 {js_cache name=$jsset|default:'user'}
 {css_cache name=$theme.name|default:'default'}
+{css_cache name='glider'}
 </head>
 <body id="{$body.id}" class="{$body.class}">
 <a name="pagetop" id="pagetop"></a>
