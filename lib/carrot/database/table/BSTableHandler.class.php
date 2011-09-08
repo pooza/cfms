@@ -345,9 +345,9 @@ abstract class BSTableHandler implements IteratorAggregate, BSDictionary, BSAssi
 
 		$values = new BSArray($values);
 		$fields = $this->getProfile()->getFields();
-		foreach (array($this->getCreateDateField(), $this->getUpdateDateField()) as $field) {
-			if (!$values->hasParameter($field) && $fields[$field]) {
-				$values[$field] = BSDate::getNow('Y-m-d H:i:s');
+		foreach (array($this->getCreateDateField(), $this->getUpdateDateField()) as $key) {
+			if (!$values->hasParameter($key) && $fields[$key]) {
+				$values[$key] = BSDate::getNow('Y-m-d H:i:s');
 			}
 		}
 
