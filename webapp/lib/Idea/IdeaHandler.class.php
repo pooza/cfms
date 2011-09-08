@@ -22,6 +22,49 @@ class IdeaHandler extends BSTableHandler {
 	}
 
 	/**
+	 * レコード追加
+	 *
+	 * @access public
+	 * @param mixed $values 値
+	 * @param integer $flags フラグのビット列
+	 *   BSDatabase::WITH_LOGGING ログを残さない
+	 * @return string レコードの主キー
+	 */
+	public function createRecord ($values, $flags = null) {
+		$values = new BSArray($values);
+		if (!$values->hasParameter('serial')) {
+			$project = BSTableHandler::create('project')->getRecord($values['project_id']);
+			$values['serial'] = self::createSerialNumber($project);
+		}
+		return parent::createRecord($values, $flags);
+	}
+
+	/**
+	 * 新しいシリアルナンバーを生成
+	 *
+	 * @access protected
+	 * @param Project $project 対象プロジェクト
+	 * @return integer シリアルナンバー
+	 * @static
+	 */
+	static public function createSerialNumber (Project $project) {
+		$db = BSDatabase::getInstance();
+		$criteria = $db->createCriteriaSet();
+		$criteria->register('project_id', $project);
+		$sql = BSSQL::getSelectQueryString(
+			array('max(serial) as recent'),
+			'idea',
+			$criteria
+		);
+
+		$recent = 0;
+		if ($row = $db->query($sql)->fetch()) {
+			$recent = $row['recent'];
+		}
+		return $recent + 1;
+	}
+
+	/**
 	 * 画像のサイズ名を全てを返す
 	 *
 	 * @access public

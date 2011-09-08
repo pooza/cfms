@@ -33,12 +33,14 @@ class Idea extends BSRecord {
 	 *   BSDatabase::WITHOUT_SERIALIZE シリアライズしない
 	 */
 	public function update ($values, $flags = null) {
-		$prev = clone $this->getAttributes();
-		$prev->removeParameter('id');
-		parent::update($values, $flags);
-
 		if ($flags & IdeaHandler::WITH_BACKUP) {
+			$prev = clone $this->getAttributes();
+			$values['serial'] = IdeaHandler::createSerialNumber($this->getProject());
+			parent::update($values, $flags);
+			$prev->removeParameter('id');
 			$this->getTable()->createRecord($prev);
+		} else {
+			parent::update($values, $flags);
 		}
 	}
 
