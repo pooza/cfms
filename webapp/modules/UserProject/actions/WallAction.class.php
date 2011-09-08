@@ -9,7 +9,7 @@
 class WallAction extends BSRecordAction {
 	public function execute () {
 		BSModule::getInstance('UserIdea')->setListAction($this);
-		return BSModule::getInstance('UserIdea')->getAction('WallList')->forward();
+		return BSModule::getInstance('UserIdea')->getAction('WallByProject')->forward();
 	}
 
 	public function deny () {
