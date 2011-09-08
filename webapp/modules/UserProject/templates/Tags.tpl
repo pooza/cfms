@@ -5,18 +5,129 @@
 @subpackage UserProject
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
+{assign var='body.id' value='sec'}
+{assign var='body.class' value='folder'}
 {include file='UserHeader'}
+{include file='MemberHeader'}
 
-<div id="BreadCrumbs">
-	<a href="/UserProject/">プロジェクト一覧</a>
-	<a href="#">{$action.title}</a>
+<div id="container">
+	<table cellspacing="0" cellpadding="0" class="tbl_project-layout">
+		<tr>
+			<td valign="top" class="leftArea">
+				<p class="project-img"><img src="/images/project_img.gif" width="233" height="233" alt=""></p>
+				<div class="memberColumn normal">
+					<p class="ttlMember"><img src="/images/project_ttl-member.gif" width="86" height="31" alt="MEMBER"></p>
+					<div id="members">Loading...</div>
+				</div>
+			</td>
+			<td valign="top" class="rightArea">
+				<div class="searchColumn">
+					<form action="#" method="get">
+						<table cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="form"><input name="" type="text" class="text"></td>
+								<td class="btn"><a href="#"><img src="/images/bt_search.gif" width="37" height="33" alt="検索する"></a></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<table cellspacing="0" cellpadding="0" class="project-title">
+					<tr>
+						<td valign="bottom" class="icon"><img src="/images/project_ttl-icon.gif" width="106" height="112" alt=""></td>
+						<td valign="bottom" class="padBtm">
+							<p class="title_txt">kraft ガム施策</p>
+						</td>
+					</tr>
+				</table>
+				<p class="bnr_upload"><a href="#"><img src="/images/project_bnr-newupload.gif" width="531" height="78" alt="新しいファイルをアップする"></a></p>
+				<table cellspacing="0" cellpadding="0" class="tab-menu roll">
+					<tr>
+						<td valign="top"><a href="project.html"><img src="/images/project_menu-wall.gif" width="255" height="46" alt="WALL"></a></td>
+						<td align="right" valign="top"><a href="folder.html"><img src="/images/project_menu-folder_on.gif" width="255" height="46" alt="FOLDER" class="unroll"></a></td>
+					</tr>
+				</table>
+				<div class="foldertColumn">
+					<div class="main_table">
+						<table width="0" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td valign="top"><img src="/images/folder_img.gif" width="138" height="92" alt=""></td>
+								<td>
+									<p class="normal">ファイル名</p>
+								</td>
+							</tr>
+						</table>
+						<table width="0" border="0" cellspacing="0" class="green_textbox">
+							<tr>
+								<td width="67">&nbsp;</td>
+								<td width="173">ファイル名</td>
+								<td width="98">サイズ</td>
+								<td width="108">更新日</td>
+								<td width="78">&nbsp;</td>
+							</tr>
+						</table>
+						<table cellspacing="0" cellpadding="0" class="pdf_textbox">
+							<tr>
+								<td width="67"><img src="/images/folder_pdf_icon.gif" width="44" height="41" alt=""></td>
+								<td width="173">00000.pdf</td>
+								<td width="98">200kb</td>
+								<td width="108">2011/4/23</td>
+								<td width="78"><a href="#"><img src="/images/folder_downlorad_icon.gif" width="59" height="51" alt=""></a></td>
+							</tr>
+							<tr>
+								<td width="67"><img src="/images/project_icon-file.gif" width="31" height="40" alt=""></td>
+								<td width="173">00000.pdf</td>
+								<td width="98">200kb</td>
+								<td width="108">2011/4/23</td>
+								<td width="78"><a href="#"><img src="/images/folder_downlorad_icon.gif" width="59" height="51" alt=""></a></td>
+							</tr>
+						</table>
+						<p><a href="#pagetop"><img src="/images/folder_topicon.gif" width="39" height="19" alt=""></a></p>
+					</div>
+				</div>
+				<div class="foldertColumn m57">
+					<div class="main_table">
+						<table width="0" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td valign="top"><img src="/images/folder_img.gif" width="138" height="92" alt=""></td>
+								<td>
+									<p class="normal">ファイル名</p>
+								</td>
+							</tr>
+						</table>
+						<table width="0" border="0" cellspacing="0" class="green_textbox">
+							<tr>
+								<td width="67">&nbsp;</td>
+								<td width="173">ファイル名</td>
+								<td width="98">サイズ</td>
+								<td width="108">更新日</td>
+								<td width="78">&nbsp;</td>
+							</tr>
+						</table>
+						<table cellspacing="0" cellpadding="0" class="pdf_textbox">
+							<tr>
+								<td width="67"><img src="/images/folder_pdf_icon.gif" width="44" height="41" alt=""></td>
+								<td width="173">00000.pdf</td>
+								<td width="98">200kb</td>
+								<td width="108">2011/4/23</td>
+								<td width="78"><a href="#"><img src="/images/folder_downlorad_icon.gif" width="59" height="51" alt=""></a></td>
+							</tr>
+							<tr>
+								<td width="67"><img src="/images/project_icon-file.gif" width="31" height="40" alt=""></td>
+								<td width="173">00000.pdf</td>
+								<td width="98">200kb</td>
+								<td width="108">2011/4/23</td>
+								<td width="78"><a href="#"><img src="/images/folder_downlorad_icon.gif" width="59" height="51" alt=""></a></td>
+							</tr>
+						</table>
+						<p><a href="#pagetop"><img src="/images/folder_topicon.gif" width="39" height="19" alt=""></a></p>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
 </div>
 
-<h1>{strip}
-	{image_cache size='logo' class='Project' id=$project.id style_class='bordered'}
-	{$action.title}
-{/strip}</h1>
-
+{*
 <div id="members" class="common_block">
 	Loading...
 </div>
@@ -72,15 +183,17 @@
 </table>
 </div>
 {/foreach}
+*}
 
 <script type="text/javascript">
 {literal}
 document.observe('dom:loaded', function () {
-  new Ajax.Updater('members', '/UserAccount/List');
+  new Ajax.Updater('members', '/UserAccount/ListByProject');
 });
 {/literal}
 </script>
 
+{include file='MemberFooter'}
 {include file='UserFooter'}
 
 {* vim: set tabstop=4: *}

@@ -59,16 +59,8 @@
 						<p><strong>アイコン</strong></p>
 					</th>
 					<td>
-						<div>
-							<input type="file" name="icon" class="green_solid" />
-						</div>
-						{if $account.has_icon}
-							<div class="normal">
-								{image_cache size='icon' pixel=64}
-								{image_cache size='icon' mode='size'}
-								[<a href="/{$module.name}/DeleteImage?name=icon">このアイコンを削除</a>]
-							</div>
-						{/if}
+						{image_cache size='icon' pixel=32}
+						<input type="file" name="icon" class="green_solid" />
 					</td>
 				</tr>
 			</table>
