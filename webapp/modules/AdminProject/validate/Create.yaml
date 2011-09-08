@@ -28,6 +28,10 @@ fields:
     validators:
       - date
       - end_date
+  logo:
+    file: yes
+    validators:
+      - image
   status:
     required: yes
     validators:

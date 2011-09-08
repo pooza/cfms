@@ -61,13 +61,13 @@
 				<th>ロゴ</th>
 				<td>
 					<input type="file" name="logo" size="20" /><br/>
-{if $project.has_logo}
-					<div class="common_block">
-						{image_cache mode='lightbox' size='logo' pixel=240 style_class='bordered' flags='WIDTH_FIXED' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
-						{image_cache size='logo' mode='size'}
-						[<a href="/{$module.name}/DeleteImage?name=logo">この画像を削除</a>]
-					</div>
-{/if}
+					{if $project.has_logo}
+						<div class="common_block">
+							{image_cache mode='lightbox' size='logo' pixel=240 style_class='bordered' flags='WIDTH_FIXED' pixel_full=500 flags_full='WITHOUT_SQUARE'}<br/>
+							{image_cache size='logo' mode='size'}
+							[<a href="/{$module.name}/DeleteImage?name=logo">この画像を削除</a>]
+						</div>
+					{/if}
 				</td>
 			</tr>
 			<tr>

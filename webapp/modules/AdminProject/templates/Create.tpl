@@ -16,7 +16,7 @@
 
 {include file='ErrorMessages'}
 
-{form}
+{form attachable=true}
 	<table class="detail">
 		<tr>
 			<th>名前</th>
@@ -35,6 +35,12 @@
 			<td>
 				<input type="text" id="start_date" name="start_date" value="{$params.start_date|date_format:'Y.m.d'}" size="10" maxlength="10" class="english" /> 〜
 				<input type="text" id="end_date" name="end_date" value="{$params.end_date|date_format:'Y.m.d'}" size="10" maxlength="10" class="english" />
+			</td>
+		</tr>
+		<tr>
+			<th>ロゴ</th>
+			<td>
+				<input type="file" name="logo" size="20" /><br/>
 			</td>
 		</tr>
 		<tr>
