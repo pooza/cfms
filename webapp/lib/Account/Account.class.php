@@ -78,8 +78,8 @@ class Account extends BSRecord implements BSUserIdentifier {
 	 * プロジェクトとの紐づけを更新
 	 *
 	 * @access public
-	 * @params Project $project プロジェクト
-	 * @params boolean $status 状態
+	 * @param Project $project プロジェクト
+	 * @param boolean $status 状態
 	 */
 	public function updateProjectStatus (Project $project, $status) {
 		if (!!$status) {
@@ -133,7 +133,7 @@ class Account extends BSRecord implements BSUserIdentifier {
 	 * 認証
 	 *
 	 * @access public
-	 * @params string $password パスワード
+	 * @param string $password パスワード
 	 * @return boolean 正しいユーザーならTrue
 	 */
 	public function auth ($password = null) {

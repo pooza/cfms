@@ -90,8 +90,8 @@ class Project extends BSRecord {
 	 * アカウントとの紐づけを更新
 	 *
 	 * @access public
-	 * @params Account $account アカウント
-	 * @params boolean $status 状態
+	 * @param Account $account アカウント
+	 * @param boolean $status 状態
 	 */
 	public function updateAccountStatus (Account $account, $status) {
 		if (!!$status) {

@@ -73,8 +73,8 @@ class Idea extends BSRecord {
 	 * 返信を投稿
 	 *
 	 * @access public
-	 * @params Account $account 発言者
-	 * @params string $body 本文
+	 * @param Account $account 発言者
+	 * @param string $body 本文
 	 * @return mixed 作成されたアイデアの主キー
 	 */
 	public function reply (Account $account, $body) {
@@ -168,7 +168,7 @@ class Idea extends BSRecord {
 	 * タグを更新
 	 *
 	 * @access public
-	 * @params BSArray $names タグ名の配列
+	 * @param BSArray $names タグ名の配列
 	 */
 	public function updateTags (BSArray $names) {
 		$this->clearTags();
