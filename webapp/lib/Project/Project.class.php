@@ -142,6 +142,7 @@ class Project extends BSRecord {
 				$table = clone $tag->getIdeas();
 				$table->getCriteria()->register('status', 'show');
 				$table->getCriteria()->register('delete_date', null);
+				$table->getOrder()->push('serial DESC');
 				$table->query();
 				foreach ($table as $idea) {
 					if ($idea->getAttachment('attachment')) {

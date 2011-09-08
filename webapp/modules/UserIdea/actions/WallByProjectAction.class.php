@@ -6,9 +6,9 @@
  * @subpackage UserIdea
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
-class WallByProjectAction extends BSTableAction {
+class WallByProjectAction extends BSPaginateTableAction {
 	protected function getPageSize () {
-		return 20;
+		return 10;
 	}
 
 	public function getCriteria () {

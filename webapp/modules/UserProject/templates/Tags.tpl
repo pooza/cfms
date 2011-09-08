@@ -7,6 +7,7 @@
 *}
 {assign var='body.id' value='sec'}
 {assign var='body.class' value='folder'}
+{assign var='links.project.class' value='unroll'}
 {include file='UserHeader'}
 {include file='MemberHeader'}
 
@@ -93,7 +94,11 @@
 								{foreach from=$ideaset.ideas item='idea'}
 									<tr>
 										<td width="67">
-											{if $idea.is_image}{image_cache class='Idea' id=$idea.id size='attachment' pixel=40}{/if}
+											{if $idea.is_image}
+												{image_cache class='Idea' id=$idea.id size='attachment' pixel=40}
+											{else}
+												<img src="/images/project_icon-file.gif" width="31" height="40" alt="">
+											{/if}
 										</td>
 										<td width="173">
 											<a href="/UserIdea/Detail/{$idea.id}">{$idea.name|default:'(空欄)'}</a>
