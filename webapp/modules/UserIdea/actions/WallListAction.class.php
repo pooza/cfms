@@ -22,8 +22,7 @@ class WallListAction extends BSTableAction {
 	protected function getOrder () {
 		if (!$this->order) {
 			$this->order = new BSTableFieldSet;
-			$this->order->push('update_date DESC');
-			$this->order->push('create_date DESC');
+			$this->order->push('serial DESC');
 		}
 		return $this->order;
 	}

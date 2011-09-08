@@ -71,6 +71,13 @@ class CreateAction extends BSRecordAction {
 		return $this->getDefaultView();
 	}
 
+	public function registerValidators () {
+		$manager = BSValidateManager::getInstance();
+		if ($this->request['attachment']) {
+			$manager->register('tags', new BSEmptyValidator);
+		}
+	}
+
 	public function getCredential () {
 		return $this->getModule()->getProject()->getCredential();
 	}

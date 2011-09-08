@@ -25,21 +25,28 @@ class DetailAction extends BSRecordAction {
 	 * @return mixed[] フィールド値の連想配列
 	 */
 	protected function getRecordValues () {
-		return array(
+		$values = new BSArray(array(
 			'name' => $this->request['name'],
 			'name_en' => $this->request['name_en'],
 			'name_read' => $this->request['name_read'],
-			'body' => $this->request['body'],
-		);
+		));
+		if ($this->getRecord()->getAttachment('attachment')) {
+			$values['body'] = $this->request['body'];
+		}
+		return $values;
 	}
 
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
-			$this->getRecord()->clearImageCache('attachment');
-			$this->getRecord()->update($this->getRecordValues(), IdeaHandler::WITH_BACKUP);
-			$this->getRecord()->setAttachments($this->request);
-			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			if ($this->getRecord()->getAttachment('attachment')) {
+				$this->getRecord()->clearImageCache('attachment');
+				$this->getRecord()->update($this->getRecordValues(), IdeaHandler::WITH_BACKUP);
+				$this->getRecord()->setAttachments($this->request);
+				$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			} else {
+				$this->getRecord()->update($this->getRecordValues());
+			}
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
@@ -71,6 +78,13 @@ class DetailAction extends BSRecordAction {
 
 	public function handleError () {
 		return $this->getDefaultView();
+	}
+
+	public function registerValidators () {
+		$manager = BSValidateManager::getInstance();
+		if ($this->request['attachment']) {
+			$manager->register('tags', new BSEmptyValidator);
+		}
 	}
 
 	public function deny () {

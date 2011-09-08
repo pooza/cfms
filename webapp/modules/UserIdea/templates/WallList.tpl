@@ -34,7 +34,7 @@
 		{if $idea.delete_date}
 			<p class="alert">削除済みです。</p>
 		{else}
-			<h2><a href="/UserIdea/Detail/{$idea.id}">{$idea.name|default:'(空欄)'}</a></h2>
+			<h2>{$idea.serial}: <a href="/UserIdea/Detail/{$idea.id}">{$idea.name|default:'(空欄)'}</a></h2>
 			
 			{if $idea.is_image}
 				<div>

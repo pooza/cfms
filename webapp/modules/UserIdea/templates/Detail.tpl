@@ -70,34 +70,44 @@
 					<input type="text" name="name" value="{$params.name}" size="40" maxlength="64" />
 				</td>
 			</tr>
-			<tr>
-				<th>フォルダ</th>
-				<td>
-					{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
-				</td>
-			</tr>
+
+			{if $idea.has_attachment}
+				<tr>
+					<th>フォルダ</th>
+					<td>
+						{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+					</td>
+				</tr>
+			{/if}
+
 			<tr>
 				<th>本文</th>
 				<td>
-					<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
-				</td>
-			</tr>
-			<tr>
-				<th>ファイル</th>
-				<td>
-					<input type="file" name="attachment" size="20" /><br/>
 					{if $idea.has_attachment}
-					<div class="common_block">
-						{if $idea.is_image}
-							{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
-						{/if}
-						<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
-						{$idea.attachment.type}
-						{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
-					</div>
+						<textarea name="body" cols="60" rows="5" />{$params.body}</textarea>
+					{else}
+						{$idea.body|nl2br|default:'(空欄)'}
 					{/if}
 				</td>
 			</tr>
+
+			{if $idea.has_attachment}
+				<tr>
+					<th>ファイル</th>
+					<td>
+						<input type="file" name="attachment" size="20" /><br/>
+						<div class="common_block">
+							{if $idea.is_image}
+								{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
+							{/if}
+							<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
+							{$idea.attachment.type}
+							{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
+						</div>
+					</td>
+				</tr>
+			{/if}
+
 			<tr>
 				<th>作成者</th>
 				<td>
