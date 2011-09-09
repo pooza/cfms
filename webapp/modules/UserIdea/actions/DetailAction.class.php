@@ -29,24 +29,18 @@ class DetailAction extends BSRecordAction {
 			'name' => $this->request['name'],
 			'name_en' => $this->request['name_en'],
 			'name_read' => $this->request['name_read'],
+			'body' => $this->request['body'],
 		));
-		if ($this->getRecord()->getAttachment('attachment')) {
-			$values['body'] = $this->request['body'];
-		}
 		return $values;
 	}
 
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
-			if ($this->getRecord()->getAttachment('attachment')) {
-				$this->getRecord()->clearImageCache('attachment');
-				$this->getRecord()->update($this->getRecordValues(), IdeaHandler::WITH_BACKUP);
-				$this->getRecord()->setAttachments($this->request);
-				$this->getRecord()->updateTags(new BSArray($this->request['tags']));
-			} else {
-				$this->getRecord()->update($this->getRecordValues());
-			}
+			$this->getRecord()->clearImageCache('attachment');
+			$this->getRecord()->update($this->getRecordValues(), IdeaHandler::WITH_BACKUP);
+			$this->getRecord()->setAttachments($this->request);
+			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
