@@ -75,6 +75,8 @@ class CreateAction extends BSRecordAction {
 		$manager = BSValidateManager::getInstance();
 		if ($this->request['attachment']) {
 			$manager->register('tags', new BSEmptyValidator);
+		} else {
+			$manager->register('body', new BSEmptyValidator);
 		}
 	}
 

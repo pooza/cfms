@@ -30,7 +30,7 @@
 				</th>
 				<td>
 					<div style="margin:5px 0">
-						{$params.body|nl2br}
+						{$idea.body|nl2br}
 					</div>
 				</td>
 			</tr>
@@ -57,7 +57,16 @@
 			</tr>
 		</table>
 	</div>
+
+{*
 	{include file='Detail.thread.tpl'}
+	{form action='Comment'}
+		<div align="center">
+			<textarea name="body" cols="48" rows="5" class="input04" style="width:520px"></textarea><br/>
+			<input type="submit" value="送信" />
+		</div>
+	{/form}
+*}
 </div>
 
 {include file='MemberFooter'}

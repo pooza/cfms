@@ -100,7 +100,11 @@
 													</td>
 													<td valign="bottom" class="reComment">
 														{if !$idea.delete_date}
-															<a href="/UserIdea/Thread/{$idea.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
+															{if $idea.parent}
+																<a href="/UserIdea/Thread/{$idea.parent.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
+															{else}
+																<a href="/UserIdea/Thread/{$idea.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
+															{/if}
 														{/if}
 													</td>
 												</tr>
@@ -113,6 +117,7 @@
 										<table cellspacing="0" cellpadding="0" class="tbl_comment" style="border-left:60px">
 											<tr>
 												<td valign="top" class="itemHead">
+													<p class="number"><strong>{$idea.parent.serial}</strong></p>
 												</td>
 												<td valign="top" class="itemContents">
 													<table cellspacing="0" cellpadding="0" class="tbl_file">
@@ -124,9 +129,14 @@
 																			{image_cache class='Account' id=$idea.parent.account.id size='icon' pixel=40}
 																		</th>
 																		<td valign="top" class="nameTxt normal">{$idea.parent.account.company}<br/>{$idea.parent.account.name}様</td>
-																		<td valign="top" class="dayTxt small">{$idea.parent.create_date|date_format:'Y.m.d H:i:s'}</td>
+																		<td valign="top" class="dayTxt small"></td>
 																	</tr>
 																</table>
+																<p class="commentTxt normal">
+																	{if !$idea.parent.delete_date}
+																		{$idea.parent.body|nl2br}
+																	{/if}
+																</p>
 															</td>
 														</tr>
 														<tr>
@@ -144,12 +154,11 @@
 															<td class="txt normal">
 																{if !$idea.parent.delete_date && $idea.parent.has_attachment}
 																	ファイル:<strong><a href="/UserIdea/Export/{$idea.parent.id}?name=attachment">{$idea.parent.name}</a></strong>
-																	({$idea.parent.attachment.size|binary_size_format}B)
+																	({$idea.parent.attachment.size|binary_size_format}B)<br/>
 																{/if}
 															</td>
 														</tr>
 													</table>
-
 												</td>
 											</tr>
 										</table>

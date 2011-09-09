@@ -34,11 +34,7 @@
 					<th class="large form_text">
 						<p>
 							<strong>
-								{if $list_action.name=='Tags'}
-									本文
-								{else}
-									コメント
-								{/if}
+								本文
 							</strong>
 						</p>
 					</th>

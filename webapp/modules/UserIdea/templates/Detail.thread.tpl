@@ -64,11 +64,4 @@
 	{/foreach}
 </div>
 
-{form action='Comment'}
-	<div align="center">
-		<textarea name="body" cols="48" rows="5" class="input04" style="width:520px"></textarea><br/>
-		<input type="submit" value="送信" />
-	</div>
-{/form}
-
 {* vim: set tabstop=4: *}
