@@ -12,11 +12,11 @@
 	<table cellspacing="0" cellpadding="0">
 		<tr>
 			<td valign="top" class="title">
-				<h1><img src="/images/common/h1-logo.gif" width="335" height="37" alt="COMMONS TABLE">
+				<h1><img src="/images/common/h1-logo.gif" width="354" height="37" alt="COMMONS TABLE">
 				</h1>
 			</td>
 			<td valign="top" class="logo">
-				<h2><img src="/images/common/commons-logo.gif" width="146" height="36" alt="COMMONS">
+				<h2><img src="/images/common/commons-logo.gif" width="150" height="37" alt="COMMONS">
 				</h2>
 			</td>
 		</tr>
