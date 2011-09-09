@@ -78,7 +78,8 @@
 					<td>{$idea.update_date|date_format:'Y年 n月j日 (ww) H:i:s'}</td>
 				</tr>
 			</table>
-			<input type="image" src="/images/profile_Update_btn.gif" alt="更新" value="更新" class="inputbtn">
+			<input type="image" src="/images/profile_update_btn.gif" alt="更新" value="更新" class="inputbtn">
+			<img id="delete_btn" src="/images/delete_btn.gif" alt="削除" class="inputbtn" />
 		</div>
 	{/form}
 
@@ -108,6 +109,10 @@
 				</td>
 			</tr>
 		</table>
+	</div>
+
+	<div align="right">
+		<a href="/UserProject/{$list_action.name}/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
 	</div>
 </div>
 
@@ -148,6 +153,9 @@ document.observe('dom:loaded', function () {
 
   $('members_uncheckall_button').observe('click', function() {
     updateCheckBoxes(false);
+  });
+  $('delete_btn').observe('click', function() {
+    CarrotLib.confirmDelete('UserIdea', 'Delete', 'ファイル');
   });
 });
 {/literal}

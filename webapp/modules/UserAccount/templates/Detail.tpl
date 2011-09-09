@@ -63,7 +63,7 @@
 					</td>
 				</tr>
 			</table>
-			<input type="image" src="/images/profile_Update_btn.gif" alt="更新" value="更新" class="inputbtn">
+			<input type="image" src="/images/profile_update_btn.gif" alt="更新" value="更新" class="inputbtn">
 		</div>
 	{/form}
 </div>

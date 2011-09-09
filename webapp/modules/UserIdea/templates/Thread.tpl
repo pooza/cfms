@@ -130,12 +130,18 @@
 	</div>
 
 	{form}
+		{include file='ErrorMessages'}
 		<div align="center">
 			<textarea name="body" cols="48" rows="5" class="input04" style="width:520px"></textarea><br/>
-			<input type="submit" value="送信" />
+			<input type="image" src="/images/send_btn.gif" alt="送信" value="送信" class="inputbtn">
 		</div>
 	{/form}
+
+	<div align="right">
+		<a href="/UserProject/{$list_action.name}/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
+	</div>
 </div>
+
 
 {include file='MemberFooter'}
 {include file='UserFooter'}
