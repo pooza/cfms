@@ -24,30 +24,12 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
-						<p><strong>名前</strong></p>
-					</th>
-					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
 						<p>
 							<strong>本文</strong>
 						</p>
 					</th>
 					<td>
 						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea>
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
-						<p><strong>フォルダ</strong></p>
-					</th>
-					<td class="normal">
-						<div style="margin:5px 0">
-							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
-						</div>
 					</td>
 				</tr>
 				<tr>
@@ -62,6 +44,16 @@
 						<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img src="/carrotlib/images/document.gif" width="16" height="16" alt="ダウンロード" /></a>
 						{$idea.attachment.type}
 						{$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>フォルダ</strong></p>
+					</th>
+					<td class="normal">
+						<div style="margin:5px 0">
+							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+						</div>
 					</td>
 				</tr>
 				<tr>

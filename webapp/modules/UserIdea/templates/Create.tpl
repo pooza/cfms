@@ -24,14 +24,6 @@
 			<table border="0" cellspacing="4" cellpadding="0">
 				<tr>
 					<th class="large form_text">
-						<p><strong>名前</strong></p>
-					</th>
-					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
 						<p>
 							<strong>
 								本文
@@ -44,20 +36,20 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
+						<p><strong>ファイル</strong></p>
+					</th>
+					<td class="normal">
+						<input type="file" name="attachment" size="20" class="green_solid" />
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
 						<p><strong>フォルダ</strong></p>
 					</th>
 					<td class="normal">
 						<div style="margin:5px 0">
 							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
 						</div>
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
-						<p><strong>ファイル</strong></p>
-					</th>
-					<td class="normal">
-						<input type="file" name="attachment" size="20" class="green_solid" />
 					</td>
 				</tr>
 			</table>

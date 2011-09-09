@@ -79,83 +79,48 @@
 													{$idea.body|nl2br}
 												{/if}
 											</p>
-											<table cellspacing="0" cellpadding="0" class="tbl_file">
-												<tr>
-													<td class="file">
-														{if !$idea.delete_date && $idea.has_attachment}
-															<a href="/UserIdea/Export/{$idea.id}?name=attachment">{strip}
-																{if $idea.is_image}
-																	{image_cache class='Idea' id=$idea.id size='attachment' pixel=40}
-																{else}
-																	<img src="/images/project_icon-file.gif" width="31" height="40" alt="">
-																{/if}
-															{/strip}</a>
-														{/if}
-													</td>
-													<td class="txt normal">
-														{if !$idea.delete_date && $idea.has_attachment}
-															ファイル:<strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
-															({$idea.attachment.size|binary_size_format}B)
-														{/if}
-													</td>
-													<td valign="bottom" class="reComment">
-														{if !$idea.delete_date}
-															{if $idea.parent}
-																<a href="/UserIdea/Thread/{$idea.parent.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
-															{else}
-																<a href="/UserIdea/Thread/{$idea.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
+											{if !$idea.delete_date}
+												<table cellspacing="0" cellpadding="0" class="tbl_file">
+													<tr>
+														<td class="file">
+															{if $idea.has_attachment}
+																<a href="/UserIdea/Export/{$idea.id}?name=attachment">{strip}
+																	{if $idea.is_image}
+																		{image_cache class='Idea' id=$idea.id size='attachment' pixel=40}
+																	{else}
+																		<img src="/images/project_icon-file.gif" width="31" height="40" alt="">
+																	{/if}
+																{/strip}</a>
 															{/if}
-														{/if}
-													</td>
-												</tr>
-											</table>
+														</td>
+														<td class="txt normal">
+															{if $idea.has_attachment}
+																ファイル:<strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
+																({$idea.attachment.size|binary_size_format}B)
+															{/if}
+														</td>
+														<td valign="bottom" class="reComment">
+															<a href="/UserIdea/Thread/{$idea.id}"><img src="/images/project_icon-comment01.gif" width="37" height="31" alt=""></a>
+														</td>
+													</tr>
+												</table>
+											{/if}
 										</td>
 									</tr>
 								</table>
-								{if !$idea.delete_date && $idea.parent}
+
+								{foreach from=$idea.comments item='comment'}
 									<div class="border">
-										<table cellspacing="0" cellpadding="0" class="tbl_comment" style="border-left:60px">
+										<table cellspacing="0" cellpadding="0" class="tbl_comment">
 											<tr>
-												<td valign="top" class="itemHead">
-													<p class="number"><strong>{$idea.parent.serial}</strong></p>
-												</td>
+												<td valign="top" class="itemHead"></td>
 												<td valign="top" class="itemContents">
-													<table cellspacing="0" cellpadding="0" class="tbl_file">
+													<table cellspacing="0" cellpadding="0" class="tbl_name">
 														<tr>
-															<td colspan="2">
-																<table cellspacing="0" cellpadding="0" class="tbl_name">
-																	<tr>
-																		<th valign="top" scope="row">
-																			{image_cache class='Account' id=$idea.parent.account.id size='icon' pixel=40}
-																		</th>
-																		<td valign="top" class="nameTxt normal">{$idea.parent.account.company}<br/>{$idea.parent.account.name}様</td>
-																		<td valign="top" class="dayTxt small"></td>
-																	</tr>
-																</table>
-																<p class="commentTxt normal">
-																	{if !$idea.parent.delete_date}
-																		{$idea.parent.body|nl2br}
-																	{/if}
-																</p>
-															</td>
-														</tr>
-														<tr>
-															<td class="file">
-																{if !$idea.parent.delete_date && $idea.parent.has_attachment}
-																	<a href="/UserIdea/Export/{$idea.parent.id}?name=attachment">{strip}
-																		{if $idea.parent.is_image}
-																			{image_cache class='Idea' id=$idea.parent.id size='attachment' pixel=40}
-																		{else}
-																			<img src="/images/project_icon-file.gif" width="31" height="40" alt="">
-																		{/if}
-																	{/strip}</a>
-																{/if}
-															</td>
-															<td class="txt normal">
-																{if !$idea.parent.delete_date && $idea.parent.has_attachment}
-																	ファイル:<strong><a href="/UserIdea/Export/{$idea.parent.id}?name=attachment">{$idea.parent.name}</a></strong>
-																	({$idea.parent.attachment.size|binary_size_format}B)<br/>
-																{/if}
+															<th valign="top" scope="row">{image_cache class='Account' id=$comment.account.id size='icon' pixel=40}</th>
+															<td valign="top" class="nameTxt sec normal">{$comment.account.company}<br>{$comment.account.name}様</strong></a></td>
+															<td valign="top" class="text normal">
+																<p>{$comment.body|nl2br}</p>
 															</td>
 														</tr>
 													</table>
@@ -163,7 +128,8 @@
 											</tr>
 										</table>
 									</div>
-								{/if}
+								{/foreach}
+
 							</div>
 						</div>
 					</div>

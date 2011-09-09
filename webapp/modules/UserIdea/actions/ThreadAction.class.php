@@ -17,7 +17,7 @@ class ThreadAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->redirect();
+		return $this->getRecord()->getProject()->redirect();
 	}
 
 	public function getDefaultView () {

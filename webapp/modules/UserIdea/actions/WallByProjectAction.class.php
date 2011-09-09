@@ -6,15 +6,12 @@
  * @subpackage UserIdea
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
-class WallByProjectAction extends BSPaginateTableAction {
-	protected function getPageSize () {
-		return 10;
-	}
-
+class WallByProjectAction extends BSTableAction {
 	public function getCriteria () {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();
 			$this->criteria->register('project_id', $this->getModule()->getProject());
+			$this->criteria->register('parent_idea_id', null);
 		}
 		return $this->criteria;
 	}
@@ -31,7 +28,12 @@ class WallByProjectAction extends BSPaginateTableAction {
 		if (!$this->rows) {
 			$this->rows = new BSArray;
 			foreach ($this->getTable() as $idea) {
-				$this->rows[$idea->getID()] = $idea->getAssignableValues();
+				$row = $idea->getAssignableValues();
+				$row['comments'] = new BSArray;
+				foreach ($idea->getComments() as $comment) {
+					$row['comments'][$comment->getID()] = $comment->getAssignableValues();
+				}
+				$this->rows[$idea->getID()] = $row;
 			}
 		}
 		return $this->rows;
