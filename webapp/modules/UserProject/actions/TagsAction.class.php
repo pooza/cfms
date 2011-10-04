@@ -11,7 +11,10 @@ class TagsAction extends BSRecordAction {
 		BSModule::getInstance('UserIdea')->setListAction($this);
 		$this->request->setAttribute('project', $this->getRecord());
 		$this->request->setAttribute('theme', $this->getRecord()->getTheme());
-		$this->request->setAttribute('ideasets', $this->getRecord()->getIdeasGrouped());
+		$this->request->setAttribute(
+			'ideasets',
+			$this->getRecord()->getIdeasGrouped($this->request['key'])
+		);
 		return BSView::SUCCESS;
 	}
 

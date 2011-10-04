@@ -12,6 +12,13 @@ class WallByProjectAction extends BSTableAction {
 			$this->criteria = $this->createCriteriaSet();
 			$this->criteria->register('project_id', $this->getModule()->getProject());
 			$this->criteria->register('parent_idea_id', null);
+			if (!BSString::isBlank($key = $this->request['key'])) {
+				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
+				$criteria->setGlue('or');
+				foreach (array('name', 'body') as $field) {
+					$criteria->register($field, '%' . $key . '%', 'like');
+				}
+			}
 		}
 		return $this->criteria;
 	}

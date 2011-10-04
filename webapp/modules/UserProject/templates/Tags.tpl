@@ -24,14 +24,14 @@
 			</td>
 			<td valign="top" class="rightArea">
 				<div class="searchColumn">
-					<form action="#" method="get">
+					{form method='get'}
 						<table cellspacing="0" cellpadding="0">
 							<tr>
-								<td class="form"><input name="" type="text" class="text"></td>
-								<td class="btn"><a href="#"><img src="/images/bt_search.gif" width="37" height="33" alt="検索する"></a></td>
+								<td class="form"><input name="key" value="{$params.key}" type="text" class="text"></td>
+								<td class="btn"><input type="image" src="/images/bt_search.gif" width="37" height="33" alt="検索する"></a></td>
 							</tr>
 						</table>
-					</form>
+					{/form}
 				</div>
 				<table cellspacing="0" cellpadding="0" class="project-title">
 					<tr>
