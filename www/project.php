@@ -124,7 +124,7 @@
 					<td bgcolor='<?= $group->GetColor("idea") ?>' width='30' height='36' nowrap><a href='idea_open.php?idea=<?= $idea->ID ?>' target='<?= bool2str(in_array($idea->Class->ID, $arrayBlankClass), "_blank", "_self") ?>'><img src='carrotlib/images/cfms1/idea/<?= strtolower($idea->Class->ID) ?>.gif' border='0'></a></td>
 					<td width='15'><img src='carrotlib/images/cfms1/_spacer.gif' height='1' width='1'></td>
 					<td class='gray' width='620'>
-						<a href='idea_open.php?idea=<?= $idea->ID ?>' target='<?= bool2str(in_array($idea->Class->ID, $arrayBlankClass), "_blank", "_self") ?>'><?= $idea->Name ?></a>
+						<a href='idea_open.php?idea=<?= $idea->ID ?>'><?= $idea->Name ?></a>
 						<span class='gray'><?= $file->FormatSize() ?></span><br>
 						<span class='gray'>(<?= $idea->Class->Description ?>)</span>
 

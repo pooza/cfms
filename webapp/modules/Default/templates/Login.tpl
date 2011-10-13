@@ -51,7 +51,9 @@
 	<table cellspacing="0" cellpadding="0">
 		<tr>
 			<td class="copyright small">{const name='APP_NAME_JA'} Ver.{const name='APP_VER'} (C)2011 {const name='AUTHOR_NAME_EN'}</td>
-			<td class="bnr"><a href="#"><img src="/images/top_foot-bnr.jpg" width="131" height="65" alt="GlobalSign"></a></td>
+			<td class="bnr">
+				<script language='JavaScript' type='text/javascript' src='//smarticon.geotrust.com/si.js'></script><br><br>
+			</td>
 		</tr>
 	</table>
 </div>
