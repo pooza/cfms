@@ -6,7 +6,6 @@ define("DB_USER", "root");
 define("DB_PWD", "");
 define("DB_NAME", "cfms1");
 
-define("HTTP_HOST", "cfms.torkan.local");
 define("ROOT_URL", "http://cfms.torkan.local/");
 define("ROOT_PATH", "/home/pooza/Sites/cfms.torkan.local/www/");
 

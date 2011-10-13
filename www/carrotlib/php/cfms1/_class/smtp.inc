@@ -77,7 +77,7 @@ if (defined("MTA_TZ")) {
 					$this->Connected = true; // 接続フラグを仮に立てておく
 
 				$this->Get();
-				$this->Put("HELO " . HTTP_HOST);
+				$this->Put("HELO " . $_SERVER['SERVER_NAME']);
 
 				if (mb_ereg("^250", $this->Get())) {
 					new Log("メールサーバ " . MTA_HOST . " に接続しました。");
@@ -138,7 +138,7 @@ if (defined("MTA_TZ")) {
 		}
 
 		function FormatHeader () {
-			$this->MessageID = time() . rand(1000000, 9999999) . "@" . HTTP_HOST;
+			$this->MessageID = time() . rand(1000000, 9999999) . "@" . $_SERVER['SERVER_NAME'];
 
 			return ("Date: " . strftime("%a, %d %b %Y %T ") . MTA_TZ . "\r\n"
 				. "From: " . $this->From->Format() . "\r\n"

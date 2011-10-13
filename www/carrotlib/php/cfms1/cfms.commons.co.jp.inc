@@ -6,9 +6,8 @@ define("DB_USER", "cfms");
 define("DB_PWD", "");
 define("DB_NAME", "druid3");
 
-define("HTTP_HOST", "cfms.commons.co.jp");
 define("ROOT_URL", "https://cfms.commons.co.jp/");
-define("ROOT_PATH", "/home/commons/sites/cfms.commons.co.jp/");
+define("ROOT_PATH", "/home/commons/sites/cfms.commons.co.jp/www");
 
 define("MTA_HOST", "localhost");
 define("MTA_TZ", "+0900");
