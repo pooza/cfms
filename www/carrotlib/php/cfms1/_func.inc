@@ -10,7 +10,7 @@ function OmitStr($str, $intLength) {
 	if (strlen($str) <= $intLength)
 		return $str;
 	else {
-		return (substr($str, 0, ($intLength - 3)) . "...");
+		return (mb_substr($str, 0, ($intLength - 3)) . "...");
 	}
 }
 

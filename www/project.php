@@ -146,7 +146,7 @@
 					<td colspan='3'></td>
 					<td class='plain' colspan='4'>
 						<img src='carrotlib/images/cfms1/_spacer.gif' height='5' width='100%'><br>
-						<?= OmitStr($idea->Summary, 64) ?>&nbsp;
+						<?= OmitStr($idea->Summary, 32) ?>&nbsp;
 					</td>
 				</tr>
 				<tr>
