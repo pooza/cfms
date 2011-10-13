@@ -106,6 +106,7 @@ function SetDate() {
 				</table>
 				<div align='right'>
 					<br>
+					<input type='submit' value=' O K '>
 				</div>
 				<table border='0' cellspacing='0' cellpadding='2'>
 					<tr align='left' valign='top'>

@@ -97,6 +97,8 @@ function SetDate() {
 				</table>
 				<div align='right'>
 					<br>
+					<input type='submit' value=' O K '>
+					<input onclick='ConfirmDelete()' type='button' value='このフォルダを削除...'>
 				</div>
 			</td>
 		</tr>

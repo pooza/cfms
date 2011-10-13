@@ -125,7 +125,9 @@ function SetDate() {
 				</table>
 				<div align='right'>
 					<br>
+					<input type='submit' value=' O K '>
 					<input onclick='location.href=&quot;idea_open.php?download=1&quot;' type='button' value='このファイルをダウンロード...'>
+					<input onclick='ConfirmDelete()' type='button' value='このファイルを削除...'>
 				</div>
 			</td>
 		</tr>
