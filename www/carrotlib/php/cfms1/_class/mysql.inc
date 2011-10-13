@@ -77,7 +77,12 @@ class Recordset {
 	}
 
 	function FetchRecord() {
-		return mysql_fetch_object($this->ID);
+		$record = array();
+		foreach (mysql_fetch_object($this->ID) as $key => $value) {
+			$value = str_replace('～', '～', $value);
+			$record[$key] = $value;
+		}
+		return $record;
 	}
 
 	function Hash ($hash = null) {
