@@ -17,7 +17,7 @@ class Database {
 		$this->UserName = DB_USER;
 		$this->Password = DB_PWD;
 		$this->DBName = DB_NAME;
-		$this->query('set names utf8');
+		mysql_set_charset('utf8');
 	}
 
 	function close () {
@@ -77,12 +77,7 @@ class Recordset {
 	}
 
 	function FetchRecord() {
-		$record = array();
-		foreach (mysql_fetch_object($this->ID) as $key => $value) {
-			$value = str_replace('～', '～', $value);
-			$record[$key] = $value;
-		}
-		return $record;
+		return mysql_fetch_object($this->ID);
 	}
 
 	function Hash ($hash = null) {

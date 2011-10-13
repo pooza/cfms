@@ -16,6 +16,8 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 フォルダ:
 {foreach from=$idea.tags item='tag'}[{$tag.name}] {/foreach}
 
+作成者:
+{$idea.account.company} {$idea.account.name}
 
 ファイル:
 {$idea.attachment.type} {$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
