@@ -1,0 +1,17 @@
+root_url: https://cfms.commons.co.jp/
+root_url_https: https://cfms.commons.co.jp/
+debug: no
+
+admin:
+  email: webmaster@commons.co.jp
+  password: 40ba2414b1b104c7cd35b5fd28ca1cf0b8004a3d
+
+crypt:
+  engine: blowfish
+
+pdo:
+  default:
+    dsn: mysql:host=cmsdb3;dbname=cfms
+    uid: cfms
+    password: 43Bs6JZRjqa7DIkOMM048Q==
+

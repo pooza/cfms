@@ -225,6 +225,7 @@ class Idea extends BSRecord {
 		}
 
 		$mail->getRenderer()->setAttribute('idea', $values);
+		$mail->getRenderer()->setAttribute('sender', AccountHandler::getCurrent());
 		$mail->send();
 	}
 

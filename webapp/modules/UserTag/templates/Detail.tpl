@@ -49,7 +49,7 @@
 	{/form}
 
 	<div align="right">
-		<a href="/UserProject/{$list_action.name}/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
+		<a href="/UserProject/Tags/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
 	</div>
 </div>
 
