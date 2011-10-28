@@ -24,6 +24,14 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
+						<p><strong>名前</strong></p>
+					</th>
+					<td>
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
 						<p>
 							<strong>本文</strong>
 						</p>

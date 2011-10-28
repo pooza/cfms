@@ -24,11 +24,15 @@
 			<table border="0" cellspacing="4" cellpadding="0">
 				<tr>
 					<th class="large form_text">
-						<p>
-							<strong>
-								本文
-							</strong>
-						</p>
+						<p><strong>名前</strong></p>
+					</th>
+					<td>
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>本文</strong></p>
 					</th>
 					<td>
 						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea>
