@@ -33,7 +33,7 @@ $file = $idea->GetFile();
 mb_http_output("pass");
 header("Content-type: application/octet-stream");
 header("Content-size: " . $file->GetSize());
-header("Content-disposition: attachment; filename=" . $idea->Body);
+header("Content-disposition: attachment; filename=" . mb_convert_encoding($idea->Body, 'sjis-win'));
 $file->Open();
 print($file->Get());
 $file->Close();

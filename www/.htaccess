@@ -25,6 +25,7 @@ RewriteRule ^v2$ /Login [L,QSA]
 # 大容量ファイルのアップロード
 php_value post_max_size 1G
 php_value upload_max_filesize 1G
+php_value memory_limit 480M
 
 # php5
 php_value default_charset UTF-8
