@@ -54,6 +54,7 @@
 				</table>
 
 				{foreach from=$ideas item='idea'}
+					<!-- Idea ID: {$idea.id} -->
 					<div class="commentColumn {if $idea.is_important}imp{/if}">
 						<div class="bgtop">
 							<div class="bgbtm">
@@ -110,6 +111,7 @@
 								</table>
 
 								{foreach from=$idea.comments item='comment'}
+									<!-- Idea ID: {$comment.id} -->
 									<div class="border">
 										<table cellspacing="0" cellpadding="0" class="tbl_comment">
 											<tr>

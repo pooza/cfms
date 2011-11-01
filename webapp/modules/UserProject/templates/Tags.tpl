@@ -94,6 +94,7 @@
 								</tr>
 
 								{foreach from=$ideaset.ideas item='idea'}
+									<!-- Idea ID: {$idea.id} -->
 									<tr>
 										<td width="67">
 											{if $idea.is_image}
