@@ -66,7 +66,11 @@
 											<table cellspacing="0" cellpadding="0" class="tbl_name">
 												<tr>
 													<th valign="top" scope="row">
-														{image_cache class='Account' id=$idea.account.id size='icon' pixel=60}
+														{if $idea.is_image}
+															{image_cache class='Account' id=$idea.account.id size='icon' pixel=60}
+														{else}
+															<img src="/images/project_icon-file.gif" width="31" height="40" alt="">
+														{/if}
 													</th>
 													<td valign="top" class="nameTxt normal">{$idea.account.company}<br/>{$idea.account.name}様</td>
 													<td valign="top" class="dayTxt small">{$idea.create_date|date_format:'Y.m.d H:i:s'}</td>

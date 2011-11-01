@@ -12,6 +12,7 @@ class Idea extends BSRecord {
 	private $tags;
 	private $parentIdea;
 	private $comments;
+	const THUMBNAILABLE_FILE_SIZE = 5;
 
 	/**
 	 * 更新可能か？
@@ -138,9 +139,12 @@ class Idea extends BSRecord {
 	 */
 	public function isImage () {
 		$file = $this->getAttachment('attachment');
-		return (mb_ereg('^image/', $file->getType())
-			|| $file->getType() == BSMIMEType::getType('pdf')
-		);
+		if ($file->getSize() < (self::THUMBNAILABLE_FILE_SIZE * 1024 * 1024)) {
+			return (mb_ereg('^image/', $file->getType())
+				|| ($file->getType() == BSMIMEType::getType('pdf'))
+			);
+		}
+		return false;
 	}
 
 	/**
