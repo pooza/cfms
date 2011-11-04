@@ -306,7 +306,8 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 	text-align:left;
 }
 .title_txt {
-	font-size:41px;
+	font-size:24px;
+	margin: 0 5px;
 	color:#88ba63;
 }
 
@@ -426,9 +427,9 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 	width:535px;
 }
 
-.project .rightArea .project-title .icon {width:106px;}
+.project .rightArea .project-title .icon {width:72px;}
 .project .rightArea .project-title .padBtm {
-	padding-bottom:27px;
+	vertical-align:middle;
 }
 
 /* 新規フォルダ作成
@@ -787,9 +788,9 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 	width:535px;
 }
 
-.folder .rightArea .project-title .icon {width:106px;}
+.folder .rightArea .project-title .icon {width:72px;}
 .folder .rightArea .project-title .padBtm {
-	padding-bottom:27px;
+	vertical-align:middle;
 }
 
 

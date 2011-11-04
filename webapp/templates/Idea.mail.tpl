@@ -28,7 +28,7 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 {$idea.url}
 
 本文:
-{$idea.body|nl2br|default:'(空欄)'}
+{$idea.body|default:'(空欄)'}
 
 
 [{const name='app_name_ja'}] {const name='app_ver'}

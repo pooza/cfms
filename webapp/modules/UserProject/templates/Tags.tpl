@@ -35,7 +35,7 @@
 				</div>
 				<table cellspacing="0" cellpadding="0" class="project-title">
 					<tr>
-						<td valign="bottom" class="icon"><img src="/images/project_ttl-icon.gif" width="106" height="112" alt=""></td>
+						<td valign="bottom" class="icon"><img src="/images/project_ttl-icon.gif" width="72" height="112" alt=""></td>
 						<td valign="bottom" class="padBtm">
 							<p class="title_txt">{$project.name}</p>
 						</td>
