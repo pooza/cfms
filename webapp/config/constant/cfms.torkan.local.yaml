@@ -20,3 +20,6 @@ pdo:
     dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: root
     password:
+
+clamav:
+  command: clamscan

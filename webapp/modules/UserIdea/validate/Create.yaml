@@ -21,3 +21,4 @@ fields:
     file: yes
     validators:
       - largefile
+      - infection
