@@ -9,16 +9,6 @@
 class DetailAction extends BSRecordAction {
 
 	/**
-	 * メモリ上限を返す
-	 *
-	 * @access public
-	 * @return integer メモリ上限(MB)、設定の必要がない場合はNULL
-	 */
-	public function getMemoryLimit () {
-		return 256;
-	}
-
-	/**
 	 * レコードのフィールド値を配列で返す
 	 *
 	 * @access protected
