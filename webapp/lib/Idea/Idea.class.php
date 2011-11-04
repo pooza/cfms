@@ -255,9 +255,32 @@ class Idea extends BSRecord {
 	public function setAttachments (BSWebRequest $request) {
 		foreach ($this->getTable()->getAttachmentNames() as $name) {
 			if ($info = $request[$name]) {
-				$this->setAttachment(new BSFile($info['tmp_name']), $name);
+				$file = new BSFile($info['tmp_name']);
+				$suffix = BSFileUtility::getSuffix($info['name']);
+				$file->rename($file->getName() . $suffix);
+				$this->setAttachment($file, $name);
 			}
 		}
+	}
+
+	/**
+	 * 添付ファイルを設定
+	 *
+	 * @access public
+	 * @param BSFile $file 添付ファイル
+	 * @param string $name 名前
+	 */
+	public function setAttachment (BSFile $file, $name = null) {
+		if ($old = $this->getAttachment($name)) {
+			$old->delete();
+		}
+		$file->setMode(0666);
+		$file->setBinary(true);
+		if (BSString::isBlank($suffix = $file->getSuffix())) {
+			$suffix = BSMIMEType::getSuffix($file->analyzeType());
+		}
+		$file->rename($this->getAttachmentBaseName($name) . $suffix);
+		$file->moveTo($this->getTable()->getDirectory());
 	}
 
 	/**
