@@ -363,7 +363,6 @@ class BSFile extends BSDirectoryEntry implements BSRenderer, BSSerializable {
 		if ($command->getReturnCode() == 1) {
 			$pattern = '^' . $this->getPath() . ': (.*)$';
 			if (mb_ereg($pattern, $command->getResult()->join("\n"), $matches)) {
-
 				$this->error = $matches[1];
 				return true;
 			}
