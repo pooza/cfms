@@ -257,6 +257,7 @@ class Idea extends BSRecord {
 			if ($info = $request[$name]) {
 				$file = new BSFile($info['tmp_name']);
 				$suffix = BSFileUtility::getSuffix($info['name']);
+				$suffix = BSString::toLower($suffix);
 				$file->rename($file->getName() . $suffix);
 				$this->setAttachment($file, $name);
 			}
