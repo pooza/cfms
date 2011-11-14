@@ -32,6 +32,9 @@ class DetailAction extends BSRecordAction {
 			$this->getRecord()->update($this->getRecordValues());
 			$this->getRecord()->setAttachments($this->request);
 			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			if ($members = $this->request['members']) {
+				$this->getRecord()->sendMails(new BSArray($members));
+			}
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();

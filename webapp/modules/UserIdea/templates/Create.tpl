@@ -56,6 +56,18 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>宛先</strong></p>
+					</th>
+					<td>
+						<div style="margin:5px 0" class="normal">
+							<div id="members">
+								{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
+							</div>
+						</div>
+					</td>
+				</tr>
 			</table>
 			<input type="image" src="/images/send_btn.gif" alt="送信" value="送信" class="inputbtn">
 		</div>
@@ -65,6 +77,29 @@
 		<a href="/UserProject/{$list_action.name}/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
 	</div>
 </div>
+
+<script type="text/javascript">
+{literal}
+document.observe('dom:loaded', function () {
+  function updateCheckBoxes (flag) {
+    $$('#members input').each(function (element) {
+      element.checked = flag;
+    });
+  }
+
+  $('members_checkall_button').observe('click', function() {
+    updateCheckBoxes(true);
+  });
+
+  $('members_uncheckall_button').observe('click', function() {
+    updateCheckBoxes(false);
+  });
+  $('delete_btn').observe('click', function() {
+    CarrotLib.confirmDelete('UserIdea', 'Delete', 'ファイル');
+  });
+});
+{/literal}
+</script>
 
 {include file='MemberFooter'}
 {include file='UserFooter'}

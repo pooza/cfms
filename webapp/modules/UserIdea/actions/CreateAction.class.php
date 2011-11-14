@@ -40,6 +40,9 @@ class CreateAction extends BSRecordAction {
 			$this->database->beginTransaction();
 			$this->updateRecord();
 			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			if ($members = $this->request['members']) {
+				$this->getRecord()->sendMails(new BSArray($members));
+			}
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
@@ -54,6 +57,7 @@ class CreateAction extends BSRecordAction {
 		$this->request->setAttribute('list_action', $this->getModule()->getListAction());
 		$this->request->setAttribute('theme', $this->getModule()->getProject()->getTheme());
 		$this->request->setAttribute('tags', $this->getModule()->getProject()->getTags());
+		$this->request->setAttribute('accounts', $this->getModule()->getProject()->getAccounts());
 		return BSView::INPUT;
 	}
 

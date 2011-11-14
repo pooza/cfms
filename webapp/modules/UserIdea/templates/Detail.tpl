@@ -66,6 +66,18 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
+						<p><strong>宛先</strong></p>
+					</th>
+					<td>
+						<div style="margin:5px 0" class="normal">
+							<div id="members">
+								{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
 						<p><strong>作成者</strong></p>
 					</th>
 					<td class="normal">
@@ -91,34 +103,6 @@
 		</div>
 	{/form}
 
-	<div class="form_box">
-		<table border="0" cellspacing="4" cellpadding="0">
-			<tr>
-				<th class="large form_text">
-					<p><strong>宛先</strong></p>
-				</th>
-				<td>
-					<div style="margin:5px 0" class="normal">
-						<div id="members">
-							{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th class="large form_text">
-				</th>
-				<td>
-					<div style="margin:5px 0">
-						<input type="button" id="members_checkall_button" value="全て選択" />
-						<input type="button" id="members_uncheckall_button" value="全て解除" />
-						<input type="button" id="send_button" value="{$module.record_class|translate}の情報をメールで送信" />
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-
 	<div align="right">
 		<a href="/UserProject/{$list_action.name}/{$project.id}"><img src="/images/back_link.gif" alt="BACK" width="97" height="45"></a>
 	</div>
@@ -132,28 +116,6 @@ document.observe('dom:loaded', function () {
       element.checked = flag;
     });
   }
-
-  $('send_button').observe('click', function() {
-    var members = [];
-    $$('#members input').each(function (element) {
-      if (element.checked) {
-        members.push(element.value);
-      }
-    });
-    if (members = members.join(',')) {
-      new Ajax.Request('/UserIdea/Send', {
-        parameters: 'accounts=' + members,
-        onSuccess:function (response) {
-          updateCheckBoxes(false);
-          alert('メールを送信しました。');
-        },
-        onFailure: function (response) {
-          updateCheckBoxes(false);
-          alert('メールの送信に失敗しました。 ' + response.responseText);
-        }
-      });
-    }
-  });
 
   $('members_checkall_button').observe('click', function() {
     updateCheckBoxes(true);
