@@ -66,13 +66,15 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
-						<p><strong>宛先</strong></p>
+						<p><strong>通知宛先</strong></p>
 					</th>
 					<td>
 						<div style="margin:5px 0" class="normal">
 							<div id="members">
 								{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
 							</div>
+							<input type="button" id="members_checkall_button" value="全て選択" />
+							<input type="button" id="members_uncheckall_button" value="全て解除" />
 						</div>
 					</td>
 				</tr>
