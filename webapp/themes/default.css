@@ -1006,12 +1006,12 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 div.scroller { 
 	width: 891px; 
-	height: 400px;
+	height: 450px;
 	overflow: hidden;
 }
 div.scroller div.section {
 	width:891px;
-	height:400px;
+	height:450px;
 	overflow:hidden;
 	float:left;
 	padding:1em;
