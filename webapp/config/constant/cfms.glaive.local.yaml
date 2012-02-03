@@ -19,5 +19,8 @@ pdo:
     uid: root
     password:
 
+smtp:
+  host: localhost
+
 clamav:
   command: clamscan
