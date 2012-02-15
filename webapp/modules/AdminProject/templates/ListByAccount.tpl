@@ -5,7 +5,7 @@
 @subpackage AdminProject
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-{form method="get" style_class='common_block'}
+{form method="get" onsubmit='return false' style_class='common_block'}
 	<input type="text" id="key" value="{$params.key}" />
 	<input type="button" value="抽出" onclick="CFMSLib.updateProjectList()" />
 	<input type="button" value="抽出の解除" onclick="CFMSLib.initializeProjectList()" />

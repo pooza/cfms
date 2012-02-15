@@ -23,3 +23,6 @@ pdo:
 
 clamav:
   command: clamscan
+
+mail:
+  sender: sendmail
