@@ -110,40 +110,6 @@ class Account extends BSRecord implements BSUserIdentifier {
 	}
 
 	/**
-	 * 画像ファイルを返す
-	 *
-	 * @access public
-	 * @param string $size サイズ名
-	 * @return BSImageFile 画像ファイル
-	 */
-	public function getImageFile ($size = 'thumbnail') {
-		if (!$file = parent::getImageFile($size)) {
-			$dir = BSFileUtility::getDirectory('www');
-			$file = $dir->getEntry('images/profile_noicon.gif', 'BSImageFile');
-		}
-		return $file;
-	}
-
-	/**
-	 * 画像ファイルを設定する
-	 *
-	 * @access public
-	 * @param BSImageFile $file 画像ファイル
-	 * @param string $size サイズ名
-	 */
-	public function setImageFile (BSImageFile $file, $size = 'thumbnail') {
-		if ($old = $this->getImageFile($size)) {
-			if ($old->getName() != 'profile_noicon.gif') {
-				$old->delete();
-			}
-		}
-		$file->setMode(0666);
-		$file->rename($this->getImageFileBaseName($size));
-		$file->moveTo($this->getTable()->getDirectory());
-		$this->clearImageCache($size);
-	}
-
-	/**
 	 * ユーザーIDを返す
 	 *
 	 * @access public
