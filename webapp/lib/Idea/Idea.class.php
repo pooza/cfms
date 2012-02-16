@@ -140,9 +140,7 @@ class Idea extends BSRecord {
 	public function isImage () {
 		$file = $this->getAttachment('attachment');
 		if ($file->getSize() < (self::THUMBNAILABLE_FILE_SIZE * 1024 * 1024)) {
-			return (mb_ereg('^image/', $file->getType())
-				|| ($file->getType() == BSMIMEType::getType('pdf'))
-			);
+			return mb_ereg('^image/', $file->getType());
 		}
 		return false;
 	}
