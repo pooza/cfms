@@ -17,7 +17,7 @@ class ListByProjectAction extends BSPaginateTableAction {
 			if ($key = $this->request['key']) {
 				$this->criteria['key'] = $criteria = $this->createCriteriaSet();
 				$criteria->setGlue('OR');
-				foreach (array('name', 'name_en', 'name_read', 'email') as $field) {
+				foreach (array('name', 'name_read', 'company', 'email') as $field) {
 					$criteria->register($field, '%' . $key . '%', 'LIKE');
 				}
 			}

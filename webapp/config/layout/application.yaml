@@ -7,6 +7,9 @@ account:
   parent: var
 idea:
   parent: var
+local_images:
+  parent: www
+  name: images
 project:
   parent: var
 themes:

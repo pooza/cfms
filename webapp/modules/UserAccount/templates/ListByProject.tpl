@@ -8,7 +8,11 @@
 	<table cellspacing="0" cellpadding="0">
 		<tr>
 			<th valign="top" scope="row">
-				{image_cache class='Account' id=$account.id size='icon' pixel=60}
+				{if $account.has_icon}
+					{image_cache class='Account' id=$account.id size='icon' pixel=60}
+				{else}
+					{image_cache src='profile_noicon.gif' dir='local_images'}
+				{/if}
 			</th>
 			<td valign="top">{strip}
 				<strong>
