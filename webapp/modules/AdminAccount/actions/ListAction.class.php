@@ -21,6 +21,9 @@ class ListAction extends BSPaginateTableAction {
 					$criteria->register($field, '%' . $key . '%', 'LIKE');
 				}
 			}
+			if ($type = $this->request['type']) {
+				$this->criteria->register('type', $type);
+			}
 			if ($status = $this->request['status']) {
 				$this->criteria->register('status', $status);
 			}
