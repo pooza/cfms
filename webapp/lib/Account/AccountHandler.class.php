@@ -65,7 +65,7 @@ class AccountHandler extends BSTableHandler {
 	 * 種類を全てを返す
 	 *
 	 * @access public
-	 * @return BSArray 画像のサイズ名
+	 * @return BSArray 種類
 	 * @static
 	 */
 	static public function getTypeOptions () {

@@ -1,7 +1,10 @@
 # フィルタ設定ファイル
 #
 # @package jp.co.commons.cfms
-# @subpackage UserProject
+# @subpackage UserDelivery
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 
 - class: BSSecurityFilter
+  params:
+    excluded_actions:
+      - Detail

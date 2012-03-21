@@ -5,6 +5,8 @@
 
 account:
   parent: var
+delivery:
+  parent: var
 idea:
   parent: var
 local_images:

@@ -12,6 +12,13 @@ account_type:
   params:
     class: Account
     function: getTypeOptions
+duration:
+  class: BSChoiceValidator
+  params:
+    choices:
+      - 1
+      - 3
+      - 7
 end_date:
   class: BSPairValidator
   params:

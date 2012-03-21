@@ -152,6 +152,9 @@ class Account extends BSRecord implements BSUserIdentifier {
 		if (!$this->credentials) {
 			$this->credentials = new BSArray;
 			$this->credentials[] = 'User';
+			if ($this['type'] == 'commons') {
+				$this->credentials[] = 'Delivery';
+			}
 			foreach ($this->getProjects() as $project) {
 				$this->credentials[] = $project->getCredential();
 			}
