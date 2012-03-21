@@ -1,0 +1,8 @@
+label,ja
+delivery,デリバリー
+delivery_id,デリバリー
+recipient,宛先
+filename,ファイル名
+preserve_duration,保存期間
+expire_date,保存期限
+comment,コメント
