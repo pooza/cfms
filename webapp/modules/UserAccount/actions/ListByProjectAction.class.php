@@ -7,6 +7,15 @@
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
 class ListByProjectAction extends BSTableAction {
+	public function getOrder () {
+		if (!$this->order) {
+			$this->order = new BSTableFieldSet;
+			$this->order[] = 'type';
+			$this->order[] = 'update_date DESC';
+		}
+		return $this->order;
+	}
+
 	public function getCriteria () {
 		if (!$this->criteria) {
 			$this->criteria = $this->createCriteriaSet();

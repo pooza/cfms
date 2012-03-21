@@ -16,7 +16,7 @@
 			</th>
 			<td valign="top" class="small">{strip}
 				{$account.company}<br>
-				{$account.name}様
+				{$account.name}{if $account.type!='commons'}様{/if}
 			{/strip}</td>
 		</tr>
 	</table>
