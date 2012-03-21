@@ -11,6 +11,26 @@
 class Delivery extends BSRecord {
 
 	/**
+	 * 期限日を返す
+	 *
+	 * @access public
+	 * @return BSDate 期限日
+	 */
+	public function getExpireDate () {
+		return BSDate::create($this['expire_date']);
+	}
+
+	/**
+	 * 期限日を過ぎているか？
+	 *
+	 * @access public
+	 * @return boolean 期限を過ぎているならTrue
+	 */
+	public function isExpired () {
+		return $this->getExpireDate()->isPast();
+	}
+
+	/**
 	 * アサインすべき値を返す
 	 *
 	 * @access public

@@ -8,3 +8,5 @@
   params:
     excluded_actions:
       - Detail
+      - Export
+      - Fix
