@@ -26,7 +26,7 @@
 		<input type="image" src="/images/download_btn.gif" alt="ダウンロード" value="ダウンロード" class="inputbtn">
 	{/form}
 
-	{form action='Fix'}
+	{form action='Thanx'}
 		<br/><br/>ファイルを受け取ることができましたら、このボタンを押してください。<br/>
 		<input type="image" src="/images/fix_btn.gif" alt="完了通知" value="完了通知" class="inputbtn">
 	{/form}
