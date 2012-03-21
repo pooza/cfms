@@ -12,6 +12,9 @@
  */
 function smarty_function_css_cache ($params, &$smarty) {
 	$params = new BSArray($params);
+	if (BSString::isBlank($params['name'])) {
+		$params['name'] = 'default';
+	}
 	if ($theme = new Theme($params['name'])) {
 		return $theme->getStyleSet()->createElement()->getContents();
 	}
