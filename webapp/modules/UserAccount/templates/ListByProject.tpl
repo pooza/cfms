@@ -14,11 +14,9 @@
 					{image_cache src='profile_noicon.gif' dir='local_images'}
 				{/if}
 			</th>
-			<td valign="top">{strip}
-				<strong>
-					{$account.company}<br>
-					{$account.name}様
-				</strong>
+			<td valign="top" class="small">{strip}
+				{$account.company}<br>
+				{$account.name}様
 			{/strip}</td>
 		</tr>
 	</table>
