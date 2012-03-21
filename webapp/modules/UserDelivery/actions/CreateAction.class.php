@@ -17,7 +17,7 @@ class CreateAction extends BSRecordAction {
 	protected function getRecordValues () {
 		$date = BSDate::create();
 		$date['day'] = '+' . $this->request['preserve_duration'];
-		return array(
+		return new BSArray(array(
 			'recipient' => $this->request['recipient'],
 			'email' => $this->request['email'],
 			'expire_date' => $date->format('Y-m-d H:i:s'),
@@ -25,13 +25,14 @@ class CreateAction extends BSRecordAction {
 			'filename' => $this->request['attachment']['name'],
 			'comment' => $this->request['comment'],
 			'account_id' => AccountHandler::getCurrent()->getID(),
-		);
+		));
 	}
 
 	public function execute () {
 		try {
 			$this->database->beginTransaction();
 			$this->updateRecord();
+			$this->getRecord()->sendMail('register', $this->getRecordValues());
 			$this->database->commit();
 		} catch (Exception $e) {
 			$this->database->rollBack();
