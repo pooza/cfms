@@ -11,6 +11,7 @@
 class Account extends BSRecord implements BSUserIdentifier {
 	private $projects;
 	private $credentials;
+	private $deliveries;
 
 	/**
 	 * 更新可能か？
@@ -72,6 +73,23 @@ class Account extends BSRecord implements BSUserIdentifier {
 			$this->projects->getCriteria()->register('id', $ids);
 		}
 		return $this->projects;
+	}
+
+	/**
+	 * 直近のデリバリーを返す
+	 *
+	 * @access public
+	 * @param integer $limit 件数
+	 * @return DeliveryHandler 全てのデリバリーを含んだテーブル
+	 */
+	public function getRecentDeliveries ($limit = 10) {
+		if (!$this->deliveries) {
+			$this->deliveries = new DeliveryHandler;
+			$this->deliveries->getCriteria()->register('account_id', $this);
+			$this->deliveries->setPageNumber(1);
+			$this->deliveries->setPageSize(10);
+		}
+		return $this->deliveries;
 	}
 
 	/**

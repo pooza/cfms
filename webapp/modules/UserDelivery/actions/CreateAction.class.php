@@ -44,6 +44,10 @@ class CreateAction extends BSRecordAction {
 
 	public function getDefaultView () {
 		$this->request->setAttribute('theme', new Theme);
+		$this->request->setAttribute(
+			'deliveries',
+			AccountHandler::getCurrent()->getRecentDeliveries()->getResult()
+		);
 		return BSView::INPUT;
 	}
 

@@ -11,6 +11,16 @@
 class Delivery extends BSRecord {
 
 	/**
+	 * 削除可能か？
+	 *
+	 * @access protected
+	 * @return boolean 削除可能ならTrue
+	 */
+	protected function isDeletable () {
+		return true;
+	}
+
+	/**
 	 * 期限日を返す
 	 *
 	 * @access public
@@ -28,6 +38,17 @@ class Delivery extends BSRecord {
 	 */
 	public function isExpired () {
 		return $this->getExpireDate()->isPast();
+	}
+
+	/**
+	 * 所有者か？
+	 *
+	 * @access public
+	 * @param Account $account 対象
+	 * @return boolean 所有者ならTrue
+	 */
+	public function isOwnedBy (Account $account) {
+		return $this->getAccount()->getID() == $account->getID();
 	}
 
 	/**
@@ -52,6 +73,7 @@ class Delivery extends BSRecord {
 	public function getAssignableValues () {
 		$values = parent::getAssignableValues();
 		$values['account'] = $this->getAccount()->getAssignableValues();
+		$values['is_expired'] = $this->isExpired();
 		return $values;
 	}
 }

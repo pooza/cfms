@@ -68,7 +68,28 @@
 			<input type="image" src="/images/send_btn.gif" alt="送信" value="送信" class="inputbtn">
 		</div>
 	{/form}
+
+	<table border="1">
+		<tr>
+			<th>日時</th>
+			<th>宛先</th>
+			<th>ファイル名</th>
+			<th></th>
+		</tr>
+		{foreach from=$deliveries item='delivery'}
+			<tr>
+				<td>{$delivery.create_date}</td>
+				<td>{$delivery.recipient}</td>
+				<td>{$delivery.filename}</td>
+				<td>
+					[<a href="javascript:void(CarrotLib.confirmDelete('UserDelivery','Delete','デリバリー',{$delivery.id}))">削除</a>]
+				</td>
+			</tr>
+		{/foreach}
+	</table>
 </div>
+
+
 
 {include file='MemberFooter'}
 {include file='UserFooter'}
