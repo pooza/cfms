@@ -7,6 +7,11 @@ account:
   class: BSRecordValidator
   params:
     class: Account
+account_type:
+  class: BSChoiceValidator
+  params:
+    class: Account
+    function: getTypeOptions
 end_date:
   class: BSPairValidator
   params:

@@ -50,6 +50,12 @@
 			</td>
 		</tr>
 		<tr>
+			<th>種類</th>
+			<td>
+				{html_radios name='type' options=$type_options selected=$params.type}
+			</td>
+		</tr>
+		<tr>
 			<th>状態</th>
 			<td>
 				{html_radios name='status' options=$status_options selected=$params.status}

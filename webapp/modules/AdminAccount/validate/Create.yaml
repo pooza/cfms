@@ -36,6 +36,10 @@ fields:
     file: yes
     validators:
       - image
+  type:
+    required: yes
+    validators:
+      - account_type
   status:
     required: yes
     validators:

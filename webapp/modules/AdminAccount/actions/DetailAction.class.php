@@ -23,6 +23,7 @@ class DetailAction extends BSRecordAction {
 			'company_en' => $this->request['company_en'],
 			'email' => $this->request['email'],
 			'password' => $this->request['password'],
+			'type' => $this->request['type'],
 			'status' => $this->request['status'],
 		);
 	}
