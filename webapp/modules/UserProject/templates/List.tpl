@@ -37,7 +37,7 @@
 						</tr>
 						<tr>
 							{foreach from=$row item='project'}
-								<td class="door_text">
+								<td class="door_text" valign="top">
 									<p class="normal text_l">{strip}
 										{if $project.id}
 											<a href="/UserProject/Wall/{$project.id}">{$project.name}</a>

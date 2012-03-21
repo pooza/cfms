@@ -90,7 +90,7 @@ line-height: 140%;
 }
 
 .normal {
-font-size: 108%;
+font-size: 100%;
 line-height: 150%;
 }
 
@@ -988,7 +988,7 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 	text-align:center;
 }
 .door #container .door_box td .door01 .door_text {
-	padding:13px 0 40px 0;
+	padding:0 0 40px 0;
 }
 
 .door #container .door_box td table.door01 td.door_text p {
