@@ -8,16 +8,34 @@
  */
 class DetailAction extends BSRecordAction {
 	public function execute () {
+		$record = $this->getRecord();
+		$this->request->setAttribute('renderer', $record->getAttachment('attachment'));
+		$this->request->setAttribute('filename', $record->getAttachmentFileName('attachment'));
+		return BSView::SUCCESS;
+	}
+
+	public function getDefaultView () {
 		$this->request->setAttribute('theme', new Theme);
 		return BSView::INPUT;
 	}
 
 	public function handleError () {
-		return $this->controller->getAction('not_found')->forward();
+		if (!$this->getRecord() || $this->request->hasError('expire_date')) {
+			return $this->controller->getAction('not_found')->forward();
+		}
+		return $this->getDefaultView();
 	}
 
 	public function validate () {
-		return parent::validate() && !$this->getRecord()->isExpired();
+		if (!$record = $this->getRecord()) {
+			return false;
+		} else if ($record->isExpired()) {
+			$this->request->setError('expire_date', '期限を過ぎています。');
+		}
+		if (BSCrypt::digest($this->request['password']) != $record['password']) {
+			$this->request->setError('password', '正しくありません。');
+		}
+		return !$this->request->getErrors()->count();
 	}
 }
 

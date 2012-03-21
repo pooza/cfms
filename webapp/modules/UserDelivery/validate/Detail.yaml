@@ -1,0 +1,12 @@
+# ファイル登録画面バリデーション設定ファイル
+#
+# @package jp.co.commons.cfms
+# @subpackage UserDelivery
+# @author 小石達也 <tkoishi@b-shock.co.jp>
+
+methods:
+  - POST
+
+fields:
+  password:
+    required: yes

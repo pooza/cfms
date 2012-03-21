@@ -31,6 +31,19 @@ class Delivery extends BSRecord {
 	}
 
 	/**
+	 * 添付ファイルのダウンロード時の名を返す
+	 *
+	 * @access public
+	 * @param string $name 名前
+	 * @return string ダウンロード時ファイル名
+	 */
+	public function getAttachmentFileName ($name = null) {
+		if ($file = $this->getAttachment($name)) {
+			return $this['filename'];
+		}
+	}
+
+	/**
 	 * アサインすべき値を返す
 	 *
 	 * @access public

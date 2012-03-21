@@ -8,5 +8,5 @@
   params:
     excluded_actions:
       - Detail
-      - Export
+      - Download
       - Fix

@@ -19,7 +19,7 @@
 	{$delivery.comment|nl2br|default:'(空欄)'}
 	<hr/>
 
-	{form action='Download'}
+	{form onsubmit=''}
 		<br/><br/>
 		{include file='ErrorMessages'}
 		<label>パスワード<input type="password" name="password" /></label><br/>
