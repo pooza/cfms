@@ -62,6 +62,21 @@ class AccountHandler extends BSTableHandler {
 	}
 
 	/**
+	 * 種類を全てを返す
+	 *
+	 * @access public
+	 * @return BSArray 画像のサイズ名
+	 * @static
+	 */
+	static public function getTypeOptions () {
+		return new BSArray(array(
+			'customer' => 'クライアント',
+			'supplier' => '協力会社',
+			'commons' => 'コモンズ',
+		));
+	}
+
+	/**
 	 * ログイン中アカウント返す
 	 *
 	 * @access public

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.57, for apple-darwin11.0.0 (i386)
+-- MySQL dump 10.13  Distrib 5.1.61, for apple-darwin11.2.0 (i386)
 --
 -- Host: localhost    Database: cfms
 -- ------------------------------------------------------
--- Server version	5.1.57-log
+-- Server version	5.1.61-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,6 +31,7 @@ CREATE TABLE `account` (
   `name_read` varchar(64) DEFAULT NULL,
   `email` varchar(64) NOT NULL,
   `password` char(40) NOT NULL,
+  `type` enum('customer','supplier','commons') NOT NULL DEFAULT 'commons',
   `status` varchar(8) NOT NULL DEFAULT 'show',
   `create_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
@@ -212,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-08 11:03:50
+-- Dump completed on 2012-03-21 12:46:25

@@ -6,7 +6,12 @@ name_en,名前(英)
 name_read,フリガナ
 parent_idea_id,親ファイル
 body,本文
+type,種類
 is_important,重要か？
 delete_date,削除日
 attachment,ファイル
 tags,フォルダ
+
+customer,クライアント
+supplier,協力会社
+commons,コモンズ
