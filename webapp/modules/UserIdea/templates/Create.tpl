@@ -27,7 +27,12 @@
 						<p><strong>名前</strong></p>
 					</th>
 					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" /><br/>
+						{if $list_action.name=='Tags'}
+							拡張子は含めないでください。
+						{else}
+							ファイルを添付する場合、拡張子は含めないでください。
+						{/if}
 					</td>
 				</tr>
 				<tr>
