@@ -76,6 +76,39 @@ LOCK TABLES `account_project` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `delivery`
+--
+
+DROP TABLE IF EXISTS `delivery`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `delivery` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `recipient` varchar(64) NOT NULL DEFAULT '',
+  `email` varchar(128) NOT NULL DEFAULT '',
+  `filename` varchar(128) NOT NULL DEFAULT '',
+  `expire_date` datetime NOT NULL,
+  `password` char(40) NOT NULL DEFAULT '',
+  `comment` text,
+  `account_id` smallint(5) unsigned NOT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `account_id` (`account_id`),
+  CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `delivery`
+--
+
+LOCK TABLES `delivery` WRITE;
+/*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
+/*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `idea`
 --
 
@@ -213,4 +246,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-21 12:46:25
+-- Dump completed on 2012-03-21 13:30:17
