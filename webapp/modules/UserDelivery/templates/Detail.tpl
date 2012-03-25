@@ -66,12 +66,13 @@
 				<div class="form_box02">
 					{form onsubmit=''}
 						<table border="0" cellspacing="4" cellpadding="0">
+							<input type="hidden" name="t" value="{$params.t}">
 							<tr>
 								<th class="normal form_text">
 									<p><strong>ダウンロードパスワード</strong></p>
 								</th>
 								<td class="b_none">
-									<input type="password" name="password" class="input02" />
+									<input type="password" name="password" class="input02" autocomplete="off" />
 								</td>
 							</tr>
 							<tr>
