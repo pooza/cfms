@@ -14,7 +14,20 @@ class DetailAction extends BSRecordAction {
 		return BSView::SUCCESS;
 	}
 
+	public function initialize () {
+		parent::initialize();
+		if (!$this->getRecord() || ($this->request['t'] != $this->getRecord()->getToken())) {
+
+			$this->getModule()->clearRecordID();
+			$this->request['id'] = null;
+		}
+		return true;
+	}
+
 	public function getDefaultView () {
+		if (!$this->getRecord()) {
+			return $this->handleError();
+		}
 		$this->request->setAttribute('theme', new Theme);
 		return BSView::INPUT;
 	}

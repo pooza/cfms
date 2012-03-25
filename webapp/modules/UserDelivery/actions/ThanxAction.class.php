@@ -15,7 +15,9 @@ class ThanxAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->getRecord()->redirect();
+		$url = $this->getRecord()->createURL();
+		$url->setParameter('t', $this->getRecord()->getToken());
+		return $url->redirect();
 	}
 
 	public function getDefaultView () {
