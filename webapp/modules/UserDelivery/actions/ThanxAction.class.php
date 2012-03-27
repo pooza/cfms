@@ -15,8 +15,9 @@ class ThanxAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		$this->request->setAttribute('theme', new Theme);
-		return BSView::SUCCESS;
+		$url = $this->getRecord()->createURL();
+		$url->setParameter('t', $this->getRecord()->getToken());
+		return $url->redirect();
 	}
 
 	public function getDefaultView () {

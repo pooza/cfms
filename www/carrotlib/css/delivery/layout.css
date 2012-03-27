@@ -1,0 +1,148 @@
+
+/** -------------------------------- **
+	wrapper指定
+*** ----------------------------------------------------------------- ***/
+
+#wrapper{
+width:100%;
+margin:0px;
+padding:0px;
+text-align:left;
+background:url(/images/common/bg_header.jpg) left top repeat-x;
+}
+
+
+/** -------------------------------- **
+	header指定
+*** ----------------------------------------------------------------- ***/
+
+#header {
+	width:780px;
+	height:98px;
+	margin:0 auto;
+	padding:55px 0 0;
+}
+
+#sec #header {
+	width:780px;
+	height:114px;
+	margin:0 auto;
+	padding:39px 0 0;
+}
+
+
+/* TOP ---------------*/
+
+#top #header table {
+	width:100%;
+}
+
+#top #header table td.title {
+	width:50%;
+	text-align:left;
+}
+
+#top #header table td.logo {
+	width:50%;
+	text-align:right;
+}
+
+
+
+/* SEC ---------------*/
+
+#sec #header table {
+	width:100%;
+}
+
+#sec #header table td.title {
+	width:335px;
+	text-align:left;
+}
+
+#sec #header table td.gl-menu {
+	width: auto;
+	text-align: right;
+}
+
+#sec #header table td.gl-menu table {
+	float:right;
+	width: 284px;
+}
+
+#sec #header table td.gl-menu table td {
+	width: 71px;
+}
+
+#sec #header table td.gl-menu table td.sp {
+	width: 18px;
+	margin:0;
+	padding:0;
+}
+
+
+/** -------------------------------- **
+	container指定
+*** ----------------------------------------------------------------- ***/
+
+#container {
+	padding-top:30px;
+	text-align:left;
+}
+
+
+
+/** -------------------------------- **
+	footer指定
+*** ----------------------------------------------------------------- ***/
+
+#footer {
+	width:780px;
+	margin:0 auto;
+	padding-top:79px;
+	color:#5c5655;
+}
+
+#footer.alignL {text-align:left;}
+#footer.alignR {text-align:right;}
+
+
+/* TOP ---------------*/
+
+#top #footer table {
+	width:100%;
+	text-align:left;
+}
+
+#top #footer table td.copyright {
+	width: auto;
+	text-align:left;
+}
+
+#top #footer table td.bnr {
+	width:131px;
+	text-align:right;
+}
+
+
+/* SEC ---------------*/
+
+.project #footer,
+.folder #footer {
+	width: auto;
+	margin:0;
+	padding-top:79px;
+	color:#5c5655;
+}
+
+/* 120323 ---------------*/
+#sec #header table td.head_txt {
+	vertical-align:bottom;
+}
+
+.h2_txt {
+	width:253px;
+}
+.p_txt {
+	padding-left:19px;
+}

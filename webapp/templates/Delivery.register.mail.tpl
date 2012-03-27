@@ -18,7 +18,7 @@ To: {$delivery.email}
 
 ファイル:
 {$delivery.attachment.type} {$delivery.attachment.size|binary_size_format}B ({$delivery.attachment.size|number_format}B)
-{$delivery.url}
+{$delivery.url}?t={$delivery.token}
 
 本文:
 {$delivery.comment|default:'(空欄)'}

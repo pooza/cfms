@@ -41,6 +41,20 @@ class Delivery extends BSRecord {
 	}
 
 	/**
+	 * トークンを返す
+	 *
+	 * @access public
+	 * @return string トークン
+	 */
+	public function getToken () {
+		$digest = BSCrypt::digest(new BSArray(array(
+			$this->getID(),
+			$this->getCreateDate()->getTimestamp(),
+		)));
+		return substr($digest, 0, 8);
+	}
+
+	/**
 	 * 所有者か？
 	 *
 	 * @access public
@@ -74,6 +88,7 @@ class Delivery extends BSRecord {
 		$values = parent::getAssignableValues();
 		$values['account'] = $this->getAccount()->getAssignableValues();
 		$values['is_expired'] = $this->isExpired();
+		$values['token'] = $this->getToken();
 		return $values;
 	}
 }

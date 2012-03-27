@@ -1,0 +1,1008 @@
+
+
+/* ==========================================================================
+	TOPページ
+=========================================================================== */
+
+#top #container {
+	width:562px;
+	height:337px;
+	padding-top:75px;
+	margin:0 auto;
+	background:url(/images/bg_top-main.gif) 0 75px no-repeat;
+	position:relative;
+}
+
+#top #container .tbl_login-form {
+	width:294px;
+	position:absolute;
+	top:184px;
+	left:124px;
+}
+
+#top #container .tbl_login-form th {
+	width:83px;
+	height:20px;
+	text-align:left;
+}
+#top #container .tbl_login-form .pad {padding-bottom:10px;}
+
+#top #container .tbl_login-form td input {
+	width:150px;
+	height:18px;
+	border:1px solid #5c5655;
+}
+
+#top #container .tbl_login-form td.btn {
+	width:62px;
+	text-align:right;
+}
+
+
+
+/* ==========================================================================
+	PROJECT　WALLページ
+=========================================================================== */
+
+.project #container {
+	width:802px;
+	margin:0 auto;
+}
+
+.project .tbl_project-layout {
+	width:802px;
+	margin:0;
+}
+
+.project .tbl_project-layout .leftArea {
+	width:238px;
+	margin:0;
+	border-right:1px solid #88ba63;
+}
+
+.project .tbl_project-layout .rightArea {
+	width:535px;
+	padding-left:30px;
+	text-align:left;
+}
+.title_txt {
+	font-size:41px;
+	color:#88ba63;
+}
+
+/* -------------------------------------------------------------- 
+	leftArea
+-------------------------------------------------------------- */
+
+/* メイン画像
+---------------------------------------------------------- */
+
+.project .leftArea .project-img {
+	width:238px;
+	margin:0;
+	padding:0;
+	text-align:right;
+}
+
+.project .leftArea .project-img img {
+	border:2px solid #88ba63;
+	border-right:1px solid #88ba63;
+}
+
+
+/* メンバー
+---------------------------------------------------------- */
+
+.project .leftArea .memberColumn {
+	width:200px;
+	margin:0 auto;
+	padding-top:15px;
+	text-align:left;
+}
+
+.project .leftArea .memberColumn .ttlMember {
+	padding-bottom:3px;
+	text-align:left;
+}
+
+.project .leftArea .memberColumn table {
+	width:200px;
+	margin:15px 0 0;
+	text-align:left;
+}
+
+.project .leftArea .memberColumn table th {
+	width:63px;
+	margin:0;
+	padding:0;
+	text-align:left;
+}
+
+.project .leftArea .memberColumn table th img {
+	border:1px solid #88ba63;
+}
+
+.project .leftArea .memberColumn table td {
+	width:127px;
+	margin:0;
+	padding:1px 0 0 10px;
+	text-align:left;
+}
+
+
+
+/* -------------------------------------------------------------- 
+	rightArea
+-------------------------------------------------------------- */
+
+
+/* ボタン
+---------------------------------------------------------- */
+
+.project .rightArea .button {padding-top:3px;}
+
+
+
+/* 検索
+---------------------------------------------------------- */
+
+.project .rightArea .searchColumn {
+	width:535px;
+	text-align:right;
+}
+
+.project .rightArea .searchColumn table {
+	float:right;
+	width:209px;
+	height:39px;
+	text-align:center;
+	background:url(/images/bg_search.gif) no-repeat;
+}
+
+.project .rightArea .searchColumn table td.form {
+	width:167px;
+	text-align:center;
+}
+
+.project .rightArea .searchColumn table td.form .text {
+	width:150px;
+	border:1px solid #ffffff;
+}
+
+.project .rightArea .searchColumn table td.btn {
+	width:42px;
+	text-align:left;
+}
+
+
+/* タイトル＆メニュー
+---------------------------------------------------------- */
+
+
+/* タイトル ---------------*/
+
+.project .rightArea .project-title {
+	clear:right;
+	width:535px;
+}
+
+.project .rightArea .project-title .icon {width:106px;}
+.project .rightArea .project-title .padBtm {
+	padding-bottom:27px;
+}
+
+
+/* アップロードバナー ---------------*/
+
+.project .rightArea .bnr_upload {
+	padding-top:16px;
+}
+
+
+/* メニュー ---------------*/
+
+.project .rightArea .tab-menu {
+	width:535px;
+	margin-top:16px;
+}
+
+.project .rightArea .tab-menu td {
+	width:50%;
+	padding:0;
+	margin:0;
+}
+
+
+/* コメント
+---------------------------------------------------------- */
+
+.project .rightArea .commentColumn .border {
+	width:502px;
+	margin:12px auto 0;
+	padding-top:10px;
+	border-top:1px solid #6CBB5C;
+}
+
+/* 通常ボックス ---------------*/
+
+.project .rightArea .commentColumn {
+	width:535px;
+	margin-top:25px;
+	background:url(/images/bg_project-line.jpg) left top repeat-y;
+}
+
+.project .rightArea .commentColumn .bgtop {
+	padding-top:12px;
+	background:url(/images/bg_project-top.jpg) left top no-repeat;
+}
+
+.project .rightArea .commentColumn .bgbtm {
+	padding-bottom:18px;
+	background:url(/images/bg_project-btm.jpg) left bottom no-repeat;
+}
+
+
+/* 重要ボックス ---------------*/
+
+.project .rightArea .commentColumn.imp {background:url(/images/bg_project-line02.jpg) left top repeat-y;}
+.project .rightArea .commentColumn.imp .bgtop {background:url(/images/bg_project-top02.jpg) left top no-repeat;}
+.project .rightArea .commentColumn.imp .bgbtm {background:url(/images/bg_project-btm02.jpg) left bottom no-repeat;}
+
+
+/* コンテンツ ---------------*/
+
+.project .rightArea .commentColumn .tbl_comment {
+	width:502px;
+	margin:0 auto;
+	color:#6CBB5C;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemHead {
+	width:45px;
+	margin:0;
+	padding:0;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents {
+	width:457px;
+	margin:0;
+	padding:0;
+	text-align: left;
+}
+
+
+/* チェックボックス */
+
+.project .rightArea .commentColumn .tbl_comment .itemHead .number {
+	font-size:184.7%;
+	color:#6CBB5C;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemHead .check {
+	padding-top:2px;
+	padding-left:7px;
+}
+
+
+/* 名前 */
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name {
+	width:457px;
+	margin:0;
+	padding:0;
+	text-align: left;
+}
+
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name th {
+	width:61px;
+	margin:0;
+	padding:0;
+	text-align: left;
+}
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name th img {border:1px solid #6CBB5C;}
+
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt {
+	width:270px;
+	margin:0;
+	padding:1px 0 0 10px;
+	text-align: left;
+}
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt.sec {width:120px;}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt {
+	margin:0;
+	padding:0;
+	text-align: right;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.dayTxt .icon {padding-top:5px;}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_name td.text {
+	margin:0;
+	padding:0 0 0 10px;
+	text-align: left;
+}
+
+
+
+/* 本文 */
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .commentTxt {
+	margin:0;
+	padding:10px 0 0;
+	text-align: left;
+}
+
+
+
+/* ファイル＆返信 */
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file {
+	width:457px;
+	margin:10px 0 0;
+	padding:0;
+	text-align: left;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.file {
+	width:31px;
+	margin:0;
+	padding:0;
+	text-align: left;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.txt {
+	width:376px;
+	margin:0;
+	padding:0 0 0 10px;
+	text-align: left;
+}
+
+.project .rightArea .commentColumn .tbl_comment .itemContents .tbl_file td.reComment {
+	width:37px;
+	margin:0;
+	padding:0;
+	text-align: left;
+}
+
+/* ==========================================================================
+	PROJECT　FOLDERページ
+=========================================================================== */
+
+.folder #container {
+	width:802px;
+	margin:0 auto;
+}
+
+.folder .tbl_project-layout {
+	width:802px;
+	margin:0;
+}
+
+.folder .tbl_project-layout .leftArea {
+	width:238px;
+	margin:0;
+	border-right:1px solid #88ba63;
+}
+
+.folder .tbl_project-layout .rightArea {
+	width:535px;
+	padding-left:30px;
+	text-align:left;
+}
+
+
+/* -------------------------------------------------------------- 
+	leftArea
+-------------------------------------------------------------- */
+
+/* メイン画像
+---------------------------------------------------------- */
+
+.folder .leftArea .project-img {
+	width:238px;
+	margin:0;
+	padding:0;
+	text-align:right;
+}
+
+.folder .leftArea .project-img img {
+	border:2px solid #88ba63;
+	border-right:1px solid #88ba63;
+}
+
+
+/* メンバー
+---------------------------------------------------------- */
+
+.folder .leftArea .memberColumn {
+	width:200px;
+	margin:0 auto;
+	padding-top:15px;
+	text-align:left;
+}
+
+.folder .leftArea .memberColumn .ttlMember {
+	padding-bottom:3px;
+	text-align:left;
+}
+
+.folder .leftArea .memberColumn table {
+	width:200px;
+	margin:15px 0 0;
+	text-align:left;
+}
+
+.folder .leftArea .memberColumn table th {
+	width:63px;
+	margin:0;
+	padding:0;
+	text-align:left;
+}
+
+.folder .leftArea .memberColumn table th img {
+	border:1px solid #88ba63;
+}
+
+.folder .leftArea .memberColumn table td {
+	width:127px;
+	margin:0;
+	padding:1px 0 0 10px;
+	text-align:left;
+}
+
+
+
+/* -------------------------------------------------------------- 
+	rightArea
+-------------------------------------------------------------- */
+
+
+/* ボタン
+---------------------------------------------------------- */
+
+.folder .rightArea .button {padding-top:3px;}
+
+
+
+/* 検索
+---------------------------------------------------------- */
+
+.folder .rightArea .searchColumn {
+	width:535px;
+	text-align:right;
+}
+
+.folder .rightArea .searchColumn table {
+	float:right;
+	width:209px;
+	height:39px;
+	text-align:center;
+	background:url(/images/bg_search.gif) no-repeat;
+}
+
+.folder .rightArea .searchColumn table td.form {
+	width:167px;
+	text-align:center;
+}
+
+.folder .rightArea .searchColumn table td.form .text {
+	width:150px;
+	border:1px solid #ffffff;
+}
+
+.folder .rightArea .searchColumn table td.btn {
+	width:42px;
+	text-align:left;
+}
+
+
+/* タイトル＆メニュー
+---------------------------------------------------------- */
+
+
+/* タイトル ---------------*/
+
+.folder .rightArea .project-title {
+	clear:right;
+	width:535px;
+}
+
+.folder .rightArea .project-title .icon {width:106px;}
+.folder .rightArea .project-title .padBtm {
+	padding-bottom:27px;
+}
+
+
+/* アップロードバナー ---------------*/
+
+.folder .rightArea .bnr_upload {
+	padding-top:16px;
+}
+
+
+/* メニュー ---------------*/
+
+.folder .rightArea .tab-menu {
+	width:535px;
+	margin-top:16px;
+}
+
+.folder .rightArea .tab-menu td {
+	width:50%;
+	padding:0;
+	margin:0;
+}
+
+
+
+
+/* コンテンツ ---------------*/
+
+.folder .rightArea .foldertColumn {
+	width:535px;
+	margin-top:25px;
+}
+.folder .rightArea .m57 {
+	margin-top:57px;
+}
+
+.folder .rightArea table.green_textbox {
+	width:535px;
+}  
+.folder .rightArea table.green_textbox td{
+	background-color:#88ba63;
+	text-align:center;
+	color:#ffffff;
+	border-right:#FFF 1px solid;
+	padding:8px 0;
+} 
+
+
+.folder .rightArea table.pdf_textbox {
+	width:535px;
+	border-collapse:collapse;
+	margin-top:12px;
+}
+	
+.folder .rightArea table.pdf_textbox td{
+	text-align:center;
+	border:#bababb 1px solid;
+	padding:5px 0px;
+} 
+/* ==========================================================================
+	PROFILEページ
+=========================================================================== */
+
+.profile #container {
+	width:802px;
+	margin:0 auto;
+}
+/* トップ部分 ---------------*/
+
+.profile #container .profile_img {
+	padding-left:10px;
+}
+
+.profile #container .profile_img img{
+	margin:0 0 20px 0;
+}
+/* フォーム部分 ---------------*/
+
+.profile #container .form_box {
+	width:667px;
+	margin:69px 0 0 55px;
+}
+
+.profile #container .form_box table th {
+	width:160px;
+	background-color:#e1ecd4;
+}
+
+
+.profile #container .form_box  table th.form_text p {
+	padding:10px 0 15px;
+	text-align:center;
+}
+.profile #container .form_box table td {
+	width:504px;
+	padding:0 0 0 4px;
+	margin:0;
+	border-bottom:#c3dcb1 1px solid;
+
+}
+.profile #container .form_box table td .cabinet {
+	width:87px;
+	height:33px;
+	background:url(/images/profile_btn01.gif) no-repeat;
+
+}
+
+.profile #container .form_box table td .input01 {
+	width:271px;
+	height:29px;
+	padding:0;
+	border:#c8c7c6 1px solid;
+}
+.profile #container .form_box table td .input02 {
+	width:381px;
+	height:29px;
+	border:#c8c7c6 1px solid;
+}
+.profile #container .form_box table td .m15 {
+	margin-bottom:15px;
+}
+.profile #container .form_box table td .m9 {
+	margin-bottom:9px;
+}
+.profile #container .form_box table td .input03 {
+	width:176px;
+	height:29px;
+	border:#c8c7c6 1px solid;
+}
+.profile #container .form_box table td .icon_table {
+	width:120px;
+}
+.profile #container .form_box table td .icon_table td{
+	border:none;
+}
+
+.profile #container .form_box .inputbtn{
+	margin:20px 0 0 0;
+}
+.green_solid {
+	border:#88ba63 solid 1px;
+}
+
+/* ==========================================================================
+	THANKSページ
+=========================================================================== */
+
+.thanks #container {
+	width:802px;
+	margin:0 auto;
+}
+/* トップ部分 ---------------*/
+
+.thanks #container .profile_img {
+	padding-left:10px;
+}
+
+.thanks #container .profile_img img{
+	margin:0 0 20px 0;
+}
+
+.thanks_text {
+	width:535px;
+	height:200px;
+	margin:50px auto;
+	text-align:center;
+}
+
+
+/* ==========================================================================
+	DOORページ
+=========================================================================== */
+
+.door #container {
+	width:891px;
+	margin:0 auto;
+}
+/* トップ部分 ---------------*/
+
+.door_text {
+	padding-left:60px;
+}
+.door #container .door_box {
+	width:810px;
+	margin:24px 0 0 0;
+}
+.door #container .door_box td{
+	padding:0;
+}
+.door #container .door_box .icon_img {
+	height:60px;
+	padding:0 0 100px 0px;
+}
+
+.door #container .door_box td .door01 {
+	width:810px;
+}
+.door #container .door_box td .door01 td{
+	text-align:center;
+}
+.door #container .door_box td .door01 .door_text {
+	padding:13px 0 40px 0;
+}
+
+.door #container .door_box td table.door01 td.door_text p {
+	text-align:center;
+	color:#88ba63;
+}
+.door #container .door_box td table.door01 tr.door_mt {
+	margin-top:39px;
+}
+.text_l {
+	line-height:18px;
+}
+
+
+/* ==========================================================================
+	delivery_userページ
+=========================================================================== */
+
+.delivery_user #container {
+	width:780px;
+	margin:0 auto;
+}
+/* トップ部分 ---------------*/
+
+.delivery_user #container .profile_img {
+	padding-left:10px;
+}
+
+.delivery_user #container .profile_img img{
+	margin:0 0 20px 0;
+}
+/* フォーム部分 ---------------*/
+.delivery_user #container .user_name{
+	padding:0 0 30px 0;
+}
+.delivery_user #container .file_box{
+	margin:10px 0;
+	background:#e1ecd4;
+	width:613px;
+}
+
+.delivery_user #container .file_box dl{
+	width:587px;
+	padding:13px 12px 10px;
+}
+
+.delivery_user #container .file_box dl dt{
+	width:113px;
+	margin-bottom:2px;
+	float:left;
+	line-height:1;
+	padding: 0;
+}
+
+.delivery_user #container .file_box dl dt img{
+	vertical-align:top;
+}
+
+.delivery_user #container .file_box dl dd{
+	margin:0 0 0 124px;
+	min-height:36px;
+	_height:36px;
+	zoom: 1;
+}
+
+.delivery_user #container .file_box dl dd p{
+	padding-top:12px;
+}
+/*
+.delivery_user #container .file_box dl{
+	width:587px;
+	padding:10px 12px;
+	display:inline-block;
+}
+.delivery_user #container .file_box dt{
+	float:left;
+	margin:3px 11px 0 0;
+	width:113px;
+}
+.delivery_user #container .file_box dd{
+	padding-top:5px;
+}
+*/
+
+.delivery_user #container .comment_box_top{
+	width:613px;
+	background:url(/images/comment_box_header.jpg) #e5e5e6 left top no-repeat;
+	padding-top:26px;
+	margin-bottom:21px;
+}
+.delivery_user #container .comment_box_top .comment_box_footer{
+	width:613px;
+	background:url(/images/comment_box_footer.gif)#e5e5e6 left bottom no-repeat;
+}
+.delivery_user #container .comment_box_top .comment_box_footer p{
+	padding:0 0 23px 23px;
+	line-height:100%;
+	width:567px;
+}
+
+.delivery_user #container .form_box02 {
+	width:613px;
+	margin:0 0 0 0;
+}
+
+.delivery_user #container .form_box02 table th {
+	width:189px;
+	background-color:#e1ecd4;
+}
+
+.delivery_user #container .form_box02  table th.form_text p {
+	padding:14px 0;
+	text-align:center;
+}
+.delivery_user #container .form_box02 table td {
+	width:420px;
+	padding:0 0 0 4px;
+	margin:0;
+	border-bottom:#c3dcb1 1px solid;
+}
+.delivery_user #container .form_box02 table td {
+	width:420px;
+	padding:0 0 0 4px;
+	margin:0;
+	border-bottom:#c3dcb1 1px solid;
+}
+.delivery_user #container .form_box02 table td .input01 {
+	width:380px;
+	height:29px;
+	padding:0;
+	border:#c8c7c6 1px solid;
+}
+.delivery_user #container .form_box02 table td .input02 {
+	/*margin-top:7px;*/
+	width:216px;
+	height:29px; 
+	border:#c8c7c6 1px solid;
+}
+.delivery_user #container .form_box02 table .b_none{
+	border-bottom:none;
+}
+.delivery_user #container .form_box02 table .back_none{
+	background:none;
+}
+.delivery_user #container .form_box02 .inputbtn {
+	margin-top:3px;
+}
+
+.delivery_user #container .banner{
+	width:613px;
+	text-align:right;
+	border-bottom:#c3dcb1 1px solid;
+}
+.delivery_user #container .banner img{
+	padding-bottom:10px;
+}
+.delivery_user #container .completion{
+	margin-top:20px;
+}
+.delivery_user #container .completion .read_txt{
+	padding:9px 0 11px;
+}
+.green_solid {
+	border:#88ba63 solid 1px;
+}
+
+
+/* ==========================================================================
+	deliveryページ
+=========================================================================== */
+
+
+.delivery #container {
+	width:802px;
+	margin:0 auto;
+}
+
+/* トップ部分 ---------------*/
+
+.delivery #container .delivery_img {
+	padding-left:10px;
+}
+.delivery #container .delivery_img img{
+	margin:0 0 20px 0;
+}
+
+/* フォーム部分 ---------------*/
+
+.delivery #container .form_box03 {
+	width:667px;
+	margin:69px 0 0 55px;
+}
+.delivery #container .form_box03 table th {
+	width:160px;
+	background-color:#e1ecd4;
+}
+.delivery #container .form_box03 table .comment_box01 {
+	vertical-align:top;
+	background:none;
+}
+.delivery #container .form_box03 table .comment_box01 p{
+	background:#e1ecd4;
+}
+.delivery #container .form_box03 table td .input03 {
+	width:379px;
+	height:128px;
+	border:#c8c7c6 1px solid;
+}
+.delivery #container .form_box03 table th.form_text p {
+	padding:10px 0 15px;
+	text-align:center;
+}
+.delivery #container .form_box03 table td {
+	width:478px;
+	padding:0 0 0 30px;
+	margin:0;
+	border-bottom:#c3dcb1 1px solid;
+}
+.delivery #container .form_box03 table td .input01 {
+	width:271px;
+	height:29px;
+	padding:0;
+	border:#c8c7c6 1px solid;
+}
+.delivery #container .form_box03 table td .input02 {
+	width:381px;
+	height:29px;
+	border:#c8c7c6 1px solid;
+}
+.delivery #container .form_box03 table td .m15 {
+	margin-bottom:15px;
+}
+.delivery #container .form_box03 table td .m9 {
+	margin-bottom:9px;
+}
+.delivery #container .form_box03 table td .icon_table {
+	width:120px;
+}
+.delivery #container .form_box03 table td .icon_table td{
+	border:none;
+}
+.delivery #container .form_box03 .inputbtn{
+	margin:20px 0 0 0;
+}
+.delivery #container .form_box03 table td .save_select{
+	width:129px;
+	height:27px;
+}
+.delivery #container .form_box03 .destination h4 {
+	padding-bottom:12px;
+}
+.delivery #container .form_box03 table .b_none{
+	border-bottom:none;
+}
+.delivery #container .form_box03 .file_box h4 {
+	padding:24px 0 12px;;
+}
+
+.delivery #container .transmission {
+	width:667px;
+	margin:52px 0 0 55px;
+}
+.delivery #container .transmission h4{
+	padding-bottom:14px;
+}
+.delivery #container .transmission table {
+	width:660px;
+	border:#c9c7c6 1px solid;
+} 
+.delivery #container .transmission table th {
+	background-color:#e1ecd4;
+	padding:8px 0px;
+	border:#c9c7c6 1px solid;
+	font-size:12px;
+}
+.delivery #container .transmission table .time {
+	width:160px;
+}
+.delivery #container .transmission table .name {
+	width:160px;
+}
+.delivery #container .transmission table .file_name {
+	width:340px;
+}
+.delivery #container .transmission table td {
+	padding:8px 0px 8px 4px;
+	margin:0;
+	border:#c9c7c6 1px solid;
+	font-weight:normal;
+  font-size:12px;
+}

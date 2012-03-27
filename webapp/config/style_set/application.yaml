@@ -3,12 +3,8 @@
 # @package jp.co.commons.cfms
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 
-cfms:
+delivery:
   files:
-    - cfms
-    - protocalendar
-    - prototabs
-    - lightbox
-    - glider
-    - color_picker
-    - application
+    - delivery/base
+    - delivery/layout
+    - delivery/style
