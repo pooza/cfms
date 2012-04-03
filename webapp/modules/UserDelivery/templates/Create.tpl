@@ -95,7 +95,7 @@
 										<p><strong>パスワード設定</strong></p>
 									</th>
 									<td>
-										<input type="password" name="password" value="{$params.password}" maxlength="64" class="input01" />
+										<input type="password" name="password" value="{$params.password}" maxlength="64" class="input01" autocomplete="off" />
 									</td>
 								</tr>
 								<tr>

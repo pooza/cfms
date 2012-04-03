@@ -9,18 +9,21 @@ From: {$delivery.account.email}
 To: {$delivery.email}
 
 
-[{const name='app_name_ja'}] に
-「{$delivery.filename}」
-がアップされています。ご確認ください。
+{$delivery.account.company} {$delivery.account.name} が
+「{$delivery.filename}」を
+アップいたしました。ご確認ください。
 
-作成者:
-{$delivery.account.company} {$delivery.account.name}
 
-ファイル:
-{$delivery.attachment.type} {$delivery.attachment.size|binary_size_format}B ({$delivery.attachment.size|number_format}B)
+■COMMONS FILE DELIVERY (beta)
 {$delivery.url}?t={$delivery.token}
+{$delivery.attachment.type} {$delivery.attachment.size|binary_size_format}B ({$delivery.attachment.size|number_format}B)
 
-本文:
+
+■ダウンロードパスワード
+{$params.password}
+
+
+■本文:
 {$delivery.comment|default:'(空欄)'}
 
 
