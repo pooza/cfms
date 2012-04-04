@@ -1007,7 +1007,7 @@
   font-size:12px;
 }
 
-p.alert {
+.delivery #container p.alert {
 	padding-left: 20px;
 	color: red;
 }
