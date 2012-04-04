@@ -1020,8 +1020,7 @@ div.scroller div.content {
 	width: 10000px;
 }
 
-
-.alert {
+p.alert {
 	padding-left: 20px;
 	color: red;
 }
