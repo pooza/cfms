@@ -1006,3 +1006,8 @@
 	font-weight:normal;
   font-size:12px;
 }
+
+.alert {
+	padding-left: 20px;
+	color: red;
+}

@@ -1019,3 +1019,9 @@ div.scroller div.section {
 div.scroller div.content {
 	width: 10000px;
 }
+
+
+.alert {
+	padding-left: 20px;
+	color: red;
+}

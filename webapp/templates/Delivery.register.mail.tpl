@@ -16,7 +16,7 @@ To: {$delivery.email}
 
 ■COMMONS FILE DELIVERY (beta)
 {$delivery.url}?t={$delivery.token}
-{$delivery.attachment.type} {$delivery.attachment.size|binary_size_format}B ({$delivery.attachment.size|number_format}B)
+{$delivery.attachment.size|binary_size_format}B ({$delivery.attachment.size|number_format}B)
 
 
 ■ダウンロードパスワード
