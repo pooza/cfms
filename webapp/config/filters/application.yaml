@@ -17,4 +17,4 @@
     option: KVa
 - class: BSReadingRequestFilter
 - class: BSDateRequestFilter
-- class: WrongCharactersRequestFilter
+- class: BSWrongCharactersRequestFilter

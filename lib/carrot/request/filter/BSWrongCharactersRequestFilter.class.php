@@ -1,6 +1,7 @@
 <?php
 /**
- * @package com.e4c-link
+ * @package org.carrot-framework
+ * @subpackage request.filter
  */
 
 /**
@@ -8,7 +9,7 @@
  *
  * @author 小石達也 <tkoishi@b-shock.co.jp>
  */
-class WrongCharactersRequestFilter extends BSRequestFilter {
+class BSWrongCharactersRequestFilter extends BSRequestFilter {
 
 	/**
 	 * 変換して返す
