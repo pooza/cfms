@@ -20,9 +20,6 @@ class BSException extends Exception {
 		if ($message instanceof BSStringFormat) {
 			$message = $message->getContents();
 		}
-		if (!is_numeric($code)) {
-			$code = 0;
-		}
 		if (!$prev || version_compare(PHP_VERSION, '5.3.0', '<')) {
 			parent::__construct($message, $code);
 		} else {
