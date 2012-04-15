@@ -8,13 +8,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
 		<meta name="Description" content="">
 		<meta name="Keywords" content="">
-		<title>COMMONS TABLE</title>
+		<title>COMMONS FILE DELIVERY beta - {$delivery.filename}</title>
 		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/base.css" media="all">
 		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/layout.css" media="all">
-		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/style.css" media="all"><script type="text/javascript" src="/common/js/mjl.js"></script><script type="text/javascript" src="/common/js/run.js"></script><script type="text/javascript" src="/common/js/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/style.css" media="all">
+		<script type="text/javascript" src="/common/js/mjl.js"></script>
+		<script type="text/javascript" src="/common/js/run.js"></script>
+		<script type="text/javascript" src="/common/js/common.js"></script>
 	</head>
 	<body id="sec" class="delivery_user">
 		<a name="pagetop" id="pagetop"></a>
@@ -99,46 +101,12 @@
 				{/form}
 			</div>
 			<!-- FOOTER -->
-			<div id="footer" class="alignR"><script type="text/javascript">
-<!--
-	secFooter('');
-//--> </script>
+			<div id="footer" class="alignR">
 			</div>
 			<!-- //FOOTER -->
 		</div>
 		<!-- //CONTENTS -->
 	</body>
 </html>
-
-{*
-{assign var='body.id' value='sec'}
-{assign var='body.class' value='profile'}
-{include file='UserHeader'}
-
-<div id="container">
-	{$delivery.recipient}様<br/>
-	コモンズ株式会社（{$delivery.account.name}）が下記ファイルをアップいたしました。<br/>
-	ファイル名 {$delivery.filename}<br/>
-	ファイル容量 {$delivery.attachment.size|binary_size_format}B<br/>
-	保管期限 {$delivery.expire_date|date_format:'Y/m/d H:i:s'}<br/>
-	コメント:<br/>
-	{$delivery.comment|nl2br|default:'(空欄)'}
-	<hr/>
-
-	{form onsubmit=''}
-		<br/><br/>
-		{include file='ErrorMessages'}
-		<label>パスワード<input type="password" name="password" /></label><br/>
-		<input type="image" src="/images/download_btn.gif" alt="ダウンロード" value="ダウンロード" class="inputbtn">
-	{/form}
-
-	{form action='Thanx'}
-		<br/><br/>ファイルを受け取ることができましたら、このボタンを押してください。<br/>
-		<input type="image" src="/images/fix_btn.gif" alt="完了通知" value="完了通知" class="inputbtn">
-	{/form}
-</div>
-
-{include file='UserFooter'}
-*}
 
 {* vim: set tabstop=4: *}

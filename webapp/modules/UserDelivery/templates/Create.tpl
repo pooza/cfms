@@ -8,13 +8,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
 		<meta name="Description" content="">
 		<meta name="Keywords" content="">
 		<title>COMMONS TABLE</title>
 		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/base.css" media="all">
 		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/layout.css" media="all">
-		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/style.css" media="all"><script type="text/javascript" src="/common/js/mjl.js"></script><script type="text/javascript" src="/common/js/run.js"></script><script type="text/javascript" src="/common/js/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/style.css" media="all">
+		<script type="text/javascript" src="/common/js/mjl.js"></script>
+		<script type="text/javascript" src="/common/js/run.js"></script>
+		<script type="text/javascript" src="/common/js/common.js"></script>
 	</head>
 	<body id="sec" class="delivery">
 		<a name="pagetop" id="pagetop"></a>
@@ -135,38 +137,13 @@
 				{/if}
 			</div>
 			<!-- FOOTER -->
-			<div id="footer" class="alignR"><script type="text/javascript">
-<!--
-	secFooter('');
-//--> </script>
+			<div id="footer" class="alignR">
 			</div>
 			<!-- //FOOTER -->
 		</div>
 		<!-- //CONTENTS -->
 	</body>
 </html>
-
-{*
-	<table border="1">
-		<tr>
-			<th>日時</th>
-			<th>宛先</th>
-			<th>ファイル名</th>
-			<th></th>
-		</tr>
-		{foreach from=$deliveries item='delivery'}
-			<tr>
-				<td>{$delivery.create_date}</td>
-				<td>{$delivery.recipient}</td>
-				<td>{$delivery.filename}</td>
-				<td>
-					[<a href="javascript:void(CarrotLib.confirmDelete('UserDelivery','Delete','デリバリー',{$delivery.id}))">削除</a>]
-				</td>
-			</tr>
-		{/foreach}
-	</table>
-</div>
-*}
 
 {include file='MemberFooter'}
 {include file='UserFooter'}
