@@ -49,7 +49,6 @@
 				<h2 class="delivery_img large"><img src="/images/delivery_textimg.gif" width="147" height="29" alt="DELIVERY"><br>
 					<strong>誰にでもファイルを送ることができます。</strong>
 				</h2>
-				{include file='ErrorMessages'}
 				{form attachable=true}
 					<div class="form_box03">
 						<div class="destination">
@@ -61,7 +60,8 @@
 										<p><strong>お名前</strong></p>
 									</th>
 									<td>
-										<input type="text" name="recipient" value="{$params.recipient}" maxlength="64" class="input01" />
+										<input type="text" name="recipient" value="{$params.recipient}" maxlength="64" class="input01" /><br/>
+										<span class="alert">{$errors.recipient}</span>
 									</td>
 								</tr>
 								<tr>
@@ -69,7 +69,8 @@
 										<p><strong>メールアドレス</strong></p>
 									</th>
 									<td class="b_none">
-										<input type="text" name="email" value="{$params.email}" maxlength="64" class="input02" />
+										<input type="text" name="email" value="{$params.email}" maxlength="64" class="input02" /><br/>
+										<span class="alert">{$errors.email}</span>
 									</td>
 								</tr>
 							</table>
@@ -83,21 +84,26 @@
 										<p><strong>ファイル選択</strong></p>
 									</th>
 									<td>
-										<input type="file" name="attachment" size="20" class="green_solid" />
+										<input type="file" name="attachment" size="20" class="green_solid" /><br/>
+										<span class="alert">{$errors.attachment}</span>
 									</td>
 								</tr>
 								<tr>
 									<th class="normal form_text">
 										<p><strong>保存期間</strong></p>
 									</th>
-									<td>{html_radios name='preserve_duration' options=$duration_options selected=$params.preserve_duration}</td>
+									<td>
+										{html_radios name='preserve_duration' options=$duration_options selected=$params.preserve_duration}<br/>
+										<span class="alert">{$errors.preserve_duration}</span>
+									</td>
 								</tr>
 								<tr>
 									<th class="normal form_text">
 										<p><strong>パスワード設定</strong></p>
 									</th>
 									<td>
-										<input type="password" name="password" value="{$params.password}" maxlength="64" class="input01" autocomplete="off" />
+										<input type="password" name="password" value="{$params.password}" maxlength="64" class="input01" autocomplete="off" /><br/>
+										<span class="alert">{$errors.password}</span>
 									</td>
 								</tr>
 								<tr>
@@ -105,7 +111,8 @@
 										<p><strong>コメント</strong></p>
 									</th>
 									<td class="b_none">
-										<textarea name="comment" cols="60" rows="10" class="input03" />{$params.comment}</textarea>
+										<textarea name="comment" cols="60" rows="10" class="input03" />{$params.comment}</textarea><br/>
+										<span class="alert">{$errors.comment}</span>
 									</td>
 								</tr>
 							</table>
@@ -115,7 +122,7 @@
 				{/form}
 				{if $deliveries}
 					<div class="transmission">
-						<h4 class="large"><strong><span class="green_icon">■</span>送信履歴</strong></h4>
+						<h4 class="large"><strong><span class="green_icon">■</span>アップ中のファイル</strong></h4>
 						<table width="0" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<th class="normal time"><strong>日時</strong></th>

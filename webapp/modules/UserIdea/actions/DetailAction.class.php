@@ -68,13 +68,6 @@ class DetailAction extends BSRecordAction {
 		return $this->getDefaultView();
 	}
 
-	public function registerValidators () {
-		$manager = BSValidateManager::getInstance();
-		if ($this->request['attachment']) {
-			$manager->register('tags', new BSEmptyValidator);
-		}
-	}
-
 	public function deny () {
 		$this->user->setAttribute('requested_url', $this->request->getURL()->getContents());
 		return parent::deny();
