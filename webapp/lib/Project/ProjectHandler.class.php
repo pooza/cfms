@@ -40,7 +40,7 @@ class ProjectHandler extends BSTableHandler {
 	 * @return BSArray 子クラス名の配列
 	 * @static
 	 */
-	public function getChildClasses () {
+	static public function getChildClasses () {
 		return new BSArray(array(
 			'Idea',
 			'Tag',
