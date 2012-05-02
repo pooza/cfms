@@ -67,7 +67,11 @@
 											<table cellspacing="0" cellpadding="0" class="tbl_name">
 												<tr>
 													<th valign="top" scope="row">
-														{image_cache class='Account' id=$idea.account.id size='icon' pixel=60}
+														{if $idea.account.has_icon}
+															{image_cache class='Account' id=$idea.account.id size='icon' pixel=60}
+														{else}
+															{image_cache src='profile_noicon.gif' dir='local_images'}
+														{/if}
 													</th>
 													<td valign="top" class="nameTxt normal">{$idea.account.company}<br/>{$idea.account.name}様</td>
 													<td valign="top" class="dayTxt small">{$idea.create_date|date_format:'Y.m.d H:i:s'}</td>
@@ -96,7 +100,7 @@
 														</td>
 														<td class="txt normal">
 															{if $idea.has_attachment}
-																ファイル:<strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
+																ファイル: <strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
 																({$idea.attachment.size|binary_size_format}B)
 															{/if}
 														</td>
@@ -119,7 +123,13 @@
 												<td valign="top" class="itemContents">
 													<table cellspacing="0" cellpadding="0" class="tbl_name">
 														<tr>
-															<th valign="top" scope="row">{image_cache class='Account' id=$comment.account.id size='icon' pixel=40}</th>
+															<th valign="top" scope="row">
+																{if $comment.account.has_icon}
+																	{image_cache class='Account' id=$comment.account.id size='icon' pixel=40}
+																{else}
+																	{image_cache src='profile_noicon.gif' dir='local_images' pixel=40}
+																{/if}
+															</th>
 															<td valign="top" class="nameTxt sec normal">{$comment.account.company}<br>{$comment.account.name}様</strong></a></td>
 															<td valign="top" class="text normal">
 																<p>{$comment.body|nl2br}</p>

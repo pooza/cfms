@@ -74,7 +74,8 @@
 									<p><strong>ダウンロードパスワード</strong></p>
 								</th>
 								<td class="b_none">
-									<input type="password" name="password" class="input02" autocomplete="off" />
+									<input type="password" name="password" class="input02" autocomplete="off" /><br/>
+									<span class="alert">{$errors.comment}</span>
 								</td>
 							</tr>
 							<tr>

@@ -11,8 +11,7 @@
 {include file='MemberHeader'}
 
 <div id="container">
-	<h2 class="profile_img large">ファイル:{$idea.name}</h2>
-	{include file='ErrorMessages'}
+	<h2 class="profile_img large">ファイル: {$idea.name}</h2>
 	{form attachable=true}
 		<div class="form_box">
 			<table border="0" cellspacing="4" cellpadding="0">
@@ -24,10 +23,12 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
-						<p><strong>名前</strong></p>
+						<p><strong>ファイル名</strong></p>
 					</th>
 					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" /><br/>
+						拡張子は含めないでください。<br/>
+						<span class="alert">{$errors.name}</span>
 					</td>
 				</tr>
 				<tr>
@@ -37,7 +38,8 @@
 						</p>
 					</th>
 					<td>
-						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea>
+						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea><br/>
+						<span class="alert">{$errors.body}</span>
 					</td>
 				</tr>
 				<tr>
@@ -45,7 +47,8 @@
 						<p><strong>ファイル</strong></p>
 					</th>
 					<td class="normal">
-						<input type="file" name="attachment" size="20" class="green_solid" /><br/>
+						<input type="file" name="attachment" size="20" class="green_solid" /><br/><br/>
+						<span class="alert">{$errors.attachment}</span>
 						{if $idea.is_image}
 							{image_cache size='attachment' pixel=240 style_class='bordered'}<br/>
 						{/if}
@@ -61,6 +64,7 @@
 					<td class="normal">
 						<div style="margin:5px 0">
 							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
+							<span class="alert">{$errors.tags}</span>
 						</div>
 					</td>
 				</tr>
@@ -72,6 +76,7 @@
 						<div style="margin:5px 0" class="normal">
 							<div id="members">
 								{html_checkboxes name='members' options=$accounts checked=$params.members separator='<br/>'}
+								<span class="alert">{$errors.members}</span>
 							</div>
 							<input type="button" id="members_checkall_button" value="全て選択" />
 							<input type="button" id="members_uncheckall_button" value="全て解除" />

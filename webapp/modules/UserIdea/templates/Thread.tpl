@@ -55,7 +55,7 @@
 									</td>
 									<td class="txt normal">
 										{if !$idea.delete_date && $idea.has_attachment}
-											ファイル:<strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
+											ファイル: <strong><a href="/UserIdea/Export/{$idea.id}?name=attachment">{$idea.name}</a></strong>
 											({$idea.attachment.size|binary_size_format}B)
 										{/if}
 									</td>
@@ -112,7 +112,7 @@
 											</td>
 											<td class="txt normal">
 												{if !$comment.delete_date && $comment.has_attachment}
-													ファイル:<strong><a href="/UserIdea/Export/{$comment.id}?name=attachment">{$comment.name}</a></strong>
+													ファイル: <strong><a href="/UserIdea/Export/{$comment.id}?name=attachment">{$comment.name}</a></strong>
 													({$comment.attachment.size|binary_size_format}B)
 												{/if}
 											</td>
