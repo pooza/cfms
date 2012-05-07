@@ -17,6 +17,7 @@
 		<script type="text/javascript" src="/common/js/mjl.js"></script>
 		<script type="text/javascript" src="/common/js/run.js"></script>
 		<script type="text/javascript" src="/common/js/common.js"></script>
+		{js_cache}
 	</head>
 	<body id="sec" class="delivery">
 		<a name="pagetop" id="pagetop"></a>

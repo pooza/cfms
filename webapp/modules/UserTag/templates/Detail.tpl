@@ -12,7 +12,6 @@
 
 <div id="container">
 	<h2 class="profile_img large">{$action.title}</h2>
-	{include file='ErrorMessages'}
 	{form attachable=true}
 		<div class="form_box">
 			<table border="0" cellspacing="4" cellpadding="0">
@@ -27,7 +26,8 @@
 						<p><strong>名前</strong></p>
 					</th>
 					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" />
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" /><br/>
+						<span class="alert">{$errors.name}</span>
 					</td>
 				</tr>
 				<tr>

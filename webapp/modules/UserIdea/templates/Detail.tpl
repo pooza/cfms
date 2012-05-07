@@ -23,27 +23,6 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
-						<p><strong>ファイル名</strong></p>
-					</th>
-					<td>
-						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" /><br/>
-						拡張子は含めないでください。<br/>
-						<span class="alert">{$errors.name}</span>
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
-						<p>
-							<strong>本文</strong>
-						</p>
-					</th>
-					<td>
-						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea><br/>
-						<span class="alert">{$errors.body}</span>
-					</td>
-				</tr>
-				<tr>
-					<th class="large form_text">
 						<p><strong>ファイル</strong></p>
 					</th>
 					<td class="normal">
@@ -59,13 +38,34 @@
 				</tr>
 				<tr>
 					<th class="large form_text">
-						<p><strong>フォルダ</strong></p>
+						<p><strong>フォルダ</strong><span class="alert">(必須)</span></p>
 					</th>
 					<td class="normal">
 						<div style="margin:5px 0">
 							{html_checkboxes name="tags" values=$tags output=$tags selected=$params.tags separator='<br/>'}
 							<span class="alert">{$errors.tags}</span>
 						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p><strong>ファイル名</strong><span class="alert">(必須)</span></p>
+					</th>
+					<td>
+						<input type="text" name="name" value="{$params.name}" maxlength="64" class="input01" /><br/>
+						拡張子は含めないでください。<br/>
+						<span class="alert">{$errors.name}</span>
+					</td>
+				</tr>
+				<tr>
+					<th class="large form_text">
+						<p>
+							<strong>コメント</strong>
+						</p>
+					</th>
+					<td>
+						<textarea name="body" cols="60" rows="10" class="input04" />{$params.body}</textarea><br/>
+						<span class="alert">{$errors.body}</span>
 					</td>
 				</tr>
 				<tr>
@@ -107,6 +107,7 @@
 			</table>
 			<input type="image" src="/images/profile_update_btn.gif" alt="更新" value="更新" class="inputbtn">
 			<img id="delete_btn" src="/images/delete_btn.gif" alt="削除" class="inputbtn" />
+			<a href="/{$module.name}/Export/{$idea.id}?name=attachment"><img id="download_btn" src="/images/idea_download_btn.gif" alt="DOWNLOAD" class="inputbtn" /></a>
 		</div>
 	{/form}
 

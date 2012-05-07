@@ -17,15 +17,22 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 {$idea.project.name}
 
 フォルダ:
-{foreach from=$idea.tags item='tag'}[{$tag.name}] {/foreach}
-
+{foreach from=$idea.tags item='tag'}
+[{$tag.name}] 
+{foreachelse}
+なし
+{/foreach}
 
 作成者:
 {$idea.account.company} {$idea.account.name}
 
 ファイル:
+{if $idea.attachment}
 {$idea.attachment.type} {$idea.attachment.size|binary_size_format}B ({$idea.attachment.size|number_format}B)
 {$idea.url}
+{else}
+なし
+{/if}
 
 本文:
 {$idea.body|default:'(空欄)'}

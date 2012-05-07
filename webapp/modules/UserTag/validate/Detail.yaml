@@ -10,6 +10,3 @@ methods:
 fields:
   name:
     required: yes
-  name_en:
-    validators:
-      - english
