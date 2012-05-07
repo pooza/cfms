@@ -291,6 +291,7 @@ session:
 smtp:
   host:
   timeout: 100000 #ミリ秒単位
+  read_function:
 sqlite3:
   dir:
     default: /usr/local
