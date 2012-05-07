@@ -34,7 +34,7 @@ To: {foreach from=$idea.accounts item='account'}{$account.email},{/foreach}
 なし
 {/if}
 
-本文:
+コメント:
 {$idea.body|default:'(空欄)'}
 
 
