@@ -10,6 +10,7 @@ crypt:
 
 smtp:
   host: localhost
+  read_function: fread
 
 pdo:
   default:
