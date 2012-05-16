@@ -228,7 +228,7 @@ class BSSMTP extends BSSocket {
 	 *
 	 * @access public
 	 * @param string $command コマンド
-	 * @return boolean 成功ならばTrue
+	 * @return integer 結果コード
 	 */
 	public function execute ($command) {
 		$this->putLine($command);
