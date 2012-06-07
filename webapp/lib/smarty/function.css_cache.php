@@ -13,7 +13,11 @@
 function smarty_function_css_cache ($params, &$smarty) {
 	$params = BSArray::create($params);
 	if (BSString::isBlank($params['name'])) {
-		$params['name'] = 'default';
+		if (BSUser::getInstance()->isAdministrator()) {
+			$params['name'] = 'carrot';
+		} else {
+			$params['name'] = 'default';
+		}
 	}
 	if ($theme = new Theme($params['name'])) {
 		return $theme->getStyleSet()->createElement()->getContents();
