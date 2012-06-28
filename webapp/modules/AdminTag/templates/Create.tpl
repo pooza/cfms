@@ -7,11 +7,11 @@
 *}
 {include file='AdminHeader'}
 
-<div id="BreadCrumbs">
+<nav class="bread_crumbs">
 	<a href="/AdminProject/">プロジェクト一覧</a>
 	<a href="/AdminProject/Detail/{$project.id}?pane=TagList">プロジェクト:{$project.name}</a>
 	<a href="#">{$action.title}</a>
-</div>
+</nav>
 
 <h1>{$action.title}</h1>
 

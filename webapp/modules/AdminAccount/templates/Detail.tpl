@@ -7,7 +7,7 @@
 *}
 {include file='AdminHeader'}
 
-<div id="BreadCrumbs">
+<nav class="bread_crumbs">
 	{if $project}
 		<a href="/AdminProject/">プロジェクト一覧</a>
 		<a href="/AdminProject/Detail/{$project.id}?pane=AccountList">プロジェクト:{$project.name}</a>
@@ -15,7 +15,7 @@
 		<a href="/{$module.name}/">{$module.record_class|translate}一覧</a>
 	{/if}
 	<a href="#">{$action.title}</a>
-</div>
+</nav>
 
 <h1>{$action.title}</h1>
 
