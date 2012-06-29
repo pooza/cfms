@@ -12,10 +12,10 @@
 <title>{const name='APP_NAME_JA'}</title>
 {js_cache name=$jsset|default:'user'}
 {if $module.name=='UserDelivery'}
-	{css_cache name='delivery'}
+  {css_cache name='delivery'}
 {else}
-	{css_cache name=$theme.name|default:'default'}
-	{css_cache name='glider'}
+  {css_cache name=$theme.name|default:'default'}
+  {css_cache name='glider'}
 {/if}
 </head>
 <body id="{$body.id}" class="{$body.class}">
