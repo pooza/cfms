@@ -4,11 +4,10 @@
 @package jp.co.commons.cfms
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta name="Description" content="">
-<meta name="Keywords" content="">
+<meta charset="utf-8">
 <title>{const name='APP_NAME_JA'}</title>
 {js_cache name=$jsset|default:'user'}
 {if $module.name=='UserDelivery'}

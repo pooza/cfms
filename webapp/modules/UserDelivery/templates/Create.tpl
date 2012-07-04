@@ -5,11 +5,10 @@
 @subpackage UserDelivery
 @author 小石達也 <tkoishi@b-shock.co.jp>
 *}
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="Description" content="">
-    <meta name="Keywords" content="">
+    <meta charset="utf-8">
     <title>COMMONS TABLE</title>
     <link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/base.css" media="all">
     <link rel="stylesheet" type="text/css" href="/carrotlib/css/delivery/layout.css" media="all">
