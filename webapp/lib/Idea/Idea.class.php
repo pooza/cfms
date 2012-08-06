@@ -139,8 +139,14 @@ class Idea extends BSRecord {
 	 */
 	public function isImage () {
 		$file = $this->getAttachment('attachment');
-		if ($file->getSize() < (self::THUMBNAILABLE_FILE_SIZE * 1024 * 1024)) {
-			return mb_ereg('^image/', $file->getType());
+		if (mb_ereg('^image/', $file->getType())) {
+			try {
+				$file = new BSImageFile($file->getPath());
+				$image = $file->getRenderer();
+				return (($image->getWidth() < 2000) && ($image->getHeight() < 2000));
+			} catch (Exception $e) {
+				return false;
+			}
 		}
 		return false;
 	}
