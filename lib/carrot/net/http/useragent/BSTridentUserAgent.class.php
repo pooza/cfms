@@ -20,8 +20,8 @@ class BSTridentUserAgent extends BSUserAgent {
 	protected function __construct ($name = null) {
 		parent::__construct($name);
 
-		// SSL領域で、 Cache-Control ヘッダを正しく処理できない。
-		$this->bugs['cache_control'] = true;
+		// SSL領域で、 Coache-Control ヘッダを正しく処理できない。
+		$this->bugs['cache_control'] = ($this->getVersion() < 8);
 
 		// wmode="transparent" を正しく処理できない。
 		$this->bugs['object_wmode'] = (8 < $this->getVersion());
@@ -82,9 +82,6 @@ class BSTridentUserAgent extends BSUserAgent {
 			if (mb_ereg('MSIE ([.[:digit:]]+);', $this->getName(), $matches)) {
 				$this['version'] = $matches[1];
 			}
-			if (mb_ereg('Trident', $this->getName(), $matches)) {
-				$this['version'] = 10;
-			}
 		}
 		return $this['version'];
 	}
@@ -106,7 +103,7 @@ class BSTridentUserAgent extends BSUserAgent {
 	 * @return string パターン
 	 */
 	public function getPattern () {
-		return '(MSIE|Trident)';
+		return 'MSIE';
 	}
 }
 
