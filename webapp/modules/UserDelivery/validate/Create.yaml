@@ -28,4 +28,3 @@ fields:
     required: yes
     validators:
       - largefile
-      - infection

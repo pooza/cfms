@@ -17,7 +17,7 @@ class BSMail extends BSMIMEDocument {
 	 * @access public
 	 */
 	public function __construct () {
-		$this->setRenderer($this->createRenderer());
+		$this->setRenderer($this->getDefaultRenderer());
 		$this->setHeader('Subject', 'untitled');
 		$this->setHeader('Date', BSDate::getNow());
 		$this->setHeader('Mime-Version', '1.0');
@@ -49,12 +49,12 @@ class BSMail extends BSMIMEDocument {
 	}
 
 	/**
-	 * 既定レンダラーを生成して返す
+	 * 既定レンダラーを返す
 	 *
 	 * @access protected
 	 * @return BSRenderer 既定レンダラー
 	 */
-	protected function createRenderer () {
+	protected function getDefaultRenderer () {
 		$renderer = new BSPlainTextRenderer;
 		$renderer->setEncoding('iso-2022-jp');
 		$renderer->setWidth(78);

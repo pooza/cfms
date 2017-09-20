@@ -42,7 +42,7 @@ class CreateAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
-		if (!$this->request['_submitted']) {
+		if (!$this->request['submit']) {
 			$this->request['status'] = 'show';
 		}
 		return BSView::INPUT;

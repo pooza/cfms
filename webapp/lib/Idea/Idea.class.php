@@ -139,7 +139,8 @@ class Idea extends BSRecord {
 	 */
 	public function isImage () {
 		$file = $this->getAttachment('attachment');
-		if (mb_ereg('^image/', $file->getType())) {
+		#if (mb_ereg('^image/', $file->getType())) {
+		if ($file->getType() == 'image/jpeg') {
 			try {
 				$file = new BSImageFile($file->getPath());
 				$image = $file->getRenderer();

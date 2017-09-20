@@ -5,7 +5,7 @@
 
 carrot:
   name: carrot Framework
-  ver: 2.5.10
+  ver: 2.5.5
 
 admin:
   email:
@@ -136,6 +136,7 @@ log:
   loggers:
     - file
     - mail
+    - system
   syslog:
     facility: LOCAL6
   mail:
@@ -154,7 +155,6 @@ memcache:
   host: localhost
   port: 11211
 module:
-  cache_parameters: yes
   prefixes:
     - Admin
     - Develop
@@ -176,9 +176,6 @@ module:
   empty_site:
     module: Default
     action: EmptySite
-  legacy_user_agent:
-    module: Default
-    action: DeniedUserAgent
 movie:
   flv:
     player:
@@ -281,8 +278,6 @@ service:
     consumer:
       key: hhXdKP3kEwvWumb1AFbTlQ
       secret: m5dkKU4xnuLfD5WHOpctisvR08rSfB80x9Bfy0nnlk
-    access_token: 139985635-LEKAX9Soa2zrjjtOf0MWR8KQdFJM8cGCgX7myMo
-    access_token_secret: MfGm4toy0En5ZntHJFt6O4xOcZzAnfwnW9rDUaY
     suffix: .json
     minutes: 5
   ustream:

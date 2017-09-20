@@ -552,7 +552,8 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 /* チェックボックス */
 
 .commentColumn .tbl_comment .itemHead .number {
-	font-size:184.7%;
+/*	font-size:184.7%;	*/
+	font-size:120%;
 	color:#6CBB5C;
 }
 
@@ -582,7 +583,7 @@ background:url(/images/common/bg_header.jpg) left top repeat-x;
 
 
 .commentColumn .tbl_comment .itemContents .tbl_name td.nameTxt {
-	width:270px;
+	width:260px;
 	margin:0;
 	padding:1px 0 0 10px;
 	text-align: left;

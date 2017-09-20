@@ -52,7 +52,11 @@
     <tr>
       <td class="copyright small">{const name='APP_NAME_JA'} Ver.{const name='APP_VER'} (C)2011 {const name='AUTHOR_NAME_EN'}</td>
       <td class="bnr">
+
+{*
         <script language='JavaScript' type='text/javascript' src='//smarticon.geotrust.com/si.js'></script><br><br>
+*}
+
       </td>
     </tr>
   </table>

@@ -271,7 +271,7 @@ abstract class BSUserAgent extends BSParameterHolder {
 	 */
 	public function encodeFileName ($name) {
 		$name = BSMIMEUtility::encode($name);
-		return BSString::sanitize($name);
+		return addslashes($name);
 	}
 
 	/**

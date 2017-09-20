@@ -41,6 +41,22 @@ class BSWebKitUserAgent extends BSUserAgent {
 	}
 
 	/**
+	 * ダウンロード用にエンコードされたファイル名を返す
+	 *
+	 * @access public
+	 * @param string $name ファイル名
+	 * @return string エンコード済みファイル名
+	 */
+	public function encodeFileName ($name) {
+		if ($this->isChrome()) {
+			return rawurlencode($name);
+		} else {
+			return addslashes($name);
+		}
+	}
+
+
+	/**
 	 * バージョンを返す
 	 *
 	 * @access public

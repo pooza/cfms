@@ -77,10 +77,9 @@ class BSUtility {
 			throw new BSFileException($file . 'はインクルードできません。');
 		}
 
-		$setting = ini_get('display_errors');
 		ini_set('display_errors', 0);
 		require_once $file->getPath();
-		ini_set('display_errors', $setting);
+		ini_restore('display_errors');
 	}
 
 	/**

@@ -1,8 +1,0 @@
-php_value default_charset Shift_JIS
-php_value mbstring.http_input pass
-php_value mbstring.detect_order auto
-php_value mbstring.internal_encoding sjis-win
-php_value mbstring.script_encoding sjis-win
-php_value mbstring.http_output pass
-php_value date.timezone Asia/Tokyo
-php_flag mbstring.encoding_translation Off

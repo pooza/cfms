@@ -137,7 +137,7 @@ class Project extends BSRecord {
 			$this->ideasGrouped = new BSArray;
 
 			foreach ($this->getTags() as $tag) {
-				$this->ideasGrouped[$tag->getID()] = $ideas = new BSArray;
+				$this->ideasGrouped[] = $ideas = new BSArray;
 				$ideas['tag'] = $tag->getAssignableValues();
 				$ideas['ideas'] = new BSArray;
 
@@ -176,6 +176,8 @@ class Project extends BSRecord {
 		if (!$this->tags) {
 			$this->tags = new TagHandler;
 			$this->tags->getCriteria()->register('project_id', $this);
+			$this->tags->getOrder()->clear();
+			$this->tags->getOrder()->push('update_date DESC');
 		}
 		return $this->tags;
 	}

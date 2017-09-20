@@ -41,7 +41,7 @@ class CreateAction extends BSRecordAction {
 	}
 
 	public function getDefaultView () {
-		if (!$this->request['_submitted']) {
+		if (!$this->request['submit']) {
 			$this->request['theme'] = 'default';
 			$this->request['status'] = 'show';
 		}

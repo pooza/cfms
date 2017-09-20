@@ -1,6 +1,6 @@
 # .htaccess
 #
-# @package __PACKAGE__
+# @package jp.co.commons.cfms
 # @author 小石達也 <tkoishi@b-shock.co.jp>
 
 # エラーページ
@@ -13,14 +13,20 @@ AddType video/webm .webm
 # mod_rewrite
 RewriteEngine on
 RewriteRule ^(.*/)*\.(svn|git)/ / [F,L]
+RewriteCond %{SERVER_PORT} !^443$ [OR]
+RewriteCond %{HTTPS} off
+RewriteRule .* https://cfms.commons.co.jp%{REQUEST_URI} [R=301,L]
 RewriteRule ^([A-Z][A-Za-z0-9]+)/([A-Z][A-Za-z0-9]+)/([A-Za-z0-9]+)$ /carrotctl.php?m=$1&a=$2&id=$3 [L,QSA]
 RewriteRule ^([A-Z][A-Za-z0-9]+)/([A-Z][A-Za-z0-9]+)$ /carrotctl.php?m=$1&a=$2 [L,QSA]
 RewriteRule ^([A-Z][A-Za-z0-9]+)/$ /carrotctl.php?m=$1 [L,QSA]
 RewriteRule ^([A-Z][A-Za-z0-9]+)$ /carrotctl.php?a=$1 [L,QSA]
+RewriteRule ^v2$ /Login [L,QSA]
 
 # 大容量ファイルのアップロード
-php_value post_max_size 16M
-php_value upload_max_filesize 16M
+php_value post_max_size 1G
+php_value upload_max_filesize 1G
+#php_value memory_limit 480M
+php_value memory_limit -1
 
 # php5
 php_value default_charset UTF-8
@@ -39,6 +45,7 @@ php_flag magic_quotes_runtime Off
 php_flag session.auto_start Off
 php_flag session.use_cookies On
 php_flag session.use_only_cookies On
+php_flag session.cookie_secure On
 php_flag session.cookie_httponly On
 php_flag session.use_trans_sid Off
 php_flag session.hash_function On

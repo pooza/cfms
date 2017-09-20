@@ -40,6 +40,9 @@ class CreateAction extends BSRecordAction {
 			$this->database->beginTransaction();
 			$this->updateRecord();
 			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			foreach ($this->getRecord()->getTags() as $tag) {
+				$tag->touch();
+			}
 			if ($members = $this->request['members']) {
 				$this->getRecord()->sendMails(new BSArray($members));
 			}

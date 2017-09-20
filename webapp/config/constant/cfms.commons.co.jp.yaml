@@ -11,9 +11,10 @@ crypt:
 smtp:
   host: localhost
   read_function: fread
+  timeout: 500000
 
 pdo:
   default:
-    dsn: mysql:host=cmsdb3;dbname=cfms
+    dsn: mysql:host=127.0.0.1;dbname=cfms
     uid: cfms
-    password: 43Bs6JZRjqa7DIkOMM048Q==
+    password: Ktu8KvN4/AagMeybXXPHWA==

@@ -32,6 +32,9 @@ class DetailAction extends BSRecordAction {
 			$this->getRecord()->update($this->getRecordValues());
 			$this->getRecord()->setAttachments($this->request);
 			$this->getRecord()->updateTags(new BSArray($this->request['tags']));
+			foreach ($this->getRecord()->getTags() as $tag) {
+				$tag->touch();
+			}
 			if ($members = $this->request['members']) {
 				$this->getRecord()->sendMails(new BSArray($members));
 			}
@@ -41,10 +44,18 @@ class DetailAction extends BSRecordAction {
 			$this->request->setError($this->getTable()->getName(), $e->getMessage());
 			return $this->handleError();
 		}
-		return $this->getModule()->getListAction()->redirect();
+		$url = $this->getModule()->getListAction()->getURL();
+		$url['path'] .= '/' . $this->getRecord()->getProject()->getID();
+		return $url->redirect();
+
+		//return $this->getModule()->getListAction()->redirect();
 	}
 
 	public function getDefaultView () {
+		if (!$this->getRecord()) {
+			return $this->controller->getAction('not_found')->forward();
+		}
+
 		$this->request['tags'] = new BSArray;
 		foreach ($this->getRecord()->getTags() as $tag) {
 			$this->request['tags'][] = $tag->getName();
